@@ -24,8 +24,7 @@ class ViewController: UIViewController {
         checkLocationServices()
         mapSetUp(for: initialLocation)
         
-        MapView.addAnnotation(jelly)
-        MapView.addAnnotation(pudding)
+        MapView.addAnnotations(jellyArray)
         
 //        MapView.register(JellyMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 
