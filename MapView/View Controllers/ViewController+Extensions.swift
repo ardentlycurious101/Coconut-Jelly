@@ -22,6 +22,13 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate {
         MapView.setRegion(coordinateRegion, animated: true)
     }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
+                 calloutAccessoryControlTapped control: UIControl) {
+        let location = view.annotation as! Jelly
+        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+        location.mapItem().openInMaps(launchOptions: launchOptions)
+    }
+
     // MARK:- Location Manager
     
     func checkLocationServices() {
@@ -45,5 +52,6 @@ extension ViewController: CLLocationManagerDelegate, MKMapViewDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
     }
+    
 }
 

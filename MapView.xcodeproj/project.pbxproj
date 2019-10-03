@@ -19,6 +19,8 @@
 		EACA8E9723457CE00029B881 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9623457CE00029B881 /* User.swift */; };
 		EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E982345822D0029B881 /* UserProfileViewController.swift */; };
 		EACA8E9B2345830A0029B881 /* FilterTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9A2345830A0029B881 /* FilterTagsViewController.swift */; };
+		EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9D2345E19E0029B881 /* JellyViews.swift */; };
+		EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9F2345E79D0029B881 /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,9 @@
 		EACA8E9623457CE00029B881 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EACA8E982345822D0029B881 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		EACA8E9A2345830A0029B881 /* FilterTagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTagsViewController.swift; sourceTree = "<group>"; };
+		EACA8E9C2345D9400029B881 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
+		EACA8E9D2345E19E0029B881 /* JellyViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyViews.swift; sourceTree = "<group>"; };
+		EACA8E9F2345E79D0029B881 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +57,7 @@
 		EACA8E6C23452CD30029B881 = {
 			isa = PBXGroup;
 			children = (
+				EACA8E9C2345D9400029B881 /* Home.gpx */,
 				EACA8E7723452CD30029B881 /* MapView */,
 				EACA8E7623452CD30029B881 /* Products */,
 			);
@@ -96,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				EACA8E9023456A210029B881 /* Jelly.swift */,
+				EACA8E9D2345E19E0029B881 /* JellyViews.swift */,
 				EACA8E9623457CE00029B881 /* User.swift */,
+				EACA8E9F2345E79D0029B881 /* String+Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,6 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EACA8E8F234565850029B881 /* ViewController+Extensions.swift in Sources */,
+				EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */,
+				EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */,
 				EACA8E9B2345830A0029B881 /* FilterTagsViewController.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,

@@ -16,14 +16,23 @@ class ViewController: UIViewController {
     
     // MARK:- Member Variables
     let locationManager = CLLocationManager()
-    
+        
     // MARK:- ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         MapView.delegate = self
         checkLocationServices()
         mapSetUp(for: initialLocation)
+        
+        MapView.addAnnotation(jelly)
+        MapView.addAnnotation(pudding)
+        
+//        MapView.register(JellyMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+
+        MapView.register(JellyView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+
     }
 }
+
 
 
