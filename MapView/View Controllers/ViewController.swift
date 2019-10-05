@@ -13,6 +13,13 @@ class ViewController: UIViewController {
 
     // MARK:- IBOutlets
     @IBOutlet weak var MapView: MKMapView!
+    @IBAction func addButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "addJellyViewController", sender: self)
+    }
+    
+    @IBAction func filterButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "filterTagsViewController", sender: self)
+    }
     
     // MARK:- Member Variables
     let locationManager = CLLocationManager()

@@ -13,4 +13,6 @@ class FilterTagsViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    
 }

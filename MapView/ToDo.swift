@@ -12,7 +12,10 @@
 /*
  
  Solutions:
- 1.
+ 1. Tag class
+ 
+ methods:
+ append tags 
  
  
  
