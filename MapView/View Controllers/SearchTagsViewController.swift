@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FilterTagsViewController: UICollectionViewController {
+class SearchTagsViewController: UITableViewController, {
     
     override func viewDidLoad() {
         super.viewDidLoad()

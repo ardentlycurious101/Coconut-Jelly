@@ -18,7 +18,7 @@
 		EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9223457C580029B881 /* AddJellyViewController.swift */; };
 		EACA8E9723457CE00029B881 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9623457CE00029B881 /* User.swift */; };
 		EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E982345822D0029B881 /* UserProfileViewController.swift */; };
-		EACA8E9B2345830A0029B881 /* FilterTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9A2345830A0029B881 /* FilterTagsViewController.swift */; };
+		EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */; };
 		EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9D2345E19E0029B881 /* JellyViews.swift */; };
 		EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9F2345E79D0029B881 /* String+Extensions.swift */; };
 		EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2BF62234690E700CD0755 /* ToDo.swift */; };
@@ -38,7 +38,7 @@
 		EACA8E9223457C580029B881 /* AddJellyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJellyViewController.swift; sourceTree = "<group>"; };
 		EACA8E9623457CE00029B881 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EACA8E982345822D0029B881 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		EACA8E9A2345830A0029B881 /* FilterTagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTagsViewController.swift; sourceTree = "<group>"; };
+		EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTagsViewController.swift; sourceTree = "<group>"; };
 		EACA8E9C2345D9400029B881 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		EACA8E9D2345E19E0029B881 /* JellyViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyViews.swift; sourceTree = "<group>"; };
 		EACA8E9F2345E79D0029B881 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -96,7 +96,7 @@
 				EACA8E8E234565850029B881 /* ViewController+Extensions.swift */,
 				EACA8E9223457C580029B881 /* AddJellyViewController.swift */,
 				EACA8E982345822D0029B881 /* UserProfileViewController.swift */,
-				EACA8E9A2345830A0029B881 /* FilterTagsViewController.swift */,
+				EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 				EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */,
 				EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */,
 				EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */,
-				EACA8E9B2345830A0029B881 /* FilterTagsViewController.swift in Sources */,
+				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
 				EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */,
