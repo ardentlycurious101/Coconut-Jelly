@@ -43,3 +43,7 @@ let joseCoordinate = CLLocationCoordinate2D(latitude: 34.072146, longitude: -118
 let izzatCoordinate = CLLocationCoordinate2D(latitude: 34.070965, longitude: -118.446720)
 
 let jellyArray : [Jelly] = [jelly, brian, nabila, yasmin, abbas, foxxy, jose, izzat]
+
+var existingTags = Array(Set(jellyArray.flatMap { return $0.tag })).sorted(by: { $0 < $1 })
+
+var existingEmojis = Array(Set(jellyArray.flatMap { return $0.emoji }))

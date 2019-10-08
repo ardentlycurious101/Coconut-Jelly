@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EA43D109234C053C000E5DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA43D108234C053C000E5DA4 /* Main.storyboard */; };
+		EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10A234CEC91000E5DA4 /* Tag.swift */; };
+		EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */; };
 		EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7823452CD30029B881 /* AppDelegate.swift */; };
 		EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7A23452CD30029B881 /* ViewController.swift */; };
-		EACA8E7E23452CD30029B881 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EACA8E7C23452CD30029B881 /* Main.storyboard */; };
 		EACA8E8023452CD60029B881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACA8E7F23452CD60029B881 /* Assets.xcassets */; };
-		EACA8E8323452CD60029B881 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EACA8E8123452CD60029B881 /* LaunchScreen.storyboard */; };
 		EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E8C234564980029B881 /* TestingConstants.swift */; };
 		EACA8E8F234565850029B881 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E8E234565850029B881 /* ViewController+Extensions.swift */; };
 		EACA8E9123456A210029B881 /* Jelly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9023456A210029B881 /* Jelly.swift */; };
 		EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9223457C580029B881 /* AddJellyViewController.swift */; };
-		EACA8E9723457CE00029B881 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9623457CE00029B881 /* User.swift */; };
 		EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E982345822D0029B881 /* UserProfileViewController.swift */; };
 		EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */; };
 		EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9D2345E19E0029B881 /* JellyViews.swift */; };
@@ -25,18 +25,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EA43D108234C053C000E5DA4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Main.storyboard; sourceTree = "<group>"; };
+		EA43D10A234CEC91000E5DA4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		EACA8E7523452CD30029B881 /* MapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACA8E7823452CD30029B881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EACA8E7A23452CD30029B881 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EACA8E7D23452CD30029B881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EACA8E7F23452CD60029B881 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EACA8E8223452CD60029B881 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EACA8E8423452CD60029B881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EACA8E8C234564980029B881 /* TestingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingConstants.swift; sourceTree = "<group>"; };
 		EACA8E8E234565850029B881 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		EACA8E9023456A210029B881 /* Jelly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jelly.swift; sourceTree = "<group>"; };
 		EACA8E9223457C580029B881 /* AddJellyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJellyViewController.swift; sourceTree = "<group>"; };
-		EACA8E9623457CE00029B881 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EACA8E982345822D0029B881 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTagsViewController.swift; sourceTree = "<group>"; };
 		EACA8E9C2345D9400029B881 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
@@ -79,11 +79,10 @@
 				EACA8E7823452CD30029B881 /* AppDelegate.swift */,
 				EACA8E9423457C7D0029B881 /* View Controllers */,
 				EACA8E9523457CC90029B881 /* Model */,
-				EACA8E7C23452CD30029B881 /* Main.storyboard */,
 				EACA8E8C234564980029B881 /* TestingConstants.swift */,
 				EAF2BF62234690E700CD0755 /* ToDo.swift */,
 				EACA8E7F23452CD60029B881 /* Assets.xcassets */,
-				EACA8E8123452CD60029B881 /* LaunchScreen.storyboard */,
+				EA43D108234C053C000E5DA4 /* Main.storyboard */,
 				EACA8E8423452CD60029B881 /* Info.plist */,
 			);
 			path = MapView;
@@ -94,6 +93,7 @@
 			children = (
 				EACA8E7A23452CD30029B881 /* ViewController.swift */,
 				EACA8E8E234565850029B881 /* ViewController+Extensions.swift */,
+				EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */,
 				EACA8E9223457C580029B881 /* AddJellyViewController.swift */,
 				EACA8E982345822D0029B881 /* UserProfileViewController.swift */,
 				EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */,
@@ -106,7 +106,7 @@
 			children = (
 				EACA8E9023456A210029B881 /* Jelly.swift */,
 				EACA8E9D2345E19E0029B881 /* JellyViews.swift */,
-				EACA8E9623457CE00029B881 /* User.swift */,
+				EA43D10A234CEC91000E5DA4 /* Tag.swift */,
 				EACA8E9F2345E79D0029B881 /* String+Extensions.swift */,
 			);
 			path = Model;
@@ -170,9 +170,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EACA8E8323452CD60029B881 /* LaunchScreen.storyboard in Resources */,
+				EA43D109234C053C000E5DA4 /* Main.storyboard in Resources */,
 				EACA8E8023452CD60029B881 /* Assets.xcassets in Resources */,
-				EACA8E7E23452CD30029B881 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,36 +187,18 @@
 				EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */,
 				EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */,
 				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
+				EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
 				EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */,
 				EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */,
 				EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */,
 				EACA8E9123456A210029B881 /* Jelly.swift in Sources */,
-				EACA8E9723457CE00029B881 /* User.swift in Sources */,
+				EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		EACA8E7C23452CD30029B881 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EACA8E7D23452CD30029B881 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EACA8E8123452CD60029B881 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EACA8E8223452CD60029B881 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		EACA8E8523452CD60029B881 /* Debug */ = {
