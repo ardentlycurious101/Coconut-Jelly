@@ -10,12 +10,17 @@ import UIKit
 
 class SearchTagsViewController: UITableViewController {
     
+    // MARK:- Table view variables
+    
     @IBOutlet weak var titleLabel: UILabel!
+    
+    // MARK:- View controller life cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    // MARK:- Table view data source methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return existingTags.count
@@ -34,12 +39,17 @@ class SearchTagsViewController: UITableViewController {
         return cell
     }
     
+    // MARK:- Table view delegate methods
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
             configureCheckmark(for: cell, at: indexPath)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
+    //MARK:- Helper functions
     
     func configureCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
         if existingTagDictionary[existingTags[indexPath.row]] == true {
