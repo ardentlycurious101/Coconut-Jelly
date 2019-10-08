@@ -10,11 +10,33 @@ import Foundation
 
 class Tag {
     
-    var tagDictionary: [String : Bool] = [:]
+    var name: String
+    var checked: Bool
     
-    init(tags: [String]) {
-        for i in 0..<tags.count {
-            tagDictionary[tags[i]] = false
-        }
+    init(tag: String) {
+        self.name = tag
+        self.checked = false
     }
 }
+
+func createTagArray(_ tags: [String]) -> [Tag] {
+    
+    var tagArray  = [Tag]()
+    
+    for tag in tags {
+        tagArray.append(Tag(tag: tag))
+    }
+    
+    return tagArray
+}
+
+
+func getTagNames(tags: [Tag]) -> [String] {
+    var array: [String] = []
+    for tag in tags {
+        array.append(tag.name)
+    }
+    return array
+}
+
+

@@ -16,8 +16,8 @@ class Jelly: NSObject, MKAnnotation {
     let title: String?
 //    let locationName: String
 //    let dateTime: NSDate
-    let tag: [String]
-    let tagDictionary: Tag
+    let tags: [Tag]
+    var tagNames: [String] = []
     let eventDescription: String
     let coordinate: CLLocationCoordinate2D
     let markerTintColor : UIColor
@@ -28,15 +28,17 @@ class Jelly: NSObject, MKAnnotation {
         self.emoji = emoji
         self.title = title
 //        self.dateTime = dateTime
-        self.tag = tag
-        self.tagDictionary = Tag(tags: tag)
+//        self.tag = tag
+        self.tags = createTagArray(tag)
+        tagNames = getTagNames(tags: tags)
         self.eventDescription = eventDescription
         self.coordinate = coordinate
         self.markerTintColor = .cyan
         self.imageName = "black bean"
         self.emojiImage = emoji.image()
-        
+
         super.init()
+        
     }
     
     var subtitle: String? {
@@ -45,12 +47,12 @@ class Jelly: NSObject, MKAnnotation {
     
     func combineTags() -> String {
         var allTags : String = ""
-        for i in 0..<tag.count {
-            if i < tag.count - 1 {
-                allTags.append(tag[i] + ", ")
+        for i in 0..<tags.count {
+            if i < tags.count - 1 {
+                allTags.append(tags[i].name + ", ")
             }
             else {
-                allTags.append(tag[i])
+                allTags.append(tags[i].name)
             }
         }
         return allTags

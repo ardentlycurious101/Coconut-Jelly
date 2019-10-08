@@ -44,6 +44,18 @@ let izzatCoordinate = CLLocationCoordinate2D(latitude: 34.070965, longitude: -11
 
 let jellyArray : [Jelly] = [jelly, brian, nabila, yasmin, abbas, foxxy, jose, izzat]
 
-var existingTags = Array(Set(jellyArray.flatMap { return $0.tag })).sorted(by: { $0 < $1 })
+var existingTags = Array(Set(jellyArray.flatMap { return $0.tagNames})).sorted(by: { $0 < $1 })
+
+var existingTagDictionary = returnTagDictionary(for: existingTags)
 
 var existingEmojis = Array(Set(jellyArray.flatMap { return $0.emoji }))
+
+func returnTagDictionary(for tags: [String]) -> [String : Bool] {
+    var dictionary : [String : Bool] = [:]
+    
+    for tag in tags {
+        dictionary[tag] = false
+    }
+    
+    return dictionary
+}

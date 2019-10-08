@@ -22,7 +22,7 @@ class SearchTagsViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 10
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,17 +30,33 @@ class SearchTagsViewController: UITableViewController {
         if let label = cell.viewWithTag(100) as? UILabel {
                 label.text = existingTags[indexPath.row]
         }
+        loadCheckmark(for: cell, at: indexPath)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .checkmark {
-                cell.accessoryType = .none
-            } else { cell.accessoryType = .checkmark}
-            tableView.deselectRow(at: indexPath, animated: true)
+            configureCheckmark(for: cell, at: indexPath)
         }
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func configureCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
+        if existingTagDictionary[existingTags[indexPath.row]] == true {
+            cell.accessoryType = .none
+            existingTagDictionary[existingTags[indexPath.row]] = false
+        } else {
+            cell.accessoryType = .checkmark
+            existingTagDictionary[existingTags[indexPath.row]] = true
+        }
+    }
+    
+    func loadCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
+        if existingTagDictionary[existingTags[indexPath.row]] == true {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
     }
 
 }
