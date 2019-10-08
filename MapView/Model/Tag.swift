@@ -10,9 +10,11 @@ import Foundation
 
 class Tag {
     
-    var tags: [String]
+    var tagDictionary: [String : Bool] = [:]
     
     init(tags: [String]) {
-        self.tags = tags
+        for i in 0..<tags.count {
+            tagDictionary[tags[i]] = false
+        }
     }
 }

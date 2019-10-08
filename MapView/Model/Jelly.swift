@@ -17,6 +17,7 @@ class Jelly: NSObject, MKAnnotation {
 //    let locationName: String
 //    let dateTime: NSDate
     let tag: [String]
+    let tagDictionary: Tag
     let eventDescription: String
     let coordinate: CLLocationCoordinate2D
     let markerTintColor : UIColor
@@ -28,6 +29,7 @@ class Jelly: NSObject, MKAnnotation {
         self.title = title
 //        self.dateTime = dateTime
         self.tag = tag
+        self.tagDictionary = Tag(tags: tag)
         self.eventDescription = eventDescription
         self.coordinate = coordinate
         self.markerTintColor = .cyan
