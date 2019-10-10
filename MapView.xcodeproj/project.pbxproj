@@ -10,6 +10,9 @@
 		EA43D109234C053C000E5DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA43D108234C053C000E5DA4 /* Main.storyboard */; };
 		EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10A234CEC91000E5DA4 /* Tag.swift */; };
 		EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */; };
+		EA617855234E417400709A42 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA617854234E417400709A42 /* TagCell.swift */; };
+		EA61785B234E811000709A42 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61785A234E811000709A42 /* ProfileCell.swift */; };
+		EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */; };
 		EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7823452CD30029B881 /* AppDelegate.swift */; };
 		EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7A23452CD30029B881 /* ViewController.swift */; };
 		EACA8E8023452CD60029B881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACA8E7F23452CD60029B881 /* Assets.xcassets */; };
@@ -28,6 +31,9 @@
 		EA43D108234C053C000E5DA4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Main.storyboard; sourceTree = "<group>"; };
 		EA43D10A234CEC91000E5DA4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		EA617854234E417400709A42 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "../View Controllers/TagCell.swift"; sourceTree = "<group>"; };
+		EA61785A234E811000709A42 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJellies.swift; sourceTree = "<group>"; };
 		EACA8E7523452CD30029B881 /* MapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACA8E7823452CD30029B881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EACA8E7A23452CD30029B881 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EA792CB3234F9DD200EDB370 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				EACA8E8C234564980029B881 /* TestingConstants.swift */,
+				EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
 		EACA8E6C23452CD30029B881 = {
 			isa = PBXGroup;
 			children = (
@@ -79,7 +94,7 @@
 				EACA8E7823452CD30029B881 /* AppDelegate.swift */,
 				EACA8E9423457C7D0029B881 /* View Controllers */,
 				EACA8E9523457CC90029B881 /* Model */,
-				EACA8E8C234564980029B881 /* TestingConstants.swift */,
+				EA792CB3234F9DD200EDB370 /* Testing */,
 				EAF2BF62234690E700CD0755 /* ToDo.swift */,
 				EACA8E7F23452CD60029B881 /* Assets.xcassets */,
 				EA43D108234C053C000E5DA4 /* Main.storyboard */,
@@ -95,8 +110,8 @@
 				EACA8E8E234565850029B881 /* ViewController+Extensions.swift */,
 				EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */,
 				EACA8E9223457C580029B881 /* AddJellyViewController.swift */,
-				EACA8E982345822D0029B881 /* UserProfileViewController.swift */,
 				EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */,
+				EACA8E982345822D0029B881 /* UserProfileViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -104,6 +119,8 @@
 		EACA8E9523457CC90029B881 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EA617854234E417400709A42 /* TagCell.swift */,
+				EA61785A234E811000709A42 /* ProfileCell.swift */,
 				EACA8E9023456A210029B881 /* Jelly.swift */,
 				EACA8E9D2345E19E0029B881 /* JellyViews.swift */,
 				EA43D10A234CEC91000E5DA4 /* Tag.swift */,
@@ -182,14 +199,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA617855234E417400709A42 /* TagCell.swift in Sources */,
 				EACA8E8F234565850029B881 /* ViewController+Extensions.swift in Sources */,
 				EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */,
 				EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */,
 				EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */,
+				EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */,
 				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
 				EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
+				EA61785B234E811000709A42 /* ProfileCell.swift in Sources */,
 				EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */,
 				EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */,
 				EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */,

@@ -1,20 +1,12 @@
 //
-//  TestingConstants.swift
+//  TestingJellies.swift
 //  MapView
 //
-//  Created by Elina Lua Ming on 10/2/19.
+//  Created by Elina Lua Ming on 10/10/19.
 //  Copyright © 2019 Elina Lua Ming. All rights reserved.
 //
 
 import MapKit
-
-// MARK:- Testing Constants
-
-// set initial location in Honolulu
-let initialLocation = CLLocation(latitude: 34.071282, longitude: -118.445001)
-
-let regionRadius: CLLocationDistance = 750
-
 
 let jelly = Jelly(emoji: "🌮", title: "Foundations Tacos", tag: ["food", "dance"], eventDescription: "Come support us at our fundraising event, and learn how to dance! We're newbie friendly 😃", coordinate: jellyCoordinate)
 
@@ -41,21 +33,3 @@ let abbasCoordinate = CLLocationCoordinate2D(latitude: 34.070921, longitude: -11
 let foxxyCoordinate = CLLocationCoordinate2D(latitude: 34.071082, longitude: -118.445618)
 let joseCoordinate = CLLocationCoordinate2D(latitude: 34.072146, longitude: -118.442315)
 let izzatCoordinate = CLLocationCoordinate2D(latitude: 34.070965, longitude: -118.446720)
-
-let jellyArray : [Jelly] = [jelly, brian, nabila, yasmin, abbas, foxxy, jose, izzat]
-
-var existingTags = Array(Set(jellyArray.flatMap { return $0.tagNames})).sorted(by: { $0 < $1 })
-
-var existingTagDictionary = returnTagDictionary(for: existingTags)
-
-var existingEmojis = Array(Set(jellyArray.flatMap { return $0.emoji }))
-
-func returnTagDictionary(for tags: [String]) -> [String : Bool] {
-    var dictionary : [String : Bool] = [:]
-    
-    for tag in tags {
-        dictionary[tag] = false
-    }
-    
-    return dictionary
-}

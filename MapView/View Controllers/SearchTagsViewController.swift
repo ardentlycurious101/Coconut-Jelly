@@ -8,50 +8,22 @@
 
 import UIKit
 
-class SearchTagsViewController: UITableViewController {
+class SearchTagsViewController: UIViewController {
     
     // MARK:- Table view variables
-    
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK:- View controller life cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDelegation()
     }
-    
-    // MARK:- Table view data source methods
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return existingTags.count
-    }
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 10
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath)
-        if let label = cell.viewWithTag(100) as? UILabel {
-                label.text = existingTags[indexPath.row]
-        }
-        loadCheckmark(for: cell, at: indexPath)
-        return cell
-    }
-    
-    // MARK:- Table view delegate methods
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let cell = tableView.cellForRow(at: indexPath) {
-            configureCheckmark(for: cell, at: indexPath)
-        }
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
     
     //MARK:- Helper functions
     
     func configureCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
+ 
         if existingTagDictionary[existingTags[indexPath.row]] == true {
             cell.accessoryType = .none
             existingTagDictionary[existingTags[indexPath.row]] = false
@@ -61,12 +33,52 @@ class SearchTagsViewController: UITableViewController {
         }
     }
     
-    func loadCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
+    func loadCheckmark(for cell: TagCell, at indexPath: IndexPath) {
+        
         if existingTagDictionary[existingTags[indexPath.row]] == true {
             cell.accessoryType = .checkmark
         } else {
             cell.accessoryType = .none
         }
     }
+    
+    func configureDelegation() {
+        tableView.delegate = self
+        tableView.dataSource = self
+
+        tableView.rowHeight = 50
+    }
+}
+
+extension SearchTagsViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return existingTags.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagCell
+        cell.setLabels(label: existingTags[indexPath.row])
+        loadCheckmark(for: cell, at: indexPath)
+//        print(cell.label.textColor)
+        return cell
+    }
 
 }
+
+extension SearchTagsViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) {
+            configureCheckmark(for: cell, at: indexPath)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
+
+
