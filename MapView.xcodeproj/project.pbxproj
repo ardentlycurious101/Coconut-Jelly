@@ -24,6 +24,7 @@
 		EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */; };
 		EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9D2345E19E0029B881 /* JellyViews.swift */; };
 		EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9F2345E79D0029B881 /* String+Extensions.swift */; };
+		EAE98F322356900900AF25E4 /* AddEventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE98F312356900900AF25E4 /* AddEventCell.swift */; };
 		EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2BF62234690E700CD0755 /* ToDo.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		EACA8E9C2345D9400029B881 /* Home.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Home.gpx; sourceTree = "<group>"; };
 		EACA8E9D2345E19E0029B881 /* JellyViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyViews.swift; sourceTree = "<group>"; };
 		EACA8E9F2345E79D0029B881 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		EAE98F312356900900AF25E4 /* AddEventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventCell.swift; sourceTree = "<group>"; };
 		EAF2BF62234690E700CD0755 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 			children = (
 				EA617854234E417400709A42 /* TagCell.swift */,
 				EA61785A234E811000709A42 /* ProfileCell.swift */,
+				EAE98F312356900900AF25E4 /* AddEventCell.swift */,
 				EACA8E9023456A210029B881 /* Jelly.swift */,
 				EACA8E9D2345E19E0029B881 /* JellyViews.swift */,
 				EA43D10A234CEC91000E5DA4 /* Tag.swift */,
@@ -207,6 +210,7 @@
 				EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */,
 				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
 				EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */,
+				EAE98F322356900900AF25E4 /* AddEventCell.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
 				EA61785B234E811000709A42 /* ProfileCell.swift in Sources */,

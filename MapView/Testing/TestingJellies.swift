@@ -8,6 +8,12 @@
 
 import MapKit
 
+// MARK:- Testing Constants
+
+// set initial location in Honolulu
+let initialLocation = CLLocation(latitude: 34.071282, longitude: -118.445001)
+let regionRadius: CLLocationDistance = 750
+
 let jelly = Jelly(emoji: "🌮", title: "Foundations Tacos", tag: ["food", "dance"], eventDescription: "Come support us at our fundraising event, and learn how to dance! We're newbie friendly 😃", coordinate: jellyCoordinate)
 
 let brian = Jelly(emoji: "🏋🏽‍♀️", title: "UCLA Powerlifting", tag: ["strength", "club sport", "chill people", "fun", "powerlifting"], eventDescription: "Come and learn how to squat, bench, and deadlift!!! And meet awesome people :)", coordinate: brianCoordinate )

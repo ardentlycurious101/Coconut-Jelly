@@ -64,7 +64,6 @@ extension SearchTagsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell", for: indexPath) as! TagCell
         cell.setLabels(label: existingTags[indexPath.row])
         loadCheckmark(for: cell, at: indexPath)
-//        print(cell.label.textColor)
         return cell
     }
 

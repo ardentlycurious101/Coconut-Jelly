@@ -9,9 +9,9 @@
 import UIKit
 
 class AddJellyViewController: UIViewController {
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
+
 }
