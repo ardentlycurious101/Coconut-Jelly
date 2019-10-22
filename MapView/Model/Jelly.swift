@@ -33,7 +33,7 @@ class Jelly: NSObject, MKAnnotation {
         tagNames = getTagNames(tags: tags)
         self.eventDescription = eventDescription
         self.coordinate = coordinate
-        self.markerTintColor = .cyan
+        self.markerTintColor = .red
         self.imageName = "black bean"
         self.emojiImage = emoji.image()
 
