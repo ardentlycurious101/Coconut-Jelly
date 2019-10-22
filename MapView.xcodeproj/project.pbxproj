@@ -39,6 +39,7 @@
 		EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		EA617854234E417400709A42 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "../View Controllers/TagCell.swift"; sourceTree = "<group>"; };
 		EA61785A234E811000709A42 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		EA7798AB235EED2F00DBB836 /* WSTagsField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WSTagsField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJellies.swift; sourceTree = "<group>"; };
 		EACA8E7523452CD30029B881 /* MapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACA8E7823452CD30029B881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +84,7 @@
 		E41DC98C42180012138E5C80 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EA7798AB235EED2F00DBB836 /* WSTagsField.framework */,
 				19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */,
 			);
 			name = Frameworks;

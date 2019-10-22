@@ -9,13 +9,14 @@
 import UIKit
 import MapKit
 import Firebase
+import WSTagsField
 
 class AddJellyViewController: UIViewController {
-        
+    
     @IBOutlet weak var JellyEmoji: UITextField!
     @IBOutlet weak var JellyName: UITextField!
     @IBOutlet weak var JellyDescription: UITextField!
-    @IBOutlet weak var JellyTags: UITextField!
+    @IBOutlet weak var JellyTags: WSTagsField!
     
     @IBOutlet weak var StartTime: UIDatePicker!
     @IBOutlet weak var EndTime: UIDatePicker!
@@ -92,6 +93,7 @@ class AddJellyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureTagField()
     }
     
     func remindUserToFill(_ textFieldRequiredInput: String) {
@@ -109,12 +111,42 @@ class AddJellyViewController: UIViewController {
         JellyEmoji.text = ""
         JellyName.text = ""
         JellyDescription.text = ""
-        JellyTags.text = ""
         
         StartTime.date = Date()
         EndTime.date = Date()
         
         JellyCreatorDisplayName.text = ""
+    }
+    
+    func configureTagField() {
+        
+//        JellyTags.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        JellyTags.selectedColor = .red
+        JellyTags.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        JellyTags.spaceBetweenLines = 10
+        JellyTags.spaceBetweenTags = 5
+        JellyTags.placeholder = "Add tags"
+        JellyTags.font = .systemFont(ofSize: 14.0)
+        
+        
+//        tagsField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
+//        tagsField.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+//        tagsField.spaceBetweenLines = 50.0
+//        tagsField.spaceBetweenTags = 25.0
+//        tagsField.font = .systemFont(ofSize: 12.0)
+//        tagsField.backgroundColor = .white
+//        tagsField.tintColor = .green
+//        tagsField.textColor = .black
+//        tagsField.fieldTextColor = .blue
+//        tagsField.selectedColor = .black
+//        tagsField.selectedTextColor = .red
+//        tagsField.delimiter = ","
+//        tagsField.isDelimiterVisible = true
+//        tagsField.placeholderColor = .green
+//        tagsField.placeholderAlwaysVisible = true
+//        tagsField.keyboardAppearance = .dark
+//        tagsField.returnKeyType = .next
+//        tagsField.acceptTagOption = .space
     }
 
 }

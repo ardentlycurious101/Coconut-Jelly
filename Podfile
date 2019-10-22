@@ -6,11 +6,14 @@ target 'MapView' do
   use_frameworks!
 
   # Pods for MapView
+
 pod 'Firebase'
 pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Functions'
 pod 'Firebase/Storage'
+
+pod "WSTagsField"
 
 end
