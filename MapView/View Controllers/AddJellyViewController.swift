@@ -13,11 +13,12 @@ import WSTagsField
 
 class AddJellyViewController: UIViewController {
     
+    // MARK:- Variables
+    
     @IBOutlet weak var JellyEmoji: TextField!
     @IBOutlet weak var JellyName: TextField!
     @IBOutlet weak var JellyDescription: UITextView!
     @IBOutlet weak var JellyTags: WSTagsField!
-    
     
     @IBOutlet weak var StartTime: UIDatePicker!
     @IBOutlet weak var EndTime: UIDatePicker!
@@ -29,7 +30,6 @@ class AddJellyViewController: UIViewController {
     @IBOutlet weak var JellyCreatorDisplayName: TextField!
     
     @IBOutlet weak var createJellyButton: UIButton!
-    
     @IBAction func CreateJellyTapped(_ sender: Any) {
         
         // check if all fields are filled
@@ -45,11 +45,13 @@ class AddJellyViewController: UIViewController {
             remindUserToFill("description")
             return
         }
+        
         // TODO: Create guard statement for tags
-        // TODO: Create guard statement for start time
-//        guard let startTime =
-        // TODO: Create guard statement for end time
+        
+        // TODO: Create guard statement for end time >start time
+        
         // TODO: Create guard statement for address
+        
         // TODO: Create guard statement for coordinates from mapview
         
         guard let creatorDisplayName = JellyCreatorDisplayName.text, !creatorDisplayName.isEmpty else {
@@ -61,8 +63,6 @@ class AddJellyViewController: UIViewController {
 //         upon successfull networking call: insert new entry in cloud database
 //         else: print error
         
-        print("List of Tags Strings:", JellyTags.tags.map({$0.text}))
-
         let _ = Firestore.firestore().collection("Jellies").addDocument(data: ["emoji" : JellyEmoji.text!, "name" : JellyName.text!, "description": JellyDescription.text!, "tags": JellyTags.tags.map({$0.text}), "startTime" : StartTime.date, "endTime" : EndTime.date, "creatorName": JellyCreatorDisplayName.text!]) { (error) in
             
             if let error = error {
@@ -93,18 +93,16 @@ class AddJellyViewController: UIViewController {
         
     }
     
+    // MARK:- View Did Load
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
+        configureDelegation()
     }
     
-    func remindUserToFill(_ textFieldRequiredInput: String) {
-        let okay = UIAlertAction.init(title: "OK", style: .default)
-        let alert = UIAlertController.init(title: "Missing Jelly Information", message: "Please enter Jelly \(textFieldRequiredInput).", preferredStyle: .alert)
-        alert.addAction(okay)
-        self.present(alert, animated: true) {}
-    }
-    
+    // MARK:- Helper Functions
+
     func configureUI() {
         createJellyButton.layer.cornerRadius = 25
         configureTextFieldUI()
@@ -112,6 +110,12 @@ class AddJellyViewController: UIViewController {
         configureImageCollectionView()
         configureTagField()
         configureJellyDescription()
+    }
+    
+    func configureDelegation() {
+        JellyDescription.delegate = self
+        JellyTags.delegate = self
+        JellyLocation.delegate = self
     }
     
     func configureImageCollectionView() {
@@ -162,10 +166,26 @@ class AddJellyViewController: UIViewController {
         JellyTags.clipsToBounds = true
         
     }
+    
+    func remindUserToFill(_ textFieldRequiredInput: String) {
+        let okay = UIAlertAction.init(title: "OK", style: .default)
+        let alert = UIAlertController.init(title: "Missing Jelly Information", message: "Please enter Jelly \(textFieldRequiredInput).", preferredStyle: .alert)
+        alert.addAction(okay)
+        self.present(alert, animated: true) {}
+    }
 
 }
 
+// MARK:- Extensions
+
 extension AddJellyViewController: UITextFieldDelegate {
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField.tag == 100 {
+            performSegue(withIdentifier: "SegueSearchLocationViewController", sender: self)
+        }
+        return false
+    }
     
 }
 
