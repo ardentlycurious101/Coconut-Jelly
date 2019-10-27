@@ -11,6 +11,8 @@
 		EA43D109234C053C000E5DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA43D108234C053C000E5DA4 /* Main.storyboard */; };
 		EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10A234CEC91000E5DA4 /* Tag.swift */; };
 		EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */; };
+		EA4C1E1B2364E58500BE4184 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C1E1A2364E58500BE4184 /* TextField.swift */; };
+		EA4C1E2123651B9100BE4184 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C1E2023651B9100BE4184 /* SearchLocationViewController.swift */; };
 		EA617855234E417400709A42 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA617854234E417400709A42 /* TagCell.swift */; };
 		EA61785B234E811000709A42 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61785A234E811000709A42 /* ProfileCell.swift */; };
 		EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */; };
@@ -27,6 +29,7 @@
 		EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9F2345E79D0029B881 /* String+Extensions.swift */; };
 		EAD903A5235EA6D6005EB05C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAD903A4235EA6D6005EB05C /* GoogleService-Info.plist */; };
 		EAE0C782235EAEF700FEDDB3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE0C781235EAEF700FEDDB3 /* Default-568h@2x.png */; };
+		EAE4E62E235FAFD700CB1B5E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */; };
 		EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2BF62234690E700CD0755 /* ToDo.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,8 @@
 		EA43D108234C053C000E5DA4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Main.storyboard; sourceTree = "<group>"; };
 		EA43D10A234CEC91000E5DA4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
+		EA4C1E1A2364E58500BE4184 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		EA4C1E2023651B9100BE4184 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
 		EA617854234E417400709A42 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "../View Controllers/TagCell.swift"; sourceTree = "<group>"; };
 		EA61785A234E811000709A42 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		EA7798AB235EED2F00DBB836 /* WSTagsField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WSTagsField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +62,7 @@
 		EACA8E9F2345E79D0029B881 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EAD903A4235EA6D6005EB05C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EAE0C781235EAEF700FEDDB3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EAF2BF62234690E700CD0755 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +146,7 @@
 				EACA8E7A23452CD30029B881 /* ViewController.swift */,
 				EACA8E8E234565850029B881 /* ViewController+Extensions.swift */,
 				EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */,
+				EA4C1E2023651B9100BE4184 /* SearchLocationViewController.swift */,
 				EACA8E9223457C580029B881 /* AddJellyViewController.swift */,
 				EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */,
 				EACA8E982345822D0029B881 /* UserProfileViewController.swift */,
@@ -151,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				EA617854234E417400709A42 /* TagCell.swift */,
+				EA4C1E1A2364E58500BE4184 /* TextField.swift */,
+				EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */,
 				EA61785A234E811000709A42 /* ProfileCell.swift */,
 				EACA8E9023456A210029B881 /* Jelly.swift */,
 				EACA8E9D2345E19E0029B881 /* JellyViews.swift */,
@@ -293,6 +302,7 @@
 				EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */,
 				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
 				EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */,
+				EA4C1E2123651B9100BE4184 /* SearchLocationViewController.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
 				EA61785B234E811000709A42 /* ProfileCell.swift in Sources */,
@@ -300,6 +310,8 @@
 				EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */,
 				EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */,
 				EACA8E9123456A210029B881 /* Jelly.swift in Sources */,
+				EA4C1E1B2364E58500BE4184 /* TextField.swift in Sources */,
+				EAE4E62E235FAFD700CB1B5E /* UIColor+Extensions.swift in Sources */,
 				EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
