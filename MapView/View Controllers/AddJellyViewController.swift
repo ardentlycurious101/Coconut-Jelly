@@ -14,7 +14,8 @@ import WSTagsField
 class AddJellyViewController: UIViewController {
     
     // MARK:- Variables
-    
+
+    // MARK: Jelly Description View
     @IBOutlet weak var JellyEmoji: TextField!
     @IBOutlet weak var JellyName: TextField!
     @IBOutlet weak var JellyDescription: UITextView!
@@ -25,10 +26,16 @@ class AddJellyViewController: UIViewController {
     
     @IBOutlet weak var ImageCollectionView: UICollectionView!
     
-    @IBOutlet weak var JellyLocation: TextField!
+    // MARK: Jelly Location View
+    
+    @IBOutlet weak var JellyLocationButton: Button!
     @IBOutlet weak var MapView: MKMapView!
+    lazy var slideInTransitioningDelegate = SlideInPresentationManager()
+    
+    // MARK: Creator Display Name View
     @IBOutlet weak var JellyCreatorDisplayName: TextField!
     
+    // MARK: Create Jelly Button View
     @IBOutlet weak var createJellyButton: UIButton!
     @IBAction func CreateJellyTapped(_ sender: Any) {
         
@@ -115,7 +122,7 @@ class AddJellyViewController: UIViewController {
     func configureDelegation() {
         JellyDescription.delegate = self
         JellyTags.delegate = self
-        JellyLocation.delegate = self
+//         JellyLocation.delegate = self
     }
     
     func configureImageCollectionView() {
@@ -130,7 +137,7 @@ class AddJellyViewController: UIViewController {
         JellyEmoji.configureUI()
         JellyName.configureUI()
         JellyCreatorDisplayName.configureUI()
-        JellyLocation.configureUI()
+        JellyLocationButton.configureUI()
     }
     
     func clearAllTextFields() {
@@ -173,6 +180,16 @@ class AddJellyViewController: UIViewController {
         alert.addAction(okay)
         self.present(alert, animated: true) {}
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? SearchLocationViewController {
+            if segue.identifier == "SearchLocationSegue" {
+                slideInTransitioningDelegate.direction = .bottom
+                controller.transitioningDelegate = slideInTransitioningDelegate
+                controller.modalPresentationStyle = .custom
+            }
+        }
+    }
 
 }
 
@@ -182,7 +199,7 @@ extension AddJellyViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField.tag == 100 {
-            performSegue(withIdentifier: "SegueSearchLocationViewController", sender: self)
+            performSegue(withIdentifier: "SearchLocationSegue", sender: self)
         }
         return false
     }

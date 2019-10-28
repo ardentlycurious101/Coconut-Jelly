@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7577F57217BCF64F81CC0AB7 /* Pods_MapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */; };
+		EA40A8BE2367703A00A48E12 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40A8BD2367703A00A48E12 /* Button.swift */; };
+		EA40A8C02367A3E500A48E12 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40A8BF2367A3E500A48E12 /* SlideInPresentationAnimator.swift */; };
 		EA43D109234C053C000E5DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA43D108234C053C000E5DA4 /* Main.storyboard */; };
 		EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10A234CEC91000E5DA4 /* Tag.swift */; };
 		EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */; };
@@ -17,6 +19,7 @@
 		EA61785B234E811000709A42 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61785A234E811000709A42 /* ProfileCell.swift */; };
 		EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */; };
 		EA85C43B2365256400529973 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA85C43A2365256400529973 /* SlideInPresentationManager.swift */; };
+		EA85C4432366C0C500529973 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA85C4422366C0C500529973 /* SlideInPresentationController.swift */; };
 		EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7823452CD30029B881 /* AppDelegate.swift */; };
 		EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7A23452CD30029B881 /* ViewController.swift */; };
 		EACA8E8023452CD60029B881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACA8E7F23452CD60029B881 /* Assets.xcassets */; };
@@ -38,6 +41,8 @@
 		19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0FE89230DBDBAC06E9E314 /* Pods-MapView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapView.release.xcconfig"; path = "Target Support Files/Pods-MapView/Pods-MapView.release.xcconfig"; sourceTree = "<group>"; };
 		DAB7F76BEB7C0F800EA2212F /* Pods-MapView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapView.debug.xcconfig"; path = "Target Support Files/Pods-MapView/Pods-MapView.debug.xcconfig"; sourceTree = "<group>"; };
+		EA40A8BD2367703A00A48E12 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		EA40A8BF2367A3E500A48E12 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
 		EA43D108234C053C000E5DA4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Main.storyboard; sourceTree = "<group>"; };
 		EA43D10A234CEC91000E5DA4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 		EA7798AB235EED2F00DBB836 /* WSTagsField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WSTagsField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJellies.swift; sourceTree = "<group>"; };
 		EA85C43A2365256400529973 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
+		EA85C4422366C0C500529973 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
 		EACA8E7523452CD30029B881 /* MapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACA8E7823452CD30029B881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EACA8E7A23452CD30029B881 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +104,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EA40A8BC2366C36600A48E12 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				EA85C4422366C0C500529973 /* SlideInPresentationController.swift */,
+				EA40A8BF2367A3E500A48E12 /* SlideInPresentationAnimator.swift */,
+				EA85C43A2365256400529973 /* SlideInPresentationManager.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		EA792CB3234F9DD200EDB370 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				EACA8E7823452CD30029B881 /* AppDelegate.swift */,
+				EA40A8BC2366C36600A48E12 /* Presentation */,
 				EACA8E9423457C7D0029B881 /* View Controllers */,
 				EACA8E9523457CC90029B881 /* Model */,
 				EA792CB3234F9DD200EDB370 /* Testing */,
@@ -160,8 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				EA617854234E417400709A42 /* TagCell.swift */,
-				EA85C43A2365256400529973 /* SlideInPresentationManager.swift */,
 				EA4C1E1A2364E58500BE4184 /* TextField.swift */,
+				EA40A8BD2367703A00A48E12 /* Button.swift */,
 				EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */,
 				EA61785A234E811000709A42 /* ProfileCell.swift */,
 				EACA8E9023456A210029B881 /* Jelly.swift */,
@@ -307,16 +324,19 @@
 				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
 				EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */,
 				EA4C1E2123651B9100BE4184 /* SearchLocationViewController.swift in Sources */,
+				EA85C4432366C0C500529973 /* SlideInPresentationController.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
 				EA61785B234E811000709A42 /* ProfileCell.swift in Sources */,
 				EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */,
+				EA40A8C02367A3E500A48E12 /* SlideInPresentationAnimator.swift in Sources */,
 				EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */,
 				EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */,
 				EACA8E9123456A210029B881 /* Jelly.swift in Sources */,
 				EA4C1E1B2364E58500BE4184 /* TextField.swift in Sources */,
 				EAE4E62E235FAFD700CB1B5E /* UIColor+Extensions.swift in Sources */,
 				EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */,
+				EA40A8BE2367703A00A48E12 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

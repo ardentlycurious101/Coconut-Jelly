@@ -10,17 +10,18 @@ import UIKit
 
 class SearchLocationViewController: UIViewController {
     
-    @IBAction func BackButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
+    @IBOutlet weak var SearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSearchBarUI()
     }
     
-}
-
-extension SearchLocationViewController: UINavigationBarDelegate {
-    
+    func configureSearchBarUI() {
+        SearchBar.backgroundImage = UIImage()
+        SearchBar.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.5).cgColor
+        SearchBar.layer.borderWidth = 1.0
+        SearchBar.layer.cornerRadius = SearchBar.frame.height/2
+    }
     
 }
