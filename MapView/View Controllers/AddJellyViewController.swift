@@ -15,6 +15,7 @@ class AddJellyViewController: UIViewController {
     
     // MARK:- Variables
 
+    @IBOutlet weak var scrollView: UIScrollView!
     // MARK: Jelly Description View
     @IBOutlet weak var JellyEmoji: TextField!
     @IBOutlet weak var JellyName: TextField!
@@ -106,6 +107,7 @@ class AddJellyViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureDelegation()
+        scrollView.keyboardDismissMode = .interactive
     }
     
     // MARK:- Helper Functions
@@ -198,9 +200,9 @@ class AddJellyViewController: UIViewController {
 extension AddJellyViewController: UITextFieldDelegate {
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField.tag == 100 {
-            performSegue(withIdentifier: "SearchLocationSegue", sender: self)
-        }
+//        if textField.tag == 100 {
+//            performSegue(withIdentifier: "SearchLocationSegue", sender: self)
+//        }
         return false
     }
     
