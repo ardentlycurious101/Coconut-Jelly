@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7577F57217BCF64F81CC0AB7 /* Pods_MapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */; };
+		EA11ED8F236913AE00491657 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA11ED8E236913AE00491657 /* LocationSearchTable.swift */; };
 		EA40A8BE2367703A00A48E12 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40A8BD2367703A00A48E12 /* Button.swift */; };
 		EA40A8C02367A3E500A48E12 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40A8BF2367A3E500A48E12 /* SlideInPresentationAnimator.swift */; };
 		EA43D109234C053C000E5DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA43D108234C053C000E5DA4 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0FE89230DBDBAC06E9E314 /* Pods-MapView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapView.release.xcconfig"; path = "Target Support Files/Pods-MapView/Pods-MapView.release.xcconfig"; sourceTree = "<group>"; };
 		DAB7F76BEB7C0F800EA2212F /* Pods-MapView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapView.debug.xcconfig"; path = "Target Support Files/Pods-MapView/Pods-MapView.debug.xcconfig"; sourceTree = "<group>"; };
+		EA11ED8E236913AE00491657 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		EA40A8BD2367703A00A48E12 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		EA40A8BF2367A3E500A48E12 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
 		EA43D108234C053C000E5DA4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../../../Main.storyboard; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				EACA8E7A23452CD30029B881 /* ViewController.swift */,
 				EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */,
+				EA11ED8E236913AE00491657 /* LocationSearchTable.swift */,
 				EA4C1E2023651B9100BE4184 /* SearchLocationViewController.swift */,
 				EACA8E9223457C580029B881 /* AddJellyViewController.swift */,
 				EACA8E9A2345830A0029B881 /* SearchTagsViewController.swift */,
@@ -319,6 +322,7 @@
 				EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */,
 				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
 				EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */,
+				EA11ED8F236913AE00491657 /* LocationSearchTable.swift in Sources */,
 				EA4C1E2123651B9100BE4184 /* SearchLocationViewController.swift in Sources */,
 				EA85C4432366C0C500529973 /* SlideInPresentationController.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,

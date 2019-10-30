@@ -14,6 +14,7 @@ import WSTagsField
 class AddJellyViewController: UIViewController {
     
     // MARK:- Variables
+    let regionInMeters: Double = 1000
 
     @IBOutlet weak var scrollView: UIScrollView!
     // MARK: Jelly Description View
@@ -124,7 +125,6 @@ class AddJellyViewController: UIViewController {
     func configureDelegation() {
         JellyDescription.delegate = self
         JellyTags.delegate = self
-//         JellyLocation.delegate = self
     }
     
     func configureImageCollectionView() {
@@ -184,11 +184,13 @@ class AddJellyViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = segue.destination as? SearchLocationViewController {
+        if let controller = segue.destination as? UINavigationController {
             if segue.identifier == "SearchLocationSegue" {
                 slideInTransitioningDelegate.direction = .bottom
                 controller.transitioningDelegate = slideInTransitioningDelegate
                 controller.modalPresentationStyle = .custom
+                let targetController = controller.topViewController as? SearchLocationViewController
+                targetController?.centerDelegate = self
             }
         }
     }
@@ -196,17 +198,6 @@ class AddJellyViewController: UIViewController {
 }
 
 // MARK:- Extensions
-
-extension AddJellyViewController: UITextFieldDelegate {
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-//        if textField.tag == 100 {
-//            performSegue(withIdentifier: "SearchLocationSegue", sender: self)
-//        }
-        return false
-    }
-    
-}
 
 extension AddJellyViewController: UITextViewDelegate {
     
@@ -241,6 +232,23 @@ extension AddJellyViewController: UITextViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+extension AddJellyViewController: MapViewCenter {
+    
+    func getMapViewCenter(_ centerCoordinate: CLLocationCoordinate2D) {
+        print("we finally here -- we got hired as interns!")
+        let center = centerCoordinate
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters/4, longitudinalMeters: regionInMeters/4)
+        MapView.setRegion(region, animated: true)
+        
+        let pinImage = UIImage(named: "pin")
+        let pinImageSubview = UIImageView(image: pinImage)
+
+        pinImageSubview.frame = CGRect(x: (MapView.frame.width/2) - 25, y: (MapView.frame.height/2) - 50, width: 50, height: 50)
+        MapView.addSubview(pinImageSubview)
     }
     
 }
