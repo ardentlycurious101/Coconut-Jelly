@@ -32,6 +32,7 @@ class AddJellyViewController: UIViewController {
     
     @IBOutlet weak var JellyLocationButton: Button!
     @IBOutlet weak var MapView: MKMapView!
+    @IBOutlet weak var PinImageView: UIImageView!
     lazy var slideInTransitioningDelegate = SlideInPresentationManager()
     
     // MARK: Creator Display Name View
@@ -244,11 +245,11 @@ extension AddJellyViewController: MapViewCenter {
         let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters/4, longitudinalMeters: regionInMeters/4)
         MapView.setRegion(region, animated: true)
         
-        let pinImage = UIImage(named: "pin")
-        let pinImageSubview = UIImageView(image: pinImage)
-
-        pinImageSubview.frame = CGRect(x: (MapView.frame.width/2) - 25, y: (MapView.frame.height/2) - 50, width: 50, height: 50)
-        MapView.addSubview(pinImageSubview)
+//        let pinImage = UIImage(named: "pin")
+//        let pinImageSubview = UIImageView(image: pinImage)
+//
+//        pinImageSubview.frame = CGRect(x: (MapView.frame.width/2), y: (MapView.frame.height/2), width: 50, height: 50)
+//        MapView.addSubview(pinImageSubview)
     }
     
 }

@@ -166,7 +166,7 @@ extension SearchLocationViewController: HandleMapSearch {
         // clear existing pins
         MapView.removeAnnotations(MapView.annotations)
 
-        let region = MKCoordinateRegion(center: placemark.coordinate, latitudinalMeters: regionInMeters/2 , longitudinalMeters: regionInMeters/2)
+        let region = MKCoordinateRegion(center: placemark.coordinate, latitudinalMeters: regionInMeters/4 , longitudinalMeters: regionInMeters/4)
         MapView.setRegion(region, animated: true)
     }
     
