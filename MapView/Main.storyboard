@@ -283,26 +283,32 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="1373"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxO-IV-LgL" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1675"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gPg-nT-zCx" userLabel="Jelly Detail View">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="1025"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelly Emoji" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gtc-Yw-K7R" customClass="TextField" customModule="MapView" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelly Emoji" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gtc-Yw-K7R" customClass="TextField" customModule="MapView" customModuleProvider="target">
                                                         <rect key="frame" x="44" y="64" width="326" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="sbU-uX-8xg"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="emojiDidChange:" destination="2qv-tY-Zep" eventType="editingChanged" id="ZHi-xW-nay"/>
+                                                        </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelly Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjD-p8-GoI" customClass="TextField" customModule="MapView" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelly Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mjD-p8-GoI" customClass="TextField" customModule="MapView" customModuleProvider="target">
                                                         <rect key="frame" x="44" y="118" width="326" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="ykX-Ln-nsf"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="nameDidChange:" destination="2qv-tY-Zep" eventType="editingChanged" id="Hsc-IP-kCM"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Describe your Jelly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brc-cm-xfz">
                                                         <rect key="frame" x="44" y="24" width="160" height="20"/>
@@ -346,30 +352,6 @@
                                                             <constraint firstAttribute="height" constant="115" id="czi-PD-nQ9"/>
                                                         </constraints>
                                                     </datePicker>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S5J-Lh-eSN">
-                                                        <rect key="frame" x="44" y="762" width="326" height="115"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="115" id="8de-xa-MLL"/>
-                                                        </constraints>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wid-au-PYS">
-                                                            <size key="itemSize" width="102" height="102"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells>
-                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JellyImage" id="kcn-bA-zRa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="102" height="102"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                </view>
-                                                                <color key="backgroundColor" red="0.2895585001" green="0.6404178143" blue="0.97258645300000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            </collectionViewCell>
-                                                        </cells>
-                                                    </collectionView>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sux-Tg-843" userLabel="Jelly Description Text View">
                                                         <rect key="frame" x="44" y="172" width="326" height="95"/>
                                                         <constraints>
@@ -421,39 +403,79 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iK-eA-iAj">
-                                                        <rect key="frame" x="346" y="882" width="14" height="15"/>
+                                                        <rect key="frame" x="346" y="999" width="14" height="15"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="15" id="hRL-04-Pl9"/>
+                                                            <constraint firstAttribute="height" constant="15" id="pgs-Ig-Iz2"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S5J-Lh-eSN">
+                                                        <rect key="frame" x="44" y="840" width="326" height="154"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="154" id="q0t-gf-oAE"/>
+                                                        </constraints>
+                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Wid-au-PYS">
+                                                            <size key="itemSize" width="163" height="150"/>
+                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        </collectionViewFlowLayout>
+                                                        <cells>
+                                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="JellyImage" id="kcn-bA-zRa">
+                                                                <rect key="frame" x="81.666666666666671" y="0.0" width="163" height="150"/>
+                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="163" height="150"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                </view>
+                                                                <color key="backgroundColor" red="0.2895585001" green="0.6404178143" blue="0.97258645300000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </collectionViewCell>
+                                                        </cells>
+                                                    </collectionView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wVi-ry-vws" customClass="Button" customModule="MapView" customModuleProvider="target">
+                                                        <rect key="frame" x="44" y="786" width="326" height="30"/>
+                                                        <color key="backgroundColor" red="0.40617477889999998" green="0.79750770329999998" blue="0.94119787219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="GdL-kU-U4h"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                        <state key="normal" title="Select Image">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ImagePickerButtonTapped:" destination="2qv-tY-Zep" eventType="touchUpInside" id="cvz-lX-z2X"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="3iK-eA-iAj" secondAttribute="trailing" constant="54" id="0Eg-tl-oaC"/>
                                                     <constraint firstItem="IIk-WE-7ZK" firstAttribute="top" secondItem="V6Y-N0-jEq" secondAttribute="bottom" constant="24" id="3Gz-6W-cXy"/>
-                                                    <constraint firstItem="S5J-Lh-eSN" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="3nT-hI-zSo"/>
                                                     <constraint firstAttribute="trailing" secondItem="4l7-L9-5Ot" secondAttribute="trailing" constant="54" id="4N8-lG-jP2"/>
+                                                    <constraint firstItem="S5J-Lh-eSN" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="4n0-YW-GkA"/>
                                                     <constraint firstItem="Brc-cm-xfz" firstAttribute="top" secondItem="gPg-nT-zCx" secondAttribute="top" constant="24" id="5Sc-kq-fHF"/>
                                                     <constraint firstItem="mjD-p8-GoI" firstAttribute="top" secondItem="gtc-Yw-K7R" secondAttribute="bottom" constant="24" id="8Dh-cp-p59"/>
                                                     <constraint firstItem="Brc-cm-xfz" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="9HK-pu-I8K"/>
                                                     <constraint firstItem="eVs-Dp-NdJ" firstAttribute="top" secondItem="Oag-wL-UlA" secondAttribute="bottom" constant="24" id="9JQ-1l-U1y"/>
+                                                    <constraint firstItem="wVi-ry-vws" firstAttribute="top" secondItem="1XM-39-V2d" secondAttribute="bottom" constant="48" id="EaS-NJ-i8v"/>
+                                                    <constraint firstAttribute="trailing" secondItem="S5J-Lh-eSN" secondAttribute="trailing" constant="44" id="Hj5-S5-AzQ"/>
                                                     <constraint firstAttribute="trailing" secondItem="9b4-OG-oKq" secondAttribute="trailing" constant="54" id="K8g-Ls-WS4"/>
                                                     <constraint firstItem="V6Y-N0-jEq" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="MSy-xY-H1G"/>
                                                     <constraint firstItem="sux-Tg-843" firstAttribute="top" secondItem="mjD-p8-GoI" secondAttribute="bottom" constant="24" id="N1o-C8-aK7"/>
                                                     <constraint firstItem="1XM-39-V2d" firstAttribute="top" secondItem="IIk-WE-7ZK" secondAttribute="bottom" constant="24" id="ONC-hg-uXA"/>
+                                                    <constraint firstItem="wVi-ry-vws" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="PFg-TP-nJ1"/>
                                                     <constraint firstItem="4l7-L9-5Ot" firstAttribute="top" secondItem="mjD-p8-GoI" secondAttribute="bottom" constant="5" id="Ry6-tv-WWC"/>
-                                                    <constraint firstAttribute="height" constant="900" id="SLG-Wi-qq9"/>
-                                                    <constraint firstAttribute="trailing" secondItem="3iK-eA-iAj" secondAttribute="trailing" constant="54" id="Sh6-m8-ayF"/>
+                                                    <constraint firstAttribute="height" constant="1025" id="SLG-Wi-qq9"/>
                                                     <constraint firstItem="nlm-vg-GmP" firstAttribute="top" secondItem="sux-Tg-843" secondAttribute="bottom" constant="5" id="UWb-VD-D8A"/>
-                                                    <constraint firstItem="S5J-Lh-eSN" firstAttribute="top" secondItem="1XM-39-V2d" secondAttribute="bottom" constant="24" id="Vrb-iY-LQc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="S5J-Lh-eSN" secondAttribute="trailing" constant="44" id="Wbi-lH-Fbc"/>
                                                     <constraint firstItem="sux-Tg-843" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="Z2I-2s-CP7"/>
                                                     <constraint firstItem="mjD-p8-GoI" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="ZeZ-OG-tfH"/>
                                                     <constraint firstItem="1XM-39-V2d" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="a0H-ld-ZEZ"/>
                                                     <constraint firstAttribute="trailing" secondItem="9XI-CH-Nxs" secondAttribute="trailing" constant="54" id="aXX-NT-6BY"/>
                                                     <constraint firstAttribute="trailing" secondItem="nlm-vg-GmP" secondAttribute="trailing" constant="54" id="apt-X9-s4m"/>
                                                     <constraint firstAttribute="trailing" secondItem="Oag-wL-UlA" secondAttribute="trailing" constant="44" id="bNc-4e-CLl"/>
+                                                    <constraint firstItem="3iK-eA-iAj" firstAttribute="top" secondItem="S5J-Lh-eSN" secondAttribute="bottom" constant="5" id="bey-7n-juf"/>
                                                     <constraint firstItem="Oag-wL-UlA" firstAttribute="top" secondItem="sux-Tg-843" secondAttribute="bottom" constant="24" id="cMt-FJ-xMV"/>
                                                     <constraint firstItem="9XI-CH-Nxs" firstAttribute="top" secondItem="gtc-Yw-K7R" secondAttribute="bottom" constant="5" id="daH-Q5-gIT"/>
                                                     <constraint firstAttribute="trailing" secondItem="V6Y-N0-jEq" secondAttribute="trailing" constant="44" id="eJa-kT-wHu"/>
@@ -461,18 +483,19 @@
                                                     <constraint firstItem="Oag-wL-UlA" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="gha-Sz-PsD"/>
                                                     <constraint firstItem="gtc-Yw-K7R" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="hPB-F4-v2c"/>
                                                     <constraint firstAttribute="trailing" secondItem="mjD-p8-GoI" secondAttribute="trailing" constant="44" id="jLI-GP-L0F"/>
-                                                    <constraint firstItem="3iK-eA-iAj" firstAttribute="top" secondItem="S5J-Lh-eSN" secondAttribute="bottom" constant="5" id="ljj-7m-j8Z"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wVi-ry-vws" secondAttribute="trailing" constant="44" id="l0w-Q7-sQn"/>
                                                     <constraint firstItem="eVs-Dp-NdJ" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="pOS-16-Qeu"/>
                                                     <constraint firstAttribute="trailing" secondItem="sux-Tg-843" secondAttribute="trailing" constant="44" id="rf1-GC-1Ph"/>
                                                     <constraint firstItem="9b4-OG-oKq" firstAttribute="top" secondItem="Oag-wL-UlA" secondAttribute="bottom" constant="5" id="tIj-hg-yda"/>
                                                     <constraint firstAttribute="trailing" secondItem="gtc-Yw-K7R" secondAttribute="trailing" constant="44" id="tVj-VN-A1C"/>
                                                     <constraint firstItem="IIk-WE-7ZK" firstAttribute="leading" secondItem="gPg-nT-zCx" secondAttribute="leading" constant="44" id="to7-sG-Z6e"/>
                                                     <constraint firstAttribute="trailing" secondItem="1XM-39-V2d" secondAttribute="trailing" constant="44" id="vc4-PN-aHQ"/>
+                                                    <constraint firstItem="S5J-Lh-eSN" firstAttribute="top" secondItem="wVi-ry-vws" secondAttribute="bottom" constant="24" id="x2T-nb-0Fr"/>
                                                     <constraint firstItem="V6Y-N0-jEq" firstAttribute="top" secondItem="eVs-Dp-NdJ" secondAttribute="bottom" constant="10" id="zY1-sj-odR"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAT-c0-jLb" userLabel="Jelly Location View">
-                                                <rect key="frame" x="0.0" y="900" width="414" height="300"/>
+                                                <rect key="frame" x="0.0" y="1025" width="414" height="300"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jelly Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zuB-pU-nAM">
                                                         <rect key="frame" x="40" y="24" width="195" height="20"/>
@@ -539,15 +562,18 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0hw-nV-5yk" userLabel="Creator Display Name View">
-                                                <rect key="frame" x="0.0" y="1200" width="414" height="150"/>
+                                                <rect key="frame" x="0.0" y="1325" width="414" height="150"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelly Creator Display Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEt-Uj-zaa" customClass="TextField" customModule="MapView" customModuleProvider="target">
+                                                    <textField opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Jelly Creator Display Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wEt-Uj-zaa" customClass="TextField" customModule="MapView" customModuleProvider="target">
                                                         <rect key="frame" x="44" y="68" width="326" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="2ay-3X-snJ"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="creatorNameDidChange:" destination="2qv-tY-Zep" eventType="editingChanged" id="vGK-wr-0s9"/>
+                                                        </connections>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Jelly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Km1-Pu-WLP">
                                                         <rect key="frame" x="44" y="24" width="109" height="20"/>
@@ -581,7 +607,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqj-b3-hTh" userLabel="Create Jelly Button View">
-                                                <rect key="frame" x="0.0" y="1350" width="414" height="200"/>
+                                                <rect key="frame" x="0.0" y="1475" width="414" height="200"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XC3-rX-ZfJ">
                                                         <rect key="frame" x="44" y="75" width="326" height="50"/>
@@ -650,12 +676,18 @@
                     <connections>
                         <outlet property="EndTime" destination="1XM-39-V2d" id="Jd0-UL-iql"/>
                         <outlet property="ImageCollectionView" destination="S5J-Lh-eSN" id="uvl-eV-ip2"/>
+                        <outlet property="ImagePickerButton" destination="wVi-ry-vws" id="Kz3-Tr-1uX"/>
                         <outlet property="JellyCreatorDisplayName" destination="wEt-Uj-zaa" id="hba-kx-YbH"/>
+                        <outlet property="JellyCreatorNameWordCount" destination="4TA-ga-lnI" id="P73-tn-oSK"/>
                         <outlet property="JellyDescription" destination="sux-Tg-843" id="0jE-Ji-Hsg"/>
+                        <outlet property="JellyDescriptionWordCount" destination="nlm-vg-GmP" id="Ga8-MP-ejk"/>
                         <outlet property="JellyEmoji" destination="gtc-Yw-K7R" id="SL2-7q-Th4"/>
+                        <outlet property="JellyEmojiWordCount" destination="9XI-CH-Nxs" id="o7Z-lu-gdw"/>
                         <outlet property="JellyLocationButton" destination="u9R-21-qCY" id="o1H-yZ-U4I"/>
                         <outlet property="JellyName" destination="mjD-p8-GoI" id="fam-c0-Fgm"/>
+                        <outlet property="JellyNameWordCount" destination="4l7-L9-5Ot" id="cKO-7L-cAi"/>
                         <outlet property="JellyTags" destination="Oag-wL-UlA" id="BWf-Y4-Yb3"/>
+                        <outlet property="JellyTagsWordCount" destination="9b4-OG-oKq" id="sb7-fh-YMp"/>
                         <outlet property="MapView" destination="b5d-dv-QyX" id="M6p-YB-eX8"/>
                         <outlet property="PinImageView" destination="K10-Gp-ojX" id="EJG-e4-fyA"/>
                         <outlet property="StartTime" destination="V6Y-N0-jEq" id="xrh-yM-uKA"/>
@@ -666,7 +698,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0z-PP-s3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Hci-Yq-dTs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1507" y="599"/>
+            <point key="canvasLocation" x="1505.7971014492755" y="598.66071428571422"/>
         </scene>
         <!--Search Location View Controller-->
         <scene sceneID="MUd-vx-Txc">

@@ -21,6 +21,7 @@
 		EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */; };
 		EA85C43B2365256400529973 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA85C43A2365256400529973 /* SlideInPresentationManager.swift */; };
 		EA85C4432366C0C500529973 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA85C4422366C0C500529973 /* SlideInPresentationController.swift */; };
+		EA89B1A2236E9EBC00125472 /* String, Character+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */; };
 		EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7823452CD30029B881 /* AppDelegate.swift */; };
 		EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7A23452CD30029B881 /* ViewController.swift */; };
 		EACA8E8023452CD60029B881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACA8E7F23452CD60029B881 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJellies.swift; sourceTree = "<group>"; };
 		EA85C43A2365256400529973 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
 		EA85C4422366C0C500529973 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
+		EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String, Character+Extensions.swift"; sourceTree = "<group>"; };
 		EACA8E7523452CD30029B881 /* MapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACA8E7823452CD30029B881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EACA8E7A23452CD30029B881 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			children = (
 				EA617854234E417400709A42 /* TagCell.swift */,
 				EA4C1E1A2364E58500BE4184 /* TextField.swift */,
+				EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */,
 				EA40A8BD2367703A00A48E12 /* Button.swift */,
 				EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */,
 				EA61785A234E811000709A42 /* ProfileCell.swift */,
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA89B1A2236E9EBC00125472 /* String, Character+Extensions.swift in Sources */,
 				EA85C43B2365256400529973 /* SlideInPresentationManager.swift in Sources */,
 				EA617855234E417400709A42 /* TagCell.swift in Sources */,
 				EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */,
