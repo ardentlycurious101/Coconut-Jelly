@@ -14,10 +14,14 @@ import WSTagsField
 class AddJellyViewController: UIViewController {
     
     // MARK:- Variables
+    
     let regionInMeters: Double = 1000
+    var locationAdded: Bool = false
 
     @IBOutlet weak var scrollView: UIScrollView!
+    
     // MARK: Jelly Description View
+    
     @IBOutlet weak var JellyEmoji: TextField!
     @IBOutlet weak var JellyName: TextField!
     @IBOutlet weak var JellyDescription: UITextView!
@@ -31,47 +35,72 @@ class AddJellyViewController: UIViewController {
     // MARK: Jelly Location View
     
     @IBOutlet weak var JellyLocationButton: Button!
+    @IBAction func addLocationButtonTapped(_ sender: Any) {
+        locationAdded = true
+    }
     @IBOutlet weak var MapView: MKMapView!
     @IBOutlet weak var PinImageView: UIImageView!
     lazy var slideInTransitioningDelegate = SlideInPresentationManager()
     
     // MARK: Creator Display Name View
+    
     @IBOutlet weak var JellyCreatorDisplayName: TextField!
     
     // MARK: Create Jelly Button View
+    
     @IBOutlet weak var createJellyButton: UIButton!
     @IBAction func CreateJellyTapped(_ sender: Any) {
         
-        // check if all fields are filled
-        guard let emoji = JellyEmoji.text, emoji.count == 1 else {
+    // check if all fields are filled
+        guard let emoji = JellyEmoji.text,
+                emoji.count == 1,
+                isThisAnEmoji(emoji) else {
             remindUserToFill("emoji")
             return
         }
-        guard let name = JellyName.text, !name.isEmpty else {
+        guard let name = JellyName.text,
+                !name.isEmpty,
+                name.count < 41  else {
             remindUserToFill("name")
             return
         }
-        guard let description = JellyDescription.text, !description.isEmpty else {
+        guard let description = JellyDescription.text,
+                !description.isEmpty,
+                description.count < 141 else {
             remindUserToFill("description")
             return
         }
-        
+
         // TODO: Create guard statement for tags
-        
+        guard JellyTags.tags.map({$0.text}).count > 0,
+                JellyTags.tags.map({$0.text}).count < 11 else {
+            alertUserTagError()
+            return
+        }
+
         // TODO: Create guard statement for end time >start time
-        
-        // TODO: Create guard statement for address
-        
-        // TODO: Create guard statement for coordinates from mapview
-        
-        guard let creatorDisplayName = JellyCreatorDisplayName.text, !creatorDisplayName.isEmpty else {
-            remindUserToFill("display name")
+        guard StartTime.date < EndTime.date,
+                StartTime.date > Date() else {
+            print("alertUserInvalidTime() function")
+            alertUserInvalidTime()
             return
         }
         
-//         Reference Firestore
-//         upon successfull networking call: insert new entry in cloud database
-//         else: print error
+        guard locationAdded == true else {
+            remindUserToFill("location")
+            return
+        }
+        
+        guard let creatorDisplayName = JellyCreatorDisplayName.text,
+                !creatorDisplayName.isEmpty,
+                creatorDisplayName.count < 41 else {
+            remindUserToFill("creator display name")
+            return
+        }
+        
+        // MARK:- Reference Firestore
+        // upon successfull networking call: insert new entry in cloud database
+        // else: print error
         
         let _ = Firestore.firestore().collection("Jellies").addDocument(data: ["emoji" : JellyEmoji.text!, "name" : JellyName.text!, "description": JellyDescription.text!, "tags": JellyTags.tags.map({$0.text}), "startTime" : StartTime.date, "endTime" : EndTime.date, "creatorName": JellyCreatorDisplayName.text!]) { (error) in
             
@@ -179,7 +208,21 @@ class AddJellyViewController: UIViewController {
     
     func remindUserToFill(_ textFieldRequiredInput: String) {
         let okay = UIAlertAction.init(title: "OK", style: .default)
-        let alert = UIAlertController.init(title: "Missing Jelly Information", message: "Please enter Jelly \(textFieldRequiredInput).", preferredStyle: .alert)
+        let alert = UIAlertController.init(title: "Invalid/Missing Jelly Information", message: "Please enter Jelly \(textFieldRequiredInput) with valid length.", preferredStyle: .alert)
+        alert.addAction(okay)
+        self.present(alert, animated: true) {}
+    }
+    
+    func alertUserInvalidTime() {
+        let okay = UIAlertAction.init(title: "OK", style: .default)
+        let alert = UIAlertController.init(title: "Invalid time information", message: "Please enter valid time. End time must be later than start time.", preferredStyle: .alert)
+        alert.addAction(okay)
+        self.present(alert, animated: true) {}
+    }
+    
+    func alertUserTagError() {
+        let okay = UIAlertAction.init(title: "OK", style: .default)
+        let alert = UIAlertController.init(title: "Invalid number of tags", message: "Please enter valid number of tags, i.e. 1-10 tags.", preferredStyle: .alert)
         alert.addAction(okay)
         self.present(alert, animated: true) {}
     }
@@ -194,6 +237,17 @@ class AddJellyViewController: UIViewController {
                 targetController?.centerDelegate = self
             }
         }
+    }
+    
+    func isThisAnEmoji(_ string: String) -> Bool {
+        guard string.count == 1 else { return false }
+        
+        for scalar in string.unicodeScalars {
+            if scalar.properties.isEmoji {
+                return true
+            }
+        }
+        return false
     }
 
 }
