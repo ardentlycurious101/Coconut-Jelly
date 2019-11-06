@@ -60,7 +60,9 @@ class SearchLocationViewController: UIViewController {
         
         // Configure the UISearchController appearance
         resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
+//        resultSearchController?.dimsBackgroundDuringPresentation = true
+        resultSearchController?.obscuresBackgroundDuringPresentation = true
+
         definesPresentationContext = true
     }
     
