@@ -26,7 +26,6 @@ class SearchTagsViewController: UIViewController {
     //MARK:- Helper functions
     
     func configureUI() {
-        TitleSearchTagsVC.textColor = UIColor(patternImage: UIImage(named: "gradient")!)
         self.view.backgroundColor = .black
         TopView.backgroundColor = .black
         self.tableView.backgroundColor = .black

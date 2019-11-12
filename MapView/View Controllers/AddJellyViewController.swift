@@ -56,6 +56,7 @@ class AddJellyViewController: UIViewController {
     @IBAction func addLocationButtonTapped(_ sender: Any) {
         locationAdded = true
     }
+    @IBOutlet weak var MapAndImageView: UIView!
     @IBOutlet weak var MapView: MKMapView!
     
     @IBOutlet weak var PinImageView: UIImageView!
@@ -378,14 +379,13 @@ extension AddJellyViewController {
     // MARK: Configure UI for collection view, map view, text field, buttons
     
     func configureUI() {
-        TitleAddJellyVC.textColor = UIColor(patternImage: UIImage(named: "gradient")!)
         createJellyButton.layer.cornerRadius = 25
         ContentView.backgroundColor = GlobalBackgroundColor
         
         configureTextFieldUI()
         configureDatePickerUI()
         configureButtonUI()
-        configureMapView()
+        configureMapAndImageView()
         configureImageCollectionView()
         configureTagField()
         configureJellyDescription()
@@ -397,8 +397,9 @@ extension AddJellyViewController {
         layout.itemSize = CGSize(width: ImageCollectionView.frame.height, height: ImageCollectionView.frame.height)
     }
     
-    func configureMapView() {
-        MapView.layer.cornerRadius = MapView.frame.height/10
+    func configureMapAndImageView() {
+        MapAndImageView.layer.cornerRadius = MapView.frame.height/10
+        MapAndImageView.clipsToBounds = true
     }
     
     func configureTextFieldUI() {
