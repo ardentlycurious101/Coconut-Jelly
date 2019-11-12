@@ -13,11 +13,12 @@ import WSTagsField
 
 class AddJellyViewController: UIViewController {
     
+    var testData = ["brian", "dionigi", "raymond", "boyfriend", "lover", "best friend"]
+    
     // MARK:- Variables
     
     let regionInMeters: Double = 1000
     var locationAdded: Bool = false
-    @IBOutlet weak var scrollView: UIScrollView!
     var emojiWC = 1
     var nameWC = 40
     var descriptionWC = 140
@@ -25,9 +26,11 @@ class AddJellyViewController: UIViewController {
     var imageWC = 10
     var creatorNameWC = 40
     
-    
+    @IBOutlet weak var scrollView: UIScrollView!
+
     // MARK: Jelly Description View
     
+    @IBOutlet weak var TitleAddJellyVC: UILabel!
     @IBOutlet weak var JellyEmoji: TextField!
     @IBOutlet weak var JellyName: TextField!
     @IBOutlet weak var JellyDescription: UITextView!
@@ -37,16 +40,15 @@ class AddJellyViewController: UIViewController {
     @IBOutlet weak var JellyNameWordCount: UILabel!
     @IBOutlet weak var JellyDescriptionWordCount: UILabel!
     @IBOutlet weak var JellyTagsWordCount: UILabel!
+    @IBOutlet weak var JellyCollectionViewWordCount: UILabel!
     @IBOutlet weak var JellyCreatorNameWordCount: UILabel!
     
     @IBOutlet weak var StartTime: UIDatePicker!
     @IBOutlet weak var EndTime: UIDatePicker!
     
-    @IBOutlet weak var ImagePickerButton: Button!
-    @IBAction func ImagePickerButtonTapped(_ sender: Any) {
-    }
+    let imagePicker = UIImagePickerController()
     @IBOutlet weak var ImageCollectionView: UICollectionView!
-    
+    var images : [UIImage] = [UIImage(named: "pin")!]
     
     // MARK: Jelly Location View
     
@@ -55,7 +57,9 @@ class AddJellyViewController: UIViewController {
         locationAdded = true
     }
     @IBOutlet weak var MapView: MKMapView!
+    
     @IBOutlet weak var PinImageView: UIImageView!
+    @IBOutlet weak var ContentView: UIView!
     lazy var slideInTransitioningDelegate = SlideInPresentationManager()
     
     // MARK: Creator Display Name View
@@ -65,7 +69,6 @@ class AddJellyViewController: UIViewController {
     // MARK: Create Jelly Button View
     
     @IBOutlet weak var createJellyButton: UIButton!
-    
     @IBAction func CreateJellyTapped(_ sender: Any) {
         
     // check if all fields are filled
@@ -103,6 +106,11 @@ class AddJellyViewController: UIViewController {
             return
         }
         
+        guard images.count < 11 else {
+            alertUserImagesError()
+            return
+        }
+        
         guard locationAdded == true else {
             remindUserToFill("location")
             return
@@ -114,6 +122,16 @@ class AddJellyViewController: UIViewController {
             remindUserToFill("creator display name")
             return
         }
+        
+        // MARK:- Reference Cloud Storage
+
+        let storageReference = Storage.storage().reference()
+        let imagesRef = storageReference.child("images")
+        
+        for index in 1..<images.count {
+            
+        }
+        
         
         // MARK:- Reference Firestore
         // upon successfull networking call: insert new entry in cloud database
@@ -146,51 +164,12 @@ class AddJellyViewController: UIViewController {
                 self.clearAllFields()
                 self.resetWordCount()
                 self.MapView.reloadInputViews()
+                self.images = []
             }
         }
-        
-    }
-    
-    // MARK: text field did change
-    @IBAction func emojiDidChange(_ sender: Any) {
-        if let textField = sender as? UITextField {
-            emojiWC = 1 - textField.text!.count
-            JellyEmojiWordCount.text = String(emojiWC)
-        }
 
-        if emojiWC < 0 {
-            JellyEmojiWordCount.textColor = .red
-        } else {
-            JellyEmojiWordCount.textColor = .darkGray
-        }
     }
-    
-    @IBAction func nameDidChange(_ sender: Any) {
-        if let textField = sender as? UITextField {
-            nameWC = 40 - textField.text!.count
-            JellyNameWordCount.text = String(nameWC)
-        }
-        
-        if nameWC < 0 {
-            JellyNameWordCount.textColor = .red
-        } else {
-            JellyNameWordCount.textColor = .darkGray
-        }
-    }
-    
-    @IBAction func creatorNameDidChange(_ sender: Any) {
-        if let textField = sender as? UITextField {
-            creatorNameWC = 40 - textField.text!.count
-            JellyCreatorNameWordCount.text = String(creatorNameWC)
-        }
-        
-        if creatorNameWC < 0 {
-            JellyCreatorNameWordCount.textColor = .red
-        } else {
-            JellyCreatorNameWordCount.textColor = .darkGray
-        }
-    }
-    
+
     // MARK:- View Did Load
     
     override func viewDidLoad() {
@@ -200,170 +179,24 @@ class AddJellyViewController: UIViewController {
         scrollView.keyboardDismissMode = .interactive
         configureTextFieldDelegation()
     }
-    
-    // MARK:- Helper Functions
 
-    func configureUI() {
-        createJellyButton.layer.cornerRadius = 25
-        configureTextFieldUI()
-        configureButtonUI()
-        configureMapView()
-        configureImageCollectionView()
-        configureTagField()
-        configureJellyDescription()
-    }
-    
-    func configureDelegation() {
-        JellyDescription.delegate = self
-        JellyTags.delegate = self
-    }
-    
-    func configureImageCollectionView() {
-        ImageCollectionView.layer.cornerRadius = ImageCollectionView.frame.height/10
-    }
-    
-    func configureMapView() {
-        MapView.layer.cornerRadius = MapView.frame.height/10
-    }
-    
-    func configureTextFieldUI() {
-        JellyEmoji.configureUI()
-        JellyName.configureUI()
-        JellyCreatorDisplayName.configureUI()
-    }
-    
-    func configureButtonUI() {
-        JellyLocationButton.configureUI()
-        ImagePickerButton.configureUI()
-    }
-    
-    func clearAllFields() {
-        JellyEmoji.text = ""
-        JellyName.text = ""
-        configureJellyDescription()
-        JellyTags.removeTags()
-        
-        StartTime.date = Date()
-        EndTime.date = Date()
-        
-        JellyCreatorDisplayName.text = ""
-    }
-    
-    func resetWordCount() {
-        emojiWC = 1
-        nameWC = 40
-        descriptionWC = 140
-        tagWC = 10
-        imageWC = 10
-        creatorNameWC = 40
-        locationAdded = false
-        
-        print("this is locationAdded: \(locationAdded)")
-
-        
-        JellyEmojiWordCount.text = String(emojiWC)
-        JellyNameWordCount.text = String(nameWC)
-        JellyDescriptionWordCount.text = String(descriptionWC)
-        JellyTagsWordCount.text = String(tagWC)
-        JellyCreatorNameWordCount.text = String(creatorNameWC)
-    }
-    
-    func configureTagField() {
-        
-        JellyTags.selectedColor = .red
-        JellyTags.layoutMargins = UIEdgeInsets(top: 2, left: 5, bottom: 2, right: 5)
-        JellyTags.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        JellyTags.spaceBetweenLines = 12
-        JellyTags.spaceBetweenTags = 5
-        JellyTags.placeholder = "Add tags, then press return"
-        JellyTags.font = .systemFont(ofSize: 14.0, weight: .regular)
-
-        JellyTags.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        JellyTags.fieldTextColor = .black
-        JellyTags.textColor = .white
-        JellyTags.tintColor = UIColor(red: 104, green: 203, blue: 240)
-        JellyTags.selectedTextColor = .black
-        JellyTags.selectedColor = UIColor(red: 228, green: 71, blue: 60)
-        JellyTags.delimiter = " "
-        JellyTags.isDelimiterVisible = false
-        JellyTags.layer.cornerRadius = JellyTags.frame.height/10
-        JellyTags.clipsToBounds = true
-        
-        JellyTags.onDidAddTag = { field, tag in
-            self.changeTagWordCountLabel()
-        }
-        
-        JellyTags.onDidRemoveTag = { field, tag in
-            self.changeTagWordCountLabel()
-        }
-    }
-    
-    func changeTagWordCountLabel() {
-        tagWC = 10 - JellyTags.tags.map({$0.text}).count
-        JellyTagsWordCount.text = String(tagWC)
-        
-        if tagWC < 0 {
-            JellyTagsWordCount.textColor = .red
-        } else {
-            JellyTagsWordCount.textColor = .darkGray
-        }
-    }
-    
-    func remindUserToFill(_ textFieldRequiredInput: String) {
-        let okay = UIAlertAction.init(title: "OK", style: .default)
-        let alert = UIAlertController.init(title: "Invalid/Missing Jelly Information", message: "Please enter Jelly \(textFieldRequiredInput) with valid length.", preferredStyle: .alert)
-        alert.addAction(okay)
-        self.present(alert, animated: true) {}
-    }
-    
-    func alertUserInvalidTime() {
-        let okay = UIAlertAction.init(title: "OK", style: .default)
-        let alert = UIAlertController.init(title: "Invalid time information", message: "Please enter valid time. End time must be later than start time.", preferredStyle: .alert)
-        alert.addAction(okay)
-        self.present(alert, animated: true) {}
-    }
-    
-    func alertUserTagError() {
-        let okay = UIAlertAction.init(title: "OK", style: .default)
-        let alert = UIAlertController.init(title: "Invalid number of tags", message: "Please enter valid number of tags, i.e. 1-10 tags.", preferredStyle: .alert)
-        alert.addAction(okay)
-        self.present(alert, animated: true) {}
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let controller = segue.destination as? UINavigationController {
-            if segue.identifier == "SearchLocationSegue" {
-                slideInTransitioningDelegate.direction = .bottom
-                controller.transitioningDelegate = slideInTransitioningDelegate
-                controller.modalPresentationStyle = .custom
-                let targetController = controller.topViewController as? SearchLocationViewController
-                targetController?.centerDelegate = self
-            }
-        }
-    }
 }
 
-// MARK:- Extensions
+// MARK:- Delegate Methods Extensions
 
 extension AddJellyViewController: UITextViewDelegate {
     
     func configureJellyDescription() {
-        JellyDescription.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
-        JellyDescription.text = "Jelly Description"
-        JellyDescription.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        JellyDescription.font = .systemFont(ofSize: 14.0, weight: .regular)
-        JellyDescription.textColor = UIColor.lightGray.withAlphaComponent(0.7)
-        JellyDescription.returnKeyType = .done
-        JellyDescription.layer.cornerRadius = JellyDescription.frame.height/10
+        configureJellyDescriptionUI()
         JellyDescription.delegate = self
     }
-    
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         
         if let text = textView.text {
             if text == "Jelly Description" {
                 JellyDescription.text = ""
-                JellyDescription.textColor = .black
+                JellyDescription.textColor = .white
             }
         }
     }
@@ -375,7 +208,7 @@ extension AddJellyViewController: UITextViewDelegate {
         if descriptionWC < 0 {
             JellyDescriptionWordCount.textColor = .red
         } else {
-            JellyDescriptionWordCount.textColor = .darkGray
+            JellyDescriptionWordCount.textColor = .lightGray
         }
     }
     
@@ -399,7 +232,118 @@ extension AddJellyViewController: UITextFieldDelegate {
         JellyName.delegate = self
         JellyCreatorDisplayName.delegate = self
     }
- 
+    
+    // MARK: Text field did change
+    
+    @IBAction func emojiDidChange(_ sender: Any) {
+           if let textField = sender as? UITextField {
+               emojiWC = 1 - textField.text!.count
+               JellyEmojiWordCount.text = String(emojiWC)
+           }
+
+           if emojiWC < 0 {
+               JellyEmojiWordCount.textColor = .red
+           } else {
+               JellyEmojiWordCount.textColor = .white
+           }
+       }
+       
+       @IBAction func nameDidChange(_ sender: Any) {
+           if let textField = sender as? UITextField {
+               nameWC = 40 - textField.text!.count
+               JellyNameWordCount.text = String(nameWC)
+           }
+           
+           if nameWC < 0 {
+               JellyNameWordCount.textColor = .red
+           } else {
+               JellyNameWordCount.textColor = .white
+           }
+       }
+       
+       @IBAction func creatorNameDidChange(_ sender: Any) {
+           if let textField = sender as? UITextField {
+               creatorNameWC = 40 - textField.text!.count
+               JellyCreatorNameWordCount.text = String(creatorNameWC)
+           }
+           
+           if creatorNameWC < 0 {
+               JellyCreatorNameWordCount.textColor = .red
+           } else {
+               JellyCreatorNameWordCount.textColor = .white
+           }
+       }
+
+}
+
+extension AddJellyViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        
+        if images.count == 1 {
+            images.append(image)
+        } else if images.count > 1 {
+            images.insert(image, at: 1)
+        }
+        
+        // TODO: update collection view
+        updateCollectionView()
+    }
+}
+
+extension AddJellyViewController: UINavigationControllerDelegate { }
+
+extension AddJellyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
+        
+        if indexPath.row == 0 {
+            cell.configureDefaultImage()
+        } else {
+            cell.configureUI()
+            cell.handleSelectedImage(for: images[indexPath.row])
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let text = testData[indexPath.row]
+        print(text)
+        
+        if indexPath.row == 0 {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            imagePicker.mediaTypes = ["public.image"]
+            
+            self.present(imagePicker, animated: true)
+        } else if indexPath.row > 0 {
+            let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
+            
+            cell.isDeleting = !cell.isDeleting
+            
+            if cell.isDeleting {
+                cell.DeleteIcon.isUserInteractionEnabled = true
+                let tap = DeleteTapGestureRecognizer(target: self, action: #selector(self.deleteIconTapped))
+                tap.indexPath = indexPath
+                tap.numberOfTapsRequired = 1
+                cell.DeleteIcon.addGestureRecognizer(tap)
+            } else {
+                cell.DeleteIcon.isUserInteractionEnabled = false
+            }
+        }
+    }
+    
 }
 
 extension AddJellyViewController: MapViewCenter {
@@ -413,10 +357,225 @@ extension AddJellyViewController: MapViewCenter {
     
 }
 
-extension AddJellyViewController: UIImagePickerControllerDelegate {
+// MARK:- Helper Functions
+
+extension AddJellyViewController {
     
+    // MARK: Tap gesture recognizer
+    
+    @objc func deleteIconTapped(sender: DeleteTapGestureRecognizer) {
+        let indexPath = sender.indexPath!
+        images.remove(at: indexPath.row)
+        ImageCollectionView.deleteItems(at: [indexPath])
+        updateCollectionViewImageCount()
+    }
+    
+    func configureDelegation() {
+        JellyDescription.delegate = self
+        JellyTags.delegate = self
+    }
+    
+    // MARK: Configure UI for collection view, map view, text field, buttons
+    
+    func configureUI() {
+        TitleAddJellyVC.textColor = UIColor(patternImage: UIImage(named: "gradient")!)
+        createJellyButton.layer.cornerRadius = 25
+        ContentView.backgroundColor = GlobalBackgroundColor
+        
+        configureTextFieldUI()
+        configureDatePickerUI()
+        configureButtonUI()
+        configureMapView()
+        configureImageCollectionView()
+        configureTagField()
+        configureJellyDescription()
+    }
+
+    func configureImageCollectionView() {
+        ImageCollectionView.layer.cornerRadius = ImageCollectionView.frame.height/10
+        let layout = ImageCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: ImageCollectionView.frame.height, height: ImageCollectionView.frame.height)
+    }
+    
+    func configureMapView() {
+        MapView.layer.cornerRadius = MapView.frame.height/10
+    }
+    
+    func configureTextFieldUI() {
+        JellyEmoji.configureUI()
+        JellyName.configureUI()
+        JellyCreatorDisplayName.configureUI()
+    }
+    
+    func configureButtonUI() {
+        JellyLocationButton.configureUI()
+    }
+    
+    func configureJellyDescriptionUI() {
+        JellyDescription.contentInset = UIEdgeInsets(top: 0, left: 7, bottom: 0, right: 7)
+        JellyDescription.text = "Jelly Description"
+        JellyDescription.backgroundColor = GlobalBackgroundColor
+        JellyDescription.font = UIFont(name: "Futura-Medium", size: 17.0)
+        JellyDescription.textColor = UIColor.lightGray.withAlphaComponent(0.7)
+        JellyDescription.returnKeyType = .done
+        JellyDescription.layer.cornerRadius = JellyDescription.frame.height/10
+        JellyDescription.layer.borderWidth = 1.0
+        JellyDescription.layer.borderColor = UIColor(patternImage: UIImage(named: "gradient")!).cgColor
+    }
+    
+    func configureDatePickerUI() {
+        StartTime.backgroundColor = GlobalBackgroundColor
+        EndTime.backgroundColor = GlobalBackgroundColor
+        
+        StartTime.setValue(false, forKey: "highlightsToday")
+        EndTime.setValue(false, forKey: "highlightsToday")
+        
+        StartTime.setValue(UIColor.white, forKey: "textColor")
+        EndTime.setValue(UIColor.white, forKey: "textColor")
+    }
+    
+    // MARK: Collection View for images
+    
+    func updateCollectionView() {
+        updateCollectionViewImageCount()
+        
+        // Update collection view's cell
+        ImageCollectionView.reloadData()
+    }
+    
+    func updateCollectionViewImageCount() {
+        imageWC = 10 - (images.count - 1)
+
+        JellyCollectionViewWordCount.text = String(imageWC)
+        if imageWC < 0 {
+            JellyCollectionViewWordCount.textColor = .red
+        } else {
+            JellyCollectionViewWordCount.textColor = .lightGray
+        }
+    }
+    
+    // MARK: Reset VC after Jelly created
+    
+    func clearAllFields() {
+        JellyEmoji.text = ""
+        JellyName.text = ""
+        configureJellyDescription()
+        JellyTags.removeTags()
+        
+        StartTime.date = Date()
+        EndTime.date = Date()
+        
+        JellyCreatorDisplayName.text = ""
+    }
+    
+    func resetWordCount() {
+        emojiWC = 1
+        nameWC = 40
+        descriptionWC = 140
+        tagWC = 10
+        imageWC = 10
+        creatorNameWC = 40
+        locationAdded = false
+        
+        JellyEmojiWordCount.text = String(emojiWC)
+        JellyNameWordCount.text = String(nameWC)
+        JellyDescriptionWordCount.text = String(descriptionWC)
+        JellyTagsWordCount.text = String(tagWC)
+        JellyCreatorNameWordCount.text = String(creatorNameWC)
+    }
+    
+    // MARK: Configure UI
+    
+    func configureTagField() {
+        
+        JellyTags.selectedColor = .red
+        JellyTags.layoutMargins = UIEdgeInsets(top: 2, left: 5, bottom: 2, right: 5)
+        JellyTags.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        JellyTags.spaceBetweenLines = 12
+        JellyTags.spaceBetweenTags = 5
+        JellyTags.placeholder = "Add tags, then press return"
+        JellyTags.placeholderColor = UIColor.lightGray.withAlphaComponent(0.7)
+        JellyTags.font = UIFont(name: "Futura-Medium", size: 17.0)
+
+//        JellyTags.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        JellyTags.backgroundColor = GlobalBackgroundColor
+        JellyTags.fieldTextColor = .white
+        JellyTags.textColor = .black
+        JellyTags.tintColor = UIColor(patternImage: UIImage(named: "gradient")!)
+        JellyTags.selectedTextColor = .black
+        JellyTags.selectedColor = UIColor(red: 228, green: 71, blue: 60)
+        JellyTags.delimiter = " "
+        JellyTags.isDelimiterVisible = false
+        JellyTags.layer.cornerRadius = JellyTags.frame.height/10
+        JellyTags.layer.borderWidth = 1.0
+        JellyTags.layer.borderColor = UIColor(patternImage: UIImage(named: "gradient")!).cgColor
+        JellyTags.clipsToBounds = true
+        
+        JellyTags.onDidAddTag = { field, tag in
+            self.changeTagWordCountLabel()
+        }
+        
+        JellyTags.onDidRemoveTag = { field, tag in
+            self.changeTagWordCountLabel()
+        }
+    }
+    
+    func changeTagWordCountLabel() {
+        tagWC = 10 - JellyTags.tags.map({$0.text}).count
+        JellyTagsWordCount.text = String(tagWC)
+        
+        if tagWC < 0 {
+            JellyTagsWordCount.textColor = .red
+        } else {
+            JellyTagsWordCount.textColor = .lightGray
+        }
+    }
+    
+    // MARK: Alert User
+    
+    func remindUserToFill(_ textFieldRequiredInput: String) {
+        let okay = UIAlertAction.init(title: "OK", style: .default)
+        let alert = UIAlertController.init(title: "Invalid/Missing Jelly Information", message: "Please enter Jelly \(textFieldRequiredInput) with valid length.", preferredStyle: .alert)
+        alert.addAction(okay)
+        self.present(alert, animated: true) {}
+    }
+    
+    func alertUserInvalidTime() {
+        let okay = UIAlertAction.init(title: "OK", style: .default)
+        let alert = UIAlertController.init(title: "Invalid time information", message: "Please enter valid time. End time must be later than start time.", preferredStyle: .alert)
+        alert.addAction(okay)
+        self.present(alert, animated: true) {}
+    }
+    
+    func alertUserTagError() {
+        let okay = UIAlertAction.init(title: "OK", style: .default)
+        let alert = UIAlertController.init(title: "Invalid number of tags", message: "Please enter valid number of tags, i.e. 1-10 tags.", preferredStyle: .alert)
+        alert.addAction(okay)
+        self.present(alert, animated: true) {}
+    }
+    
+    func alertUserImagesError() {
+        let OK = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let alert = UIAlertController(title: "Images Error", message: "Please select not more than 10 images.", preferredStyle: .alert)
+        alert.addAction(OK)
+        self.present(alert, animated: true)
+    }
+    
+    // MARK: Segue Methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? UINavigationController {
+            if segue.identifier == "SearchLocationSegue" {
+                slideInTransitioningDelegate.direction = .bottom
+                controller.transitioningDelegate = slideInTransitioningDelegate
+                controller.modalPresentationStyle = .custom
+                let targetController = controller.topViewController as? SearchLocationViewController
+                targetController?.centerDelegate = self
+            }
+        }
+    }
 }
 
-
-
-
+class DeleteTapGestureRecognizer: UITapGestureRecognizer {
+    var indexPath: IndexPath?
+}

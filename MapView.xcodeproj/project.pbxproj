@@ -16,6 +16,8 @@
 		EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */; };
 		EA4C1E1B2364E58500BE4184 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C1E1A2364E58500BE4184 /* TextField.swift */; };
 		EA4C1E2123651B9100BE4184 /* SearchLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4C1E2023651B9100BE4184 /* SearchLocationViewController.swift */; };
+		EA4EFE112377BE33003B5D9A /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4EFE102377BE33003B5D9A /* CollectionViewCell.swift */; };
+		EA4EFE1B237A3122003B5D9A /* GlobalColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4EFE1A237A3122003B5D9A /* GlobalColors.swift */; };
 		EA617855234E417400709A42 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA617854234E417400709A42 /* TagCell.swift */; };
 		EA61785B234E811000709A42 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61785A234E811000709A42 /* ProfileCell.swift */; };
 		EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */; };
@@ -23,7 +25,7 @@
 		EA85C4432366C0C500529973 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA85C4422366C0C500529973 /* SlideInPresentationController.swift */; };
 		EA89B1A2236E9EBC00125472 /* String, Character+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */; };
 		EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7823452CD30029B881 /* AppDelegate.swift */; };
-		EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7A23452CD30029B881 /* ViewController.swift */; };
+		EACA8E7B23452CD30029B881 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E7A23452CD30029B881 /* MapViewController.swift */; };
 		EACA8E8023452CD60029B881 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACA8E7F23452CD60029B881 /* Assets.xcassets */; };
 		EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E8C234564980029B881 /* TestingConstants.swift */; };
 		EACA8E9123456A210029B881 /* Jelly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9023456A210029B881 /* Jelly.swift */; };
@@ -50,7 +52,9 @@
 		EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
 		EA4C1E1A2364E58500BE4184 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		EA4C1E2023651B9100BE4184 /* SearchLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchLocationViewController.swift; sourceTree = "<group>"; };
-		EA617854234E417400709A42 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagCell.swift; path = "../View Controllers/TagCell.swift"; sourceTree = "<group>"; };
+		EA4EFE102377BE33003B5D9A /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		EA4EFE1A237A3122003B5D9A /* GlobalColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColors.swift; sourceTree = "<group>"; };
+		EA617854234E417400709A42 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		EA61785A234E811000709A42 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		EA7798AB235EED2F00DBB836 /* WSTagsField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WSTagsField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJellies.swift; sourceTree = "<group>"; };
@@ -59,7 +63,7 @@
 		EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String, Character+Extensions.swift"; sourceTree = "<group>"; };
 		EACA8E7523452CD30029B881 /* MapView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EACA8E7823452CD30029B881 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EACA8E7A23452CD30029B881 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EACA8E7A23452CD30029B881 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EACA8E7F23452CD60029B881 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EACA8E8423452CD60029B881 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EACA8E8C234564980029B881 /* TestingConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingConstants.swift; sourceTree = "<group>"; };
@@ -116,6 +120,60 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
+		EA4EFE12237A2AE4003B5D9A /* Add Jelly VC */ = {
+			isa = PBXGroup;
+			children = (
+				EA617854234E417400709A42 /* TagCell.swift */,
+				EA4C1E1A2364E58500BE4184 /* TextField.swift */,
+				EA4EFE102377BE33003B5D9A /* CollectionViewCell.swift */,
+				EA40A8BD2367703A00A48E12 /* Button.swift */,
+				EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */,
+			);
+			path = "Add Jelly VC";
+			sourceTree = "<group>";
+		};
+		EA4EFE13237A2EA4003B5D9A /* User Profile VC */ = {
+			isa = PBXGroup;
+			children = (
+				EA61785A234E811000709A42 /* ProfileCell.swift */,
+			);
+			path = "User Profile VC";
+			sourceTree = "<group>";
+		};
+		EA4EFE14237A2EB7003B5D9A /* Map VC */ = {
+			isa = PBXGroup;
+			children = (
+				EACA8E9D2345E19E0029B881 /* JellyViews.swift */,
+			);
+			path = "Map VC";
+			sourceTree = "<group>";
+		};
+		EA4EFE15237A2EE8003B5D9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */,
+				EACA8E9F2345E79D0029B881 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EA4EFE16237A2EF9003B5D9A /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				EA43D10A234CEC91000E5DA4 /* Tag.swift */,
+				EACA8E9023456A210029B881 /* Jelly.swift */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		EA4EFE17237A2F0F003B5D9A /* Global Constants */ = {
+			isa = PBXGroup;
+			children = (
+				EA4EFE1A237A3122003B5D9A /* GlobalColors.swift */,
+			);
+			path = "Global Constants";
+			sourceTree = "<group>";
+		};
 		EA792CB3234F9DD200EDB370 /* Testing */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,7 +211,6 @@
 				EA40A8BC2366C36600A48E12 /* Presentation */,
 				EACA8E9423457C7D0029B881 /* View Controllers */,
 				EACA8E9523457CC90029B881 /* Model */,
-				EA792CB3234F9DD200EDB370 /* Testing */,
 				EAF2BF62234690E700CD0755 /* ToDo.swift */,
 				EACA8E7F23452CD60029B881 /* Assets.xcassets */,
 				EAD903A3235EA6A4005EB05C /* Supporting Files */,
@@ -164,7 +221,8 @@
 		EACA8E9423457C7D0029B881 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EACA8E7A23452CD30029B881 /* ViewController.swift */,
+				EA792CB3234F9DD200EDB370 /* Testing */,
+				EACA8E7A23452CD30029B881 /* MapViewController.swift */,
 				EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */,
 				EA11ED8E236913AE00491657 /* LocationSearchTable.swift */,
 				EA4C1E2023651B9100BE4184 /* SearchLocationViewController.swift */,
@@ -178,16 +236,12 @@
 		EACA8E9523457CC90029B881 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EA617854234E417400709A42 /* TagCell.swift */,
-				EA4C1E1A2364E58500BE4184 /* TextField.swift */,
-				EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */,
-				EA40A8BD2367703A00A48E12 /* Button.swift */,
-				EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */,
-				EA61785A234E811000709A42 /* ProfileCell.swift */,
-				EACA8E9023456A210029B881 /* Jelly.swift */,
-				EACA8E9D2345E19E0029B881 /* JellyViews.swift */,
-				EA43D10A234CEC91000E5DA4 /* Tag.swift */,
-				EACA8E9F2345E79D0029B881 /* String+Extensions.swift */,
+				EA4EFE17237A2F0F003B5D9A /* Global Constants */,
+				EA4EFE12237A2AE4003B5D9A /* Add Jelly VC */,
+				EA4EFE13237A2EA4003B5D9A /* User Profile VC */,
+				EA4EFE16237A2EF9003B5D9A /* Class */,
+				EA4EFE14237A2EB7003B5D9A /* Map VC */,
+				EA4EFE15237A2EE8003B5D9A /* Extensions */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -325,11 +379,12 @@
 				EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */,
 				EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */,
 				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
+				EA4EFE112377BE33003B5D9A /* CollectionViewCell.swift in Sources */,
 				EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */,
 				EA11ED8F236913AE00491657 /* LocationSearchTable.swift in Sources */,
 				EA4C1E2123651B9100BE4184 /* SearchLocationViewController.swift in Sources */,
 				EA85C4432366C0C500529973 /* SlideInPresentationController.swift in Sources */,
-				EACA8E7B23452CD30029B881 /* ViewController.swift in Sources */,
+				EACA8E7B23452CD30029B881 /* MapViewController.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
 				EA61785B234E811000709A42 /* ProfileCell.swift in Sources */,
 				EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */,
@@ -340,6 +395,7 @@
 				EA4C1E1B2364E58500BE4184 /* TextField.swift in Sources */,
 				EAE4E62E235FAFD700CB1B5E /* UIColor+Extensions.swift in Sources */,
 				EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */,
+				EA4EFE1B237A3122003B5D9A /* GlobalColors.swift in Sources */,
 				EA40A8BE2367703A00A48E12 /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

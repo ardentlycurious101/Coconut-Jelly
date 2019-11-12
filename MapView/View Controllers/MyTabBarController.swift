@@ -13,5 +13,10 @@ class MyTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.selectedIndex = 1
+        configureUI()
+    }
+    
+    func configureUI() {
+        self.tabBar.barTintColor = .black
     }
 }

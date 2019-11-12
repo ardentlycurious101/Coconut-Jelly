@@ -26,8 +26,11 @@ class TextField: UITextField {
         
     func configureUI() {
         self.layer.cornerRadius = self.frame.size.height/2
-        self.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.25).cgColor
-        self.layer.borderWidth = 1.5
+        self.textColor = .white
+        self.backgroundColor = GlobalBackgroundColor
+        self.borderStyle = .roundedRect
+        self.layer.borderWidth = 1.0
+        self.layer.borderColor = UIColor(patternImage: UIImage(named: "gradient")!).cgColor
         self.clipsToBounds = true
     }
     

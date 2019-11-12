@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController {
+class MapViewController: UIViewController {
 
     // MARK:- IBOutlets
     @IBOutlet weak var MapView: MKMapView!
@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     // MARK:- Member Variables
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 1000
+//    let userLocation: CLLocationCoordinate2D?
         
     // MARK:- ViewController Methods
     override func viewDidLoad() {
@@ -27,10 +28,13 @@ class ViewController: UIViewController {
     }
     
     func setUpMapView() {
+        guard let userLocation = locationManager.location else { return }
+
         MapView.delegate = self
-        mapSetUp(for: initialLocation)
+        mapSetUp(for: userLocation)
         MapView.addAnnotations(jellyArray)
         MapView.register(JellyView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+        
     }
     
     func setUpLocationManager() {
@@ -43,7 +47,12 @@ class ViewController: UIViewController {
             setUpLocationManager()
             checkLocationAuthorization()
         } else {
-            
+            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (action) in
+                // Redirect to Settings app
+                UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+            }
+            let alert = UIAlertController(title: "Location Service Disabled", message: "Please enable location services to allow Coconut Jelly to use your location.", preferredStyle: .alert)
+            alert.addAction(settingsAction)
         }
     }
     
@@ -80,7 +89,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: MKMapViewDelegate {
+extension MapViewController: MKMapViewDelegate {
     
     // MARK:- Map Setup
     
@@ -95,14 +104,27 @@ extension ViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
-        let location = view.annotation as! Jelly
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
-        location.mapItem().openInMaps(launchOptions: launchOptions)
+        if (control == view.rightCalloutAccessoryView) {
+            let location = view.annotation as! Jelly
+            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
+            location.mapItem().openInMaps(launchOptions: launchOptions)
+        }
+        
+        if (control == view.leftCalloutAccessoryView) {
+            print("left callout accessory clicked")
+        }
+    }
+    
+    // TODO: CUSTOMIZE ANNOTATION CALL OUT VIEW
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        // presentation controller animated with details of annotation
+
+        
     }
     
 }
 
-extension ViewController: CLLocationManagerDelegate {
+extension MapViewController: CLLocationManagerDelegate {
     
      // MARK:- Location Manager
     

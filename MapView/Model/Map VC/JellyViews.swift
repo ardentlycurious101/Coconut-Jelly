@@ -7,6 +7,7 @@
 //
 
 import MapKit
+import WSTagsField
 
 class JellyMarkerView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
@@ -17,7 +18,7 @@ class JellyMarkerView: MKMarkerAnnotationView {
             calloutOffset = CGPoint(x: -5, y: 5)
             rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             // 2
-            markerTintColor = jelly.markerTintColor
+//            markerTintColor = jelly.markerTintColor
         }
     }
 }
@@ -31,19 +32,32 @@ class JellyView: MKAnnotationView {
             let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,size: CGSize(width: 30, height: 30)))
             mapsButton.setBackgroundImage(UIImage(named: "Maps-Icon"), for: UIControl.State())
             rightCalloutAccessoryView = mapsButton
-
+            
             if let imageName = jelly.emojiImage {
                 image = imageName
             } else {
                 image = nil
             }
             
+            let Tags = jelly.tags
+            var allTags: [String] = []
+            
+            for Tag in Tags {
+                allTags.append(Tag.name)
+            }
             let detailLabel = UILabel()
             detailLabel.numberOfLines = 0
             detailLabel.font = detailLabel.font.withSize(12)
             detailLabel.text = jelly.eventDescription
             detailCalloutAccessoryView = detailLabel
-
+            
+//            let callOutView = UIView()
+//            callOutView.backgroundColor = .red
+//            let tagView = WSTagsField()
+//            tagView.addTags(allTags)
+//            callOutView.addSubview(tagView)
+//            detailCalloutAccessoryView = callOutView
+            
         }
     }
 }
