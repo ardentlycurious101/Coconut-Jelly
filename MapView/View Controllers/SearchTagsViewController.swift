@@ -23,6 +23,10 @@ class SearchTagsViewController: UIViewController {
         configureUI()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     //MARK:- Helper functions
     
     func configureUI() {
@@ -32,8 +36,7 @@ class SearchTagsViewController: UIViewController {
     }
     
     func configureCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
-//        cell.textLabel?.textColor = .white
-//        cell.backgroundColor = .black
+
         let cell = cell as! TagCell
         
         if existingTagDictionary[existingTags[indexPath.row]] == true {

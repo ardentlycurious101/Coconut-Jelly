@@ -48,7 +48,7 @@ class AddJellyViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
     @IBOutlet weak var ImageCollectionView: UICollectionView!
-    var images : [UIImage] = [UIImage(named: "pin")!]
+    var images : [UIImage] = [UIImage(named: "green camera")!]
     
     // MARK: Jelly Location View
     
@@ -72,95 +72,122 @@ class AddJellyViewController: UIViewController {
     @IBOutlet weak var createJellyButton: UIButton!
     @IBAction func CreateJellyTapped(_ sender: Any) {
         
-    // check if all fields are filled
-        guard let emoji = JellyEmoji.text,
-                emoji.isSingleEmoji else {
-            remindUserToFill("emoji")
-            return
-        }
+//    // check if all fields are filled
+//        guard let emoji = JellyEmoji.text,
+//                emoji.isSingleEmoji else {
+//            remindUserToFill("emoji")
+//            return
+//        }
+//
+//        guard let name = JellyName.text,
+//                !name.isEmpty,
+//                name.count < 41 else {
+//            remindUserToFill("name")
+//            return
+//        }
+//        guard let description = JellyDescription.text,
+//                !description.isEmpty,
+//                description.count < 141 else {
+//            remindUserToFill("description")
+//            return
+//        }
+//
+//        // TODO: Create guard statement for tags
+//        guard JellyTags.tags.map({$0.text}).count > 0,
+//                JellyTags.tags.map({$0.text}).count < 11 else {
+//            alertUserTagError()
+//            return
+//        }
+//
+//        // TODO: Create guard statement for end time >start time
+//        guard StartTime.date < EndTime.date,
+//                StartTime.date > Date() else {
+//            print("alertUserInvalidTime() function")
+//            alertUserInvalidTime()
+//            return
+//        }
+//
+//        guard images.count < 11 else {
+//            alertUserImagesError()
+//            return
+//        }
+//
+//        guard locationAdded == true else {
+//            remindUserToFill("location")
+//            return
+//        }
+//
+//        guard let creatorDisplayName = JellyCreatorDisplayName.text,
+//                !creatorDisplayName.isEmpty,
+//                creatorDisplayName.count < 41 else {
+//            remindUserToFill("creator display name")
+//            return
+//        }
         
-        guard let name = JellyName.text,
-                !name.isEmpty,
-                name.count < 41 else {
-            remindUserToFill("name")
-            return
-        }
-        guard let description = JellyDescription.text,
-                !description.isEmpty,
-                description.count < 141 else {
-            remindUserToFill("description")
-            return
-        }
+        // MARK:- Reference Firebase Storage
+        
+        // create unique identifier
+        let JellyIdentifier = UUID().uuidString
+        
+        // get a reference to the storage service
+        let storage = Storage.storage()
+        
+        // create a storage reference
+        let storageRef = storage.reference()
+        
+        // create a child reference
+        let imageReferencePath = String("JellyImages/\(JellyIdentifier)/")
+        
+//        var downloadURLs: [URL] = []
 
-        // TODO: Create guard statement for tags
-        guard JellyTags.tags.map({$0.text}).count > 0,
-                JellyTags.tags.map({$0.text}).count < 11 else {
-            alertUserTagError()
-            return
-        }
-
-        // TODO: Create guard statement for end time >start time
-        guard StartTime.date < EndTime.date,
-                StartTime.date > Date() else {
-            print("alertUserInvalidTime() function")
-            alertUserInvalidTime()
-            return
-        }
-        
-        guard images.count < 11 else {
-            alertUserImagesError()
-            return
-        }
-        
-        guard locationAdded == true else {
-            remindUserToFill("location")
-            return
-        }
-        
-        guard let creatorDisplayName = JellyCreatorDisplayName.text,
-                !creatorDisplayName.isEmpty,
-                creatorDisplayName.count < 41 else {
-            remindUserToFill("creator display name")
-            return
-        }
-        
-        // MARK:- Reference Cloud Storage
-
-        let storageReference = Storage.storage().reference()
-        let imagesRef = storageReference.child("images")
-        
         for index in 1..<images.count {
-            
+            // translate images into data
+            if let data = images[index].jpegData(compressionQuality: 0.8) {
+                
+                let imageCountFileName = String(index) + ".jpeg"
+                let imagesRef = storageRef.child("JellyImages/\(JellyIdentifier)/\(imageCountFileName)")
+                
+                // upload task
+                let _ = imagesRef.putData(data, metadata: nil) { (metadata, error) in
+                    
+                    guard error == nil else {
+                        self.alertUserFailedToUploadImage()
+                        return
+                    }
+                }
+            }
         }
         
-        
-        // MARK:- Reference Firestore
+        print("this is images count: \(images.count)")
+//        print("this is imagesRef: \(imagesRef)")
+            
+        // MARK:- Reference Cloud Firestore
         // upon successfull networking call: insert new entry in cloud database
         // else: print error
         
-        let _ = Firestore.firestore().collection("Jellies").addDocument(data: ["emoji" : JellyEmoji.text!, "name" : JellyName.text!, "description": JellyDescription.text!, "tags": JellyTags.tags.map({$0.text}), "startTime" : StartTime.date, "endTime" : EndTime.date, "geopoint": GeoPoint(latitude: MapView.centerCoordinate.latitude, longitude: MapView.centerCoordinate.longitude), "creatorName": JellyCreatorDisplayName.text!]) { (error) in
-            
+        let _ = Firestore.firestore().collection("Jellies").addDocument(data: ["ID" : JellyIdentifier, "emoji" : JellyEmoji.text!, "name" : JellyName.text!, "description": JellyDescription.text!, "tags": JellyTags.tags.map({$0.text}), "startTime" : StartTime.date, "endTime" : EndTime.date, "geopoint": GeoPoint(latitude: MapView.centerCoordinate.latitude, longitude: MapView.centerCoordinate.longitude), "referencePath" : imageReferencePath,"creatorName": JellyCreatorDisplayName.text!]) { (error) in
+
             if let error = error {
-                
+
                 // debug
                 print("there's an error when saving data: \(error.localizedDescription).")
-                
+
                 // inform user data saving error
                 let alert = UIAlertController.init(title: "Error", message: "An error occurred when trying to save Jelly due to \(error.localizedDescription)", preferredStyle: .alert)
                 let okay = UIAlertAction.init(title: "OK", style: .default)
                 alert.addAction(okay)
-                
+
                 self.present(alert, animated: true)
-                
+
             } else {
                 print("successfully saved data to cloud database.")
-                
+
                 // present alert to inform user that jelly was successfully created and saved to database
                 let alert = UIAlertController.init(title: "Success!", message: "Successfully created and saved a new Jelly.", preferredStyle: .alert)
                 let okay = UIAlertAction.init(title: "OK", style: .default)
                 alert.addAction(okay)
                 self.present(alert, animated: true)
-                
+
                 // clear all text fields
                 self.clearAllFields()
                 self.resetWordCount()
@@ -181,6 +208,9 @@ class AddJellyViewController: UIViewController {
         configureTextFieldDelegation()
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
 // MARK:- Delegate Methods Extensions
@@ -307,19 +337,19 @@ extension AddJellyViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         
-        if indexPath.row == 0 {
-            cell.configureDefaultImage()
-        } else {
-            cell.configureUI()
+//        if indexPath.row == 0 {
+//            cell.configureDefaultImage()
+//        } else {
+//            cell.configureUI()
             cell.handleSelectedImage(for: images[indexPath.row])
-        }
+//        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let text = testData[indexPath.row]
-        print(text)
+        print(text + ": \(indexPath.row)")
         
         if indexPath.row == 0 {
             imagePicker.delegate = self
@@ -533,6 +563,12 @@ extension AddJellyViewController {
     }
     
     // MARK: Alert User
+    
+    func alertUserFailedToUploadImage() {
+        let alert = UIAlertController(title: nil, message: "Error Uploading Images", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true) {}
+    }
     
     func remindUserToFill(_ textFieldRequiredInput: String) {
         let okay = UIAlertAction.init(title: "OK", style: .default)

@@ -27,6 +27,10 @@ class MapViewController: UIViewController {
         setUpMapView()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func setUpMapView() {
         guard let userLocation = locationManager.location else { return }
 

@@ -19,6 +19,10 @@ class UserProfileViewController: UIViewController {
         configureDelegation()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func configureDelegation() {
         tableView.delegate = self
         tableView.dataSource = self

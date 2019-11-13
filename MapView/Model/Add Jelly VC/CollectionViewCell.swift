@@ -16,12 +16,12 @@ class CollectionViewCell: UICollectionViewCell {
     var isDeleting: Bool = false {
         didSet {
             DeleteIcon.isHidden = !isDeleting
-            print(isDeleting)
+            if !DeleteIcon.isHidden {
+                Image.alpha = 0.8
+            } else {
+                Image.alpha = 1.0
+            }
         }
-    }
-    
-    @objc func deleteIconTapped() {
-        
     }
     
     func configureUI() {
