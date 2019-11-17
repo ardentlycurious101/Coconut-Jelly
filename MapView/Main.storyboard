@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KJg-Vz-Jfn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="niy-aN-to0">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="NV4-PO-NMr" customClass="SearchTagsViewController" customModule="MapView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7gX-W5-L22">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2y-Xn-0ZK" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Filter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ito-0F-5Vc">
                                         <rect key="frame" x="144" y="0.0" width="126" height="100"/>
@@ -35,7 +35,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qbY-GY-reT">
-                                <rect key="frame" x="0.0" y="100" width="389" height="543"/>
+                                <rect key="frame" x="0.0" y="144" width="389" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" tag="100" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="TagCell" id="KxE-0N-uGB" customClass="TagCell" customModule="MapView" customModuleProvider="target">
@@ -91,21 +91,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWA-dx-wzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3503" y="-1555"/>
+            <point key="canvasLocation" x="5314" y="-1750"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="MapView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yni-CI-cBx" userLabel="TopContainer">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q44-F0-sLg" userLabel="MapView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AP1-ag-aBv" userLabel="Settings Button">
                                         <rect key="frame" x="35" y="35" width="25" height="25"/>
@@ -149,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4408.695652173913" y="-673.36956521739137"/>
+            <point key="canvasLocation" x="5314.4927536231889" y="-673.36956521739137"/>
         </scene>
         <!--Profile-->
         <scene sceneID="KQb-YR-khk">
@@ -253,18 +253,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VlO-Zn-xIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6452.1739130434789" y="-673.36956521739137"/>
+            <point key="canvasLocation" x="7359.420289855073" y="-673.36956521739137"/>
         </scene>
         <!--Add Jelly View Controller-->
         <scene sceneID="o7u-9N-LUZ">
             <objects>
                 <viewController id="2qv-tY-Zep" userLabel="Add Jelly View Controller" customClass="AddJellyViewController" customModule="MapView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Z2h-f8-39D">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="2056"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="2100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0q1-5q-FNW" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Jelly" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgG-hj-wFK">
                                         <rect key="frame" x="72.666666666666686" y="0.0" width="269" height="100"/>
@@ -282,7 +282,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTN-4h-w2t">
-                                <rect key="frame" x="0.0" y="100" width="414" height="1907"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="1907"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wxO-IV-LgL" userLabel="Content View">
                                         <rect key="frame" x="-8" y="30" width="414" height="1950"/>
@@ -743,7 +743,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0z-PP-s3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Hci-Yq-dTs" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3500.0000000000005" y="1181.25"/>
+            <point key="canvasLocation" x="3341" y="1191"/>
         </scene>
         <!--Search Location View Controller-->
         <scene sceneID="MUd-vx-Txc">
@@ -842,11 +842,11 @@
             <objects>
                 <viewController storyboardIdentifier="LoginVC" id="b9u-GS-sFh" userLabel="Login View Controller" customClass="LoginViewController" customModule="MapView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HhD-d6-VDo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAf-yJ-a8a">
-                                <rect key="frame" x="25" y="196" width="364" height="300"/>
+                                <rect key="frame" x="25" y="218" width="364" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HIl-eg-NeC" userLabel="Logo View">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="80"/>
@@ -946,6 +946,7 @@
                                                 <connections>
                                                     <action selector="LoginButtonTapped:" destination="b9u-GS-sFh" eventType="touchUpInside" id="8gC-xF-1hp"/>
                                                     <action selector="LoginButtonTapped:" destination="rbh-Jz-Ocq" eventType="touchUpInside" id="gTS-rm-9pw"/>
+                                                    <segue destination="0fE-TQ-y63" kind="show" identifier="LoginSegue" id="ViW-tN-Pdq"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -977,12 +978,29 @@
                                     <constraint firstItem="HIl-eg-NeC" firstAttribute="top" secondItem="YAf-yJ-a8a" secondAttribute="top" id="xoJ-s3-CFb"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhu-Or-NE7">
+                                <rect key="frame" x="132" y="548" width="150" height="30"/>
+                                <color key="backgroundColor" red="0.29400753969999999" green="0.66681283710000006" blue="0.64706081150000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QeN-sW-A9i"/>
+                                    <constraint firstAttribute="width" constant="150" id="odc-6u-htQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" red="0.078431372550000003" green="0.12549019610000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <segue destination="vYR-WM-M4F" kind="show" identifier="NewUserSegue" id="r9F-a4-mws"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372550000003" green="0.12549019610000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="YAf-yJ-a8a" firstAttribute="leading" secondItem="HFR-uE-4dx" secondAttribute="leading" constant="25" id="4Pc-rg-a5C"/>
                             <constraint firstItem="YAf-yJ-a8a" firstAttribute="centerY" secondItem="HhD-d6-VDo" secondAttribute="centerY" id="PNs-Fx-8bg"/>
+                            <constraint firstItem="fhu-Or-NE7" firstAttribute="centerX" secondItem="HhD-d6-VDo" secondAttribute="centerX" id="ZcG-Px-t1J"/>
                             <constraint firstItem="HFR-uE-4dx" firstAttribute="trailing" secondItem="YAf-yJ-a8a" secondAttribute="trailing" constant="25" id="yCa-iy-f77"/>
+                            <constraint firstItem="fhu-Or-NE7" firstAttribute="top" secondItem="YAf-yJ-a8a" secondAttribute="bottom" constant="30" id="yNU-O7-Xl7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HFR-uE-4dx"/>
                     </view>
@@ -990,24 +1008,23 @@
                     <connections>
                         <outlet property="emailField" destination="mod-I6-JCZ" id="504-AC-yTD"/>
                         <outlet property="passwordField" destination="siC-5T-L5i" id="86M-PF-TfH"/>
-                        <segue destination="0fE-TQ-y63" kind="show" identifier="LoginSegue" id="gMH-dc-04H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hGs-Lx-RaX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="rbh-Jz-Ocq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1102.8985507246377" y="-786.68478260869574"/>
+            <point key="canvasLocation" x="358" y="-395"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="SzB-1Z-huy">
             <objects>
                 <viewController id="Rzj-eG-3iT" userLabel="Main View Controller" customClass="MainViewController" customModule="MapView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k3n-2F-9js">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKq-NQ-yM9">
-                                <rect key="frame" x="25" y="196" width="364" height="300"/>
+                                <rect key="frame" x="25" y="218" width="364" height="300"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Discover and share Jellies around you" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s7t-bD-mQU">
                                         <rect key="frame" x="0.0" y="80" width="364" height="30"/>
@@ -1038,9 +1055,6 @@
                                                 <state key="normal" title="Login">
                                                     <color key="titleColor" red="0.078431372550000003" green="0.12549019610000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="b9u-GS-sFh" kind="show" id="hba-8a-Yo6"/>
-                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xpH-hZ-2mU">
                                                 <rect key="frame" x="50" y="60" width="264" height="30"/>
@@ -1051,9 +1065,6 @@
                                                 <state key="normal" title="Sign Up">
                                                     <color key="titleColor" red="0.078431372550000003" green="0.12549019610000001" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="vYR-WM-M4F" kind="show" id="Wsx-4Q-A40"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.12549019610000001" green="0.18823529410000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1096,18 +1107,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9vl-gf-O1I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-291" y="-395"/>
+            <point key="canvasLocation" x="312" y="-1326"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="4dG-4h-e73">
             <objects>
                 <viewController id="vYR-WM-M4F" userLabel="Sign Up View Controller" customClass="SignUpViewController" customModule="MapView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wLW-bB-F5w">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijq-ET-SDE">
-                                <rect key="frame" x="25" y="196" width="364" height="300"/>
+                                <rect key="frame" x="25" y="218" width="364" height="300"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="evh-1W-Mfe">
                                         <rect key="frame" x="0.0" y="0.0" width="364" height="80"/>
@@ -1204,6 +1215,7 @@
                                                 <connections>
                                                     <action selector="SignUpButtonTapped:" destination="vYR-WM-M4F" eventType="touchUpInside" id="S3m-ch-kS0"/>
                                                     <action selector="SignUpButtonTapped:" destination="N0d-h8-7zR" eventType="touchUpInside" id="Slz-XN-s8M"/>
+                                                    <segue destination="0fE-TQ-y63" kind="show" identifier="SignUpSegue" id="PSf-4H-BYr"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1249,13 +1261,12 @@
                     <connections>
                         <outlet property="emailField" destination="6ES-fL-lDE" id="WZC-ad-TUR"/>
                         <outlet property="passwordField" destination="p2e-5M-Top" id="O1z-nU-VMq"/>
-                        <segue destination="0fE-TQ-y63" kind="show" identifier="SignUpSegue" id="k9D-Nc-6PX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zyp-xp-0Pt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="N0d-h8-7zR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1102.8985507246377" y="10.597826086956523"/>
+            <point key="canvasLocation" x="1675" y="483"/>
         </scene>
         <!--My Tab Bar Controller-->
         <scene sceneID="cM7-tQ-72V">
@@ -1279,7 +1290,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P8C-p7-WU3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2423.1884057971015" y="-395.38043478260875"/>
+            <point key="canvasLocation" x="3342" y="-395"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pm0-aK-oz0">
@@ -1301,11 +1312,11 @@
             <point key="canvasLocation" x="5031" y="599"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="x9y-vX-fKm">
+        <scene sceneID="Gkx-Th-GNI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KJg-Vz-Jfn" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="niy-aN-to0" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="v8a-NA-Bdw">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mCa-z0-ua6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" red="0.29400753969999999" green="0.66681283710000006" blue="0.64706081150000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1313,12 +1324,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Rzj-eG-3iT" kind="relationship" relationship="rootViewController" id="piZ-C0-5i4"/>
+                        <segue destination="b9u-GS-sFh" kind="relationship" relationship="rootViewController" id="Yjr-Bx-ktn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xWv-4r-d2d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qkq-h0-eDW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1378" y="-395"/>
+            <point key="canvasLocation" x="-1545" y="-395"/>
         </scene>
     </scenes>
     <resources>
@@ -1332,6 +1343,6 @@
         <image name="pin" width="885" height="885"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gMH-dc-04H"/>
+        <segue reference="ViW-tN-Pdq"/>
     </inferredMetricsTieBreakers>
 </document>

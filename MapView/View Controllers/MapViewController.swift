@@ -37,8 +37,7 @@ class MapViewController: UIViewController {
         MapView.delegate = self
         mapSetUp(for: userLocation)
         MapView.addAnnotations(jellyArray)
-        MapView.register(JellyView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-        
+        MapView.register(JellyView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)        
     }
     
     func setUpLocationManager() {

@@ -9,23 +9,19 @@
 // TODO:-
 
 // Create a set of tags:
+
 /*
  
- Solutions:
- 1. Tag class
- 
- methods:
- append tags 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ 1. Fix collection view bug
+ 2. implement networking calls methods to download jelly data and photos
+ 3. design and implement jelly callout
+ 4. implement refresh mapview controller button
+ 5. implement pull to refresh tags table
+ 6. design and implement user profile page.
+ 7. design and implement onboarding page
+ 8. design and implement app logo
+ 9. persist user authentication state
+ 10. keep user logged in
  
  */
 

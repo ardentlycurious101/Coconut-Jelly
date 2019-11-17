@@ -51,13 +51,7 @@ class JellyView: MKAnnotationView {
             detailLabel.text = jelly.eventDescription
             detailCalloutAccessoryView = detailLabel
             
-//            let callOutView = UIView()
-//            callOutView.backgroundColor = .red
-//            let tagView = WSTagsField()
-//            tagView.addTags(allTags)
-//            callOutView.addSubview(tagView)
-//            detailCalloutAccessoryView = callOutView
-            
         }
     }
+        
 }

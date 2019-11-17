@@ -26,8 +26,12 @@ class FirebaseAuthManager {
     
     func loginUser(email: String, password: String, completionBlock: @escaping (_ success: Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
+            if error == nil {
+                UserDefaults.standard.set(true, forKey: "usersignedin")
+                UserDefaults.standard.synchronize()
+            }
             if let user = authResult?.user {
-                print(user)
+
                 completionBlock(true)
             } else {
 //                print("ERROR: ")
@@ -35,6 +39,11 @@ class FirebaseAuthManager {
                 completionBlock(false)
             }
         }
+//        Auth.auth().signInAndRetrieveData(with: credential) { (result, error) in
+//        if error == nil {
+//            self.userDefault.set(true, forKey: "usersignedin")
+//            self.userDefault.synchronize()
+//            print(result?.user.email)
     }
 
 }

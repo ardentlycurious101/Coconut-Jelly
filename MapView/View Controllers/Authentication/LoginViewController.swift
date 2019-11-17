@@ -39,6 +39,13 @@ class LoginViewController: UIViewController {
         }
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDefaults.standard.bool(forKey: "usersignedin") {
+            performSegue(withIdentifier: "LoginSegue", sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
