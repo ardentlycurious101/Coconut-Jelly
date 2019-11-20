@@ -113,18 +113,15 @@ extension MapViewController: MKMapViewDelegate {
             location.mapItem().openInMaps(launchOptions: launchOptions)
         }
         
-        if (control == view.leftCalloutAccessoryView) {
-            print("left callout accessory clicked")
+        if (control == view.detailCalloutAccessoryView) {
+            // present view controller with jelly details
         }
-    }
-    
-    // TODO: CUSTOMIZE ANNOTATION CALL OUT VIEW
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // presentation controller animated with details of annotation
-
         
     }
     
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {

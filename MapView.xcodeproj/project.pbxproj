@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7577F57217BCF64F81CC0AB7 /* Pods_MapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */; };
+		EA0A58EA2384E3CF00971BEE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A58E92384E3CF00971BEE /* PaddingLabel.swift */; };
 		EA11ED8F236913AE00491657 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA11ED8E236913AE00491657 /* LocationSearchTable.swift */; };
 		EA11ED93236A14E700491657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA11ED92236A14E700491657 /* Main.storyboard */; };
 		EA1EEB00237AC2250089FA35 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EEAFF237AC2250089FA35 /* FirebaseAuthManager.swift */; };
@@ -41,7 +42,6 @@
 		EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9D2345E19E0029B881 /* JellyViews.swift */; };
 		EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACA8E9F2345E79D0029B881 /* String+Extensions.swift */; };
 		EAD903A5235EA6D6005EB05C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAD903A4235EA6D6005EB05C /* GoogleService-Info.plist */; };
-		EAE0C782235EAEF700FEDDB3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EAE0C781235EAEF700FEDDB3 /* Default-568h@2x.png */; };
 		EAE4E62E235FAFD700CB1B5E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */; };
 		EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2BF62234690E700CD0755 /* ToDo.swift */; };
 /* End PBXBuildFile section */
@@ -50,6 +50,7 @@
 		19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0FE89230DBDBAC06E9E314 /* Pods-MapView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapView.release.xcconfig"; path = "Target Support Files/Pods-MapView/Pods-MapView.release.xcconfig"; sourceTree = "<group>"; };
 		DAB7F76BEB7C0F800EA2212F /* Pods-MapView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapView.debug.xcconfig"; path = "Target Support Files/Pods-MapView/Pods-MapView.debug.xcconfig"; sourceTree = "<group>"; };
+		EA0A58E92384E3CF00971BEE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		EA11ED8E236913AE00491657 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		EA11ED92236A14E700491657 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EA1EEAFF237AC2250089FA35 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
@@ -87,7 +88,6 @@
 		EACA8E9D2345E19E0029B881 /* JellyViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyViews.swift; sourceTree = "<group>"; };
 		EACA8E9F2345E79D0029B881 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EAD903A4235EA6D6005EB05C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		EAE0C781235EAEF700FEDDB3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EAF2BF62234690E700CD0755 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -174,6 +174,7 @@
 			children = (
 				EA43D10A234CEC91000E5DA4 /* Tag.swift */,
 				EACA8E9023456A210029B881 /* Jelly.swift */,
+				EA0A58E92384E3CF00971BEE /* PaddingLabel.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -217,7 +218,6 @@
 		EACA8E6C23452CD30029B881 = {
 			isa = PBXGroup;
 			children = (
-				EAE0C781235EAEF700FEDDB3 /* Default-568h@2x.png */,
 				EACA8E9C2345D9400029B881 /* Home.gpx */,
 				EACA8E7723452CD30029B881 /* MapView */,
 				EACA8E7623452CD30029B881 /* Products */,
@@ -349,7 +349,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EAE0C782235EAEF700FEDDB3 /* Default-568h@2x.png in Resources */,
 				EACA8E8023452CD60029B881 /* Assets.xcassets in Resources */,
 				EAD903A5235EA6D6005EB05C /* GoogleService-Info.plist in Resources */,
 				EA11ED93236A14E700491657 /* Main.storyboard in Resources */,
@@ -432,6 +431,7 @@
 				EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */,
 				EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */,
 				EACA8E9123456A210029B881 /* Jelly.swift in Sources */,
+				EA0A58EA2384E3CF00971BEE /* PaddingLabel.swift in Sources */,
 				EA4C1E1B2364E58500BE4184 /* TextField.swift in Sources */,
 				EAE4E62E235FAFD700CB1B5E /* UIColor+Extensions.swift in Sources */,
 				EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */,

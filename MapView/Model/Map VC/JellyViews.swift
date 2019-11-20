@@ -24,34 +24,46 @@ class JellyMarkerView: MKMarkerAnnotationView {
 }
 
 class JellyView: MKAnnotationView {
+                
     override var annotation: MKAnnotation? {
         willSet {
             guard let jelly = newValue as? Jelly else {return}
-            canShowCallout = true
-            calloutOffset = CGPoint(x: -5, y: 5)
-            let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero,size: CGSize(width: 30, height: 30)))
-            mapsButton.setBackgroundImage(UIImage(named: "Maps-Icon"), for: UIControl.State())
-            rightCalloutAccessoryView = mapsButton
             
+            // image of annotation view displayed on map
             if let imageName = jelly.emojiImage {
                 image = imageName
             } else {
                 image = nil
             }
             
-            let Tags = jelly.tags
-            var allTags: [String] = []
+            canShowCallout = true
+            calloutOffset = CGPoint(x: -5, y: 5)
             
-            for Tag in Tags {
-                allTags.append(Tag.name)
-            }
-            let detailLabel = UILabel()
-            detailLabel.numberOfLines = 0
-            detailLabel.font = detailLabel.font.withSize(12)
-            detailLabel.text = jelly.eventDescription
-            detailCalloutAccessoryView = detailLabel
-            
+            configureDetailCalloutAccessory(for: jelly)
         }
     }
+    
+    func configureDetailCalloutAccessory(for jelly: Jelly) {
+        let tagLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
+        tagLabel.numberOfLines = 0
+        tagLabel.font = tagLabel.font.withSize(12)
         
+        let tags = jelly.combineTags()
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
+        let attributedString = NSMutableAttributedString(string: tags, attributes:attrs)
+        let normalText = NSMutableAttributedString(string: "\n" + jelly.eventDescription)
+        attributedString.append(normalText)
+        
+        tagLabel.attributedText = attributedString
+        tagLabel.lineBreakMode = .byWordWrapping
+        tagLabel.backgroundColor = UIColor(patternImage: UIImage(named: "gradient")!)
+        tagLabel.layer.cornerRadius = 10
+        tagLabel.clipsToBounds = true
+        detailCalloutAccessoryView = tagLabel
+        
+        let mapButton = UIButton(frame: CGRect(origin: CGPoint.zero,size: CGSize(width: 40, height: 40)))
+        mapButton.setBackgroundImage(UIImage(named: "Maps-Icon"), for: UIControl.State())
+        rightCalloutAccessoryView = mapButton
+    }
+
 }

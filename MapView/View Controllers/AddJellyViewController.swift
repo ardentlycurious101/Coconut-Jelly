@@ -275,7 +275,7 @@ extension AddJellyViewController: UITextFieldDelegate {
            if emojiWC < 0 {
                JellyEmojiWordCount.textColor = .red
            } else {
-               JellyEmojiWordCount.textColor = .white
+               JellyEmojiWordCount.textColor = .lightGray
            }
        }
        
@@ -288,7 +288,7 @@ extension AddJellyViewController: UITextFieldDelegate {
            if nameWC < 0 {
                JellyNameWordCount.textColor = .red
            } else {
-               JellyNameWordCount.textColor = .white
+               JellyNameWordCount.textColor = .lightGray
            }
        }
        
@@ -301,7 +301,7 @@ extension AddJellyViewController: UITextFieldDelegate {
            if creatorNameWC < 0 {
                JellyCreatorNameWordCount.textColor = .red
            } else {
-               JellyCreatorNameWordCount.textColor = .white
+               JellyCreatorNameWordCount.textColor = .lightGray
            }
        }
 
