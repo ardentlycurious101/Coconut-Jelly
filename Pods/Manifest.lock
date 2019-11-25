@@ -17,6 +17,9 @@ PODS:
     - FirebaseAnalytics (= 6.1.3)
   - Firebase/CoreOnly (6.10.0):
     - FirebaseCore (= 6.3.1)
+  - Firebase/Database (6.10.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 6.1.1)
   - Firebase/Firestore (6.10.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.6.0)
@@ -54,6 +57,10 @@ PODS:
     - GoogleUtilities/Logger (~> 6.2)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.0.0)
+  - FirebaseDatabase (6.1.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.0)
+    - leveldb-library (~> 1.22)
   - FirebaseFirestore (1.6.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.2)
@@ -81,6 +88,8 @@ PODS:
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - GeoFire (4.0.1):
+    - Firebase/Database (~> 6.0)
   - GoogleAppMeasurement (6.1.3):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
@@ -139,9 +148,11 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Analytics
   - Firebase/Auth
+  - Firebase/Database
   - Firebase/Firestore
   - Firebase/Functions
   - Firebase/Storage
+  - GeoFire (from `https://github.com/firebase/geofire-objc.git`)
   - WSTagsField
 
 SPEC REPOS:
@@ -154,6 +165,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
+    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseFunctions
     - FirebaseInstanceID
@@ -170,6 +182,15 @@ SPEC REPOS:
     - Protobuf
     - WSTagsField
 
+EXTERNAL SOURCES:
+  GeoFire:
+    :git: https://github.com/firebase/geofire-objc.git
+
+CHECKOUT OPTIONS:
+  GeoFire:
+    :commit: cef01b32744cffe8b9a0886b0fc9d01d10f9698f
+    :git: https://github.com/firebase/geofire-objc.git
+
 SPEC CHECKSUMS:
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   Firebase: 5e6b7b12bf9adb90986688edc06b156c37e109cd
@@ -179,10 +200,12 @@ SPEC CHECKSUMS:
   FirebaseCore: 064c2dd92a8ca5974bbdcb080df9921e46bd34cd
   FirebaseCoreDiagnostics: af29e43048607588c050889d19204f4d7b758c9f
   FirebaseCoreDiagnosticsInterop: 6829da2b8d1fc795ff1bd99df751d3788035d2cb
+  FirebaseDatabase: 963515d232ded06f36f6ce830507c94551866170
   FirebaseFirestore: 5a9e9a14305336e8d1a4f915a45ecf0f5d6dcaec
   FirebaseFunctions: 5af7c35d1c5e41608fecbb667eb6c4e672e318d0
   FirebaseInstanceID: 550df9be1f99f751d8fcde3ac342a1e21a0e6c42
   FirebaseStorage: b7c6d00997bc21d4465453bdcc5cc65513110fed
+  GeoFire: 67b5276c561434b4e4c7ea567c2c4d64e711339c
   GoogleAppMeasurement: 434cc7be25e71dc04b8d0e3079125127b330e84a
   GoogleDataTransport: 166f9b9f82cbf60a204e8fe2daa9db3e3ec1fb15
   GoogleDataTransportCCTSupport: f6ab1962e9dc05ab1fb938b795e5b310209edeec
@@ -195,6 +218,6 @@ SPEC CHECKSUMS:
   Protobuf: a4dc852ad69c027ca2166ed287b856697814375b
   WSTagsField: 35923c87c8bbf11e3c12ef3d3e3107425fb0ac2c
 
-PODFILE CHECKSUM: a48d2ef047711091aad2fb8e8cc36575233f6e60
+PODFILE CHECKSUM: b5514da69c548fcaaa56ce232af57ef17b5a96e3
 
 COCOAPODS: 1.7.5

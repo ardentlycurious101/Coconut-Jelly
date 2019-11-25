@@ -29,5 +29,3 @@ func returnTagDictionary(for tags: [String]) -> [String : Bool] {
 
 // For View Controller displaying map
 var existingEmojis = Array(Set(jellyArray.flatMap { return $0.emoji }))
-
-

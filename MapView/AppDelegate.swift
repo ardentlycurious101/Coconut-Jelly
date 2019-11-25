@@ -14,7 +14,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+
     let userDefault = UserDefaults.standard
     let launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     

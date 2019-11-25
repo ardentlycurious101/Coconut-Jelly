@@ -13,7 +13,10 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Functions'
 pod 'Firebase/Storage'
-
 pod "WSTagsField"
+
+pod 'Firebase/Database'
+
+pod 'GeoFire', :git => 'https://github.com/firebase/geofire-objc.git'
 
 end

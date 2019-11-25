@@ -42,10 +42,24 @@ class SearchTagsViewController: UIViewController {
         if existingTagDictionary[existingTags[indexPath.row]] == true {
             cell.accessoryType = .none
             cell.changeTextColor(for: false)
+            
+            // TODO:- make text color a property of the cell, not a method
+            
+            // TODO:- update filtered array of jellies
+                       
+            // TODO:- reload mapview
+            
             existingTagDictionary[existingTags[indexPath.row]] = false
         } else {
             cell.accessoryType = .checkmark
             cell.changeTextColor(for: true)
+            
+            // TODO:- make text color a property of the cell, not a method
+
+            // TODO:- update filtered array of jellies
+            
+            // TODO:- reload mapview
+            
             existingTagDictionary[existingTags[indexPath.row]] = true
         }
     }

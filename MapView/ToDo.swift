@@ -26,4 +26,10 @@
  */
 
 
-
+// FIX ME:-
+/*
+ 1. clear images after creating new jelly
+ 
+ 
+ 
+ */

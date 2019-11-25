@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import Firebase
 import WSTagsField
+import GeoFire
 
 class AddJellyViewController: UIViewController {
     
@@ -157,10 +158,6 @@ class AddJellyViewController: UIViewController {
                 }
             }
         }
-        
-        print("this is images count: \(images.count)")
-//        print("this is imagesRef: \(imagesRef)")
-            
         // MARK:- Reference Cloud Firestore
         // upon successfull networking call: insert new entry in cloud database
         // else: print error
@@ -192,7 +189,21 @@ class AddJellyViewController: UIViewController {
                 self.clearAllFields()
                 self.resetWordCount()
                 self.MapView.reloadInputViews()
-                self.images = []
+                self.images = [UIImage(named: "green camera")!]
+                self.ImageCollectionView.reloadData()
+
+            }
+        }
+        
+        let geofireRef = Database.database().reference().child("Jellies")
+        let geoFire = GeoFire(firebaseRef: geofireRef)
+        let location = coordToLocation(MapView.centerCoordinate)
+        
+        geoFire.setLocation(location, forKey: JellyIdentifier) { (error) in
+            if error != nil {
+                print("Error saving location with GeoFire: \(error)")
+            } else {
+                print("Saved location successfully!")
             }
         }
 
@@ -392,6 +403,13 @@ extension AddJellyViewController: MapViewCenter {
 
 extension AddJellyViewController {
     
+    func coordToLocation(_ coordinates: CLLocationCoordinate2D) -> CLLocation {
+        let lat = coordinates.latitude
+        let long = coordinates.longitude
+        let location = CLLocation(latitude: lat, longitude: long)
+        return location
+    }
+    
     // MARK: Tap gesture recognizer
     
     @objc func deleteIconTapped(sender: DeleteTapGestureRecognizer) {
@@ -512,6 +530,7 @@ extension AddJellyViewController {
         JellyNameWordCount.text = String(nameWC)
         JellyDescriptionWordCount.text = String(descriptionWC)
         JellyTagsWordCount.text = String(tagWC)
+        JellyCollectionViewWordCount.text = String(imageWC)
         JellyCreatorNameWordCount.text = String(creatorNameWC)
     }
     
