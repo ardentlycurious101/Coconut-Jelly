@@ -2,10 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Jellies+CoreDataClass.swift">
+      location = "group:Jellies+CoreDataProperties.swift">
    </FileRef>
    <FileRef
-      location = "group:Jellies+CoreDataProperties.swift">
+      location = "group:Jellies+CoreDataClass.swift">
    </FileRef>
    <FileRef
       location = "group:MapView.xcodeproj">

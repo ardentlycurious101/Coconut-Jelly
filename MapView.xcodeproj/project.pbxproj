@@ -46,6 +46,7 @@
 		EAD903A5235EA6D6005EB05C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EAD903A4235EA6D6005EB05C /* GoogleService-Info.plist */; };
 		EADD2311238509470096AF7B /* CoconutJelly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EADD230F238509470096AF7B /* CoconutJelly.xcdatamodeld */; };
 		EAE00673238B7D5B0046C732 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE00672238B7D5B0046C732 /* NetworkingManager.swift */; };
+		EAE00677238CF55E0046C732 /* Snapshot+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE00676238CF55E0046C732 /* Snapshot+Extension.swift */; };
 		EAE4E62E235FAFD700CB1B5E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */; };
 		EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2BF62234690E700CD0755 /* ToDo.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		EAD903A4235EA6D6005EB05C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EADD2310238509470096AF7B /* CoconutJelly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoconutJelly.xcdatamodel; sourceTree = "<group>"; };
 		EAE00672238B7D5B0046C732 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		EAE00676238CF55E0046C732 /* Snapshot+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+Extension.swift"; sourceTree = "<group>"; };
 		EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EAF2BF62234690E700CD0755 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -316,6 +318,7 @@
 			children = (
 				EA7E8C9C23874C3400E7A120 /* NetworkingManager1.swift */,
 				EAE00672238B7D5B0046C732 /* NetworkingManager.swift */,
+				EAE00676238CF55E0046C732 /* Snapshot+Extension.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -458,6 +461,7 @@
 				EACA8E7B23452CD30029B881 /* MapViewController.swift in Sources */,
 				EAB10F13237AB271000B3519 /* Switcher.swift in Sources */,
 				EAB10F1A237AB4D8000B3519 /* SignUpViewController.swift in Sources */,
+				EAE00677238CF55E0046C732 /* Snapshot+Extension.swift in Sources */,
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
 				EA61785B234E811000709A42 /* ProfileCell.swift in Sources */,
 				EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */,

@@ -34,8 +34,8 @@ class MapViewController: UIViewController {
         checkLocationServices()
         setUpMapView()
         
-        createJelly()
-        getJelliesFromCoreData()
+//        createJelly()
+//        getJelliesFromCoreData()
         
         // retrieve jellies within region with networking manager
         networkingManager.getJelliesWithinRegion(within: MapView) { (true, jellies, error) in
@@ -156,9 +156,6 @@ extension MapViewController {
     }
     
     func getJelliesFromCoreData() {
-//        guard let jellies = try! persistenceManager.context.fetch(Jellies.fetchRequest()) as? [Jellies] else {
-//            return
-//        }
         
         let jellies = persistenceManager.fetch(Jellies.self)
         jellies.forEach { (jelly) in

@@ -11,5 +11,6 @@ import CoreData
 
 @objc(Jellies)
 public class Jellies: NSManagedObject {
-
+    
+ 
 }
