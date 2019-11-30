@@ -42,6 +42,7 @@ final class PersistentManager {
     }
     
     func fetch<T: NSManagedObject>(_ objectType: T.Type) -> [T] {
+        
         let entityName = String(describing: objectType)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
         

@@ -38,5 +38,3 @@ func getTagNames(tags: [Tag]) -> [String] {
     }
     return array
 }
-
-

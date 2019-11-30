@@ -172,7 +172,7 @@ extension MapViewController {
 
         MapView.delegate = self
         mapSetUp(for: userLocation)
-        MapView.addAnnotations(jellyArray)
+//        MapView.addAnnotations(jellyArray)
         MapView.register(JellyView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     

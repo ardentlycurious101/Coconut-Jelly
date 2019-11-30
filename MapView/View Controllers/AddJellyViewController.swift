@@ -108,7 +108,7 @@ class AddJellyViewController: UIViewController {
 //            return
 //        }
 //
-//        guard images.count < 11 else {
+//        guard images.count < 11 && images.count > 1 else {
 //            alertUserImagesError()
 //            return
 //        }
@@ -139,8 +139,6 @@ class AddJellyViewController: UIViewController {
         // create a child reference
         let imageReferencePath = String("JellyImages/\(JellyIdentifier)/")
         
-//        var downloadURLs: [URL] = []
-
         for index in 1..<images.count {
             // translate images into data
             if let data = images[index].jpegData(compressionQuality: 0.8) {
@@ -158,11 +156,26 @@ class AddJellyViewController: UIViewController {
                 }
             }
         }
+        
+        // MARK:- Reference Realtime Firebase
+        
+        let geofireRef = Database.database().reference().child("Jellies")
+        let geoFire = GeoFire(firebaseRef: geofireRef)
+        let location = coordToLocation(MapView.centerCoordinate)
+        
+        geoFire.setLocation(location, forKey: JellyIdentifier) { (error) in
+            if error != nil {
+                print("Error saving location with GeoFire: \(error)")
+            } else {
+                print("Saved location successfully!")
+            }
+        }
+        
         // MARK:- Reference Cloud Firestore
         // upon successfull networking call: insert new entry in cloud database
         // else: print error
         
-        let _ = Firestore.firestore().collection("Jellies").addDocument(data: ["ID" : JellyIdentifier, "emoji" : JellyEmoji.text!, "name" : JellyName.text!, "description": JellyDescription.text!, "tags": JellyTags.tags.map({$0.text}), "startTime" : StartTime.date, "endTime" : EndTime.date, "geopoint": GeoPoint(latitude: MapView.centerCoordinate.latitude, longitude: MapView.centerCoordinate.longitude), "referencePath" : imageReferencePath,"creatorName": JellyCreatorDisplayName.text!]) { (error) in
+        let _ = Firestore.firestore().collection("Jellies").addDocument(data: ["id" : JellyIdentifier, "emoji" : JellyEmoji.text!, "name" : JellyName.text!, "description": JellyDescription.text!, "tags": JellyTags.tags.map({$0.text}), "startTime" : StartTime.date, "endTime" : EndTime.date, "geopoint": GeoPoint(latitude: MapView.centerCoordinate.latitude, longitude: MapView.centerCoordinate.longitude), "referencePath" : imageReferencePath,"creatorName": JellyCreatorDisplayName.text!]) { (error) in
 
             if let error = error {
 
@@ -194,19 +207,6 @@ class AddJellyViewController: UIViewController {
 
             }
         }
-        
-        let geofireRef = Database.database().reference().child("Jellies")
-        let geoFire = GeoFire(firebaseRef: geofireRef)
-        let location = coordToLocation(MapView.centerCoordinate)
-        
-        geoFire.setLocation(location, forKey: JellyIdentifier) { (error) in
-            if error != nil {
-                print("Error saving location with GeoFire: \(error)")
-            } else {
-                print("Saved location successfully!")
-            }
-        }
-
     }
 
     // MARK:- View Did Load
@@ -612,7 +612,7 @@ extension AddJellyViewController {
     
     func alertUserImagesError() {
         let OK = UIAlertAction(title: "OK", style: .default, handler: nil)
-        let alert = UIAlertController(title: "Images Error", message: "Please select not more than 10 images.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Images Error", message: "Please select between 1-10 images.", preferredStyle: .alert)
         alert.addAction(OK)
         self.present(alert, animated: true)
     }
