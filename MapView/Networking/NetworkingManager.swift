@@ -182,7 +182,7 @@ func createJellies(with data: [String : Any]) {
 }
 
 func renderJelliesOnMap() {
-    
+    print("render jellies on map")
 }
 
 func getImageFromStorage(with refPath: String, completion: @escaping (Bool, Data?, Error?) -> Void) {
