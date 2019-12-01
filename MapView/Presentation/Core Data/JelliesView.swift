@@ -1,37 +1,24 @@
 //
-//  JellyViews.swift
+//  JelliesView.swift
 //  MapView
 //
-//  Created by Elina Lua Ming on 10/3/19.
+//  Created by Elina Lua Ming on 11/29/19.
 //  Copyright © 2019 Elina Lua Ming. All rights reserved.
 //
 
+import Foundation
 import MapKit
-import WSTagsField
 
-class JellyMarkerView: MKMarkerAnnotationView {
-    override var annotation: MKAnnotation? {
-        willSet {
-            // 1
-//            guard let jelly = newValue as? Jelly else { return }
-            canShowCallout = true
-            calloutOffset = CGPoint(x: -5, y: 5)
-            rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-            // 2
-//            markerTintColor = jelly.markerTintColor
-        }
-    }
-}
 
-class JellyView: MKAnnotationView {
+class JelliesView: MKAnnotationView {
                 
     override var annotation: MKAnnotation? {
         willSet {
-            guard let jelly = newValue as? Jelly else { return }
+            guard let jellies = newValue as? Jellies else { return }
             
             // image of annotation view displayed on map
-            if let imageName = jelly.emojiImage {
-                image = imageName
+            if let emoji = jellies.emoji {
+                image = emoji.image()
             } else {
                 image = nil
             }
@@ -39,19 +26,19 @@ class JellyView: MKAnnotationView {
             canShowCallout = true
             calloutOffset = CGPoint(x: -5, y: 5)
             
-            configureDetailCalloutAccessory(for: jelly)
+            configureDetailCalloutAccessory(for: jellies)
         }
     }
     
-    func configureDetailCalloutAccessory(for jelly: Jelly) {
+    func configureDetailCalloutAccessory(for jellies: Jellies) {
         let tagLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
         tagLabel.numberOfLines = 0
         tagLabel.font = tagLabel.font.withSize(12)
         
-        let tags = jelly.combineTags()
+        let tags = combineTags(jellies.tags!.tags)
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
         let attributedString = NSMutableAttributedString(string: tags, attributes:attrs)
-        let normalText = NSMutableAttributedString(string: "\n" + jelly.eventDescription)
+        let normalText = NSMutableAttributedString(string: "\n" + jellies.jellyDescription!)
         attributedString.append(normalText)
         
         tagLabel.attributedText = attributedString
@@ -65,7 +52,18 @@ class JellyView: MKAnnotationView {
         mapButton.setBackgroundImage(UIImage(named: "Maps-Icon"), for: UIControl.State())
         rightCalloutAccessoryView = mapButton
     }
+    
+    func combineTags(_ tags: [String]) -> String {
+        var allTags : String = ""
+        for i in 0..<tags.count {
+            if i < tags.count - 1 {
+                allTags.append(tags[i] + ", ")
+            }
+            else {
+                allTags.append(tags[i])
+            }
+        }
+        return allTags
+    }
 
 }
-
-

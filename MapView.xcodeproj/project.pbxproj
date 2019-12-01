@@ -25,7 +25,6 @@
 		EA756952237FF114009722F4 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA756951237FF114009722F4 /* LaunchScreenViewController.swift */; };
 		EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */; };
 		EA7E8C9B23874BE200E7A120 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7E8C9A23874BE200E7A120 /* PersistentManager.swift */; };
-		EA7E8C9D23874C3400E7A120 /* NetworkingManager1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7E8C9C23874C3400E7A120 /* NetworkingManager1.swift */; };
 		EA85C43B2365256400529973 /* SlideInPresentationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA85C43A2365256400529973 /* SlideInPresentationManager.swift */; };
 		EA85C4432366C0C500529973 /* SlideInPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA85C4422366C0C500529973 /* SlideInPresentationController.swift */; };
 		EA89B1A2236E9EBC00125472 /* String, Character+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */; };
@@ -49,6 +48,10 @@
 		EAE00677238CF55E0046C732 /* Snapshot+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE00676238CF55E0046C732 /* Snapshot+Extension.swift */; };
 		EAE0067B2391BD5A0046C732 /* JelliesTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE0067A2391BD5A0046C732 /* JelliesTag.swift */; };
 		EAE0067D2391F2AD0046C732 /* JelliesImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE0067C2391F2AD0046C732 /* JelliesImages.swift */; };
+		EAE0068123920A050046C732 /* JelliesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE0068023920A050046C732 /* JelliesView.swift */; };
+		EAE00685239265B50046C732 /* temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE00684239265B50046C732 /* temp.swift */; };
+		EAE0068B2393C6D10046C732 /* MapViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE0068A2393C6D10046C732 /* MapViewManager.swift */; };
+		EAE0068D2393DC6C0046C732 /* NotificationCenter+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE0068C2393DC6C0046C732 /* NotificationCenter+Extensions.swift */; };
 		EAE4E62E235FAFD700CB1B5E /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */; };
 		EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF2BF62234690E700CD0755 /* ToDo.swift */; };
 /* End PBXBuildFile section */
@@ -75,7 +78,6 @@
 		EA7798AB235EED2F00DBB836 /* WSTagsField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WSTagsField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJellies.swift; sourceTree = "<group>"; };
 		EA7E8C9A23874BE200E7A120 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
-		EA7E8C9C23874C3400E7A120 /* NetworkingManager1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager1.swift; sourceTree = "<group>"; };
 		EA85C43A2365256400529973 /* SlideInPresentationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationManager.swift; sourceTree = "<group>"; };
 		EA85C4422366C0C500529973 /* SlideInPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationController.swift; sourceTree = "<group>"; };
 		EA89B1A1236E9EBC00125472 /* String, Character+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String, Character+Extensions.swift"; sourceTree = "<group>"; };
@@ -103,6 +105,10 @@
 		EAE00676238CF55E0046C732 /* Snapshot+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Snapshot+Extension.swift"; sourceTree = "<group>"; };
 		EAE0067A2391BD5A0046C732 /* JelliesTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelliesTag.swift; sourceTree = "<group>"; };
 		EAE0067C2391F2AD0046C732 /* JelliesImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelliesImages.swift; sourceTree = "<group>"; };
+		EAE0068023920A050046C732 /* JelliesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JelliesView.swift; sourceTree = "<group>"; };
+		EAE00684239265B50046C732 /* temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = temp.swift; sourceTree = "<group>"; };
+		EAE0068A2393C6D10046C732 /* MapViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewManager.swift; sourceTree = "<group>"; };
+		EAE0068C2393DC6C0046C732 /* NotificationCenter+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+Extensions.swift"; sourceTree = "<group>"; };
 		EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		EAF2BF62234690E700CD0755 /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,6 +187,7 @@
 			children = (
 				EAE4E62D235FAFD700CB1B5E /* UIColor+Extensions.swift */,
 				EACA8E9F2345E79D0029B881 /* String+Extensions.swift */,
+				EAE0068C2393DC6C0046C732 /* NotificationCenter+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +321,8 @@
 				EA7E8C9A23874BE200E7A120 /* PersistentManager.swift */,
 				EAE0067A2391BD5A0046C732 /* JelliesTag.swift */,
 				EAE0067C2391F2AD0046C732 /* JelliesImages.swift */,
+				EAE0068023920A050046C732 /* JelliesView.swift */,
+				EAE00684239265B50046C732 /* temp.swift */,
 			);
 			name = "Core Data";
 			path = "Presentation/Core Data";
@@ -322,8 +331,8 @@
 		EADD231A238606E70096AF7B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				EA7E8C9C23874C3400E7A120 /* NetworkingManager1.swift */,
 				EAE00672238B7D5B0046C732 /* NetworkingManager.swift */,
+				EAE0068A2393C6D10046C732 /* MapViewManager.swift */,
 				EAE00676238CF55E0046C732 /* Snapshot+Extension.swift */,
 			);
 			path = Networking;
@@ -449,7 +458,9 @@
 				EA85C43B2365256400529973 /* SlideInPresentationManager.swift in Sources */,
 				EA617855234E417400709A42 /* TagCell.swift in Sources */,
 				EAE0067D2391F2AD0046C732 /* JelliesImages.swift in Sources */,
+				EAE00685239265B50046C732 /* temp.swift in Sources */,
 				EA1EEB00237AC2250089FA35 /* FirebaseAuthManager.swift in Sources */,
+				EAE0068B2393C6D10046C732 /* MapViewManager.swift in Sources */,
 				EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */,
 				EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */,
 				EAE0067B2391BD5A0046C732 /* JelliesTag.swift in Sources */,
@@ -458,6 +469,7 @@
 				EACA8E9B2345830A0029B881 /* SearchTagsViewController.swift in Sources */,
 				EA7E8C9B23874BE200E7A120 /* PersistentManager.swift in Sources */,
 				EA756952237FF114009722F4 /* LaunchScreenViewController.swift in Sources */,
+				EAE0068D2393DC6C0046C732 /* NotificationCenter+Extensions.swift in Sources */,
 				EAB10F1C237AB4FD000B3519 /* MainViewController.swift in Sources */,
 				EA4EFE112377BE33003B5D9A /* CollectionViewCell.swift in Sources */,
 				EA43D10D234CFA3D000E5DA4 /* MyTabBarController.swift in Sources */,
@@ -465,7 +477,6 @@
 				EA4C1E2123651B9100BE4184 /* SearchLocationViewController.swift in Sources */,
 				EA85C4432366C0C500529973 /* SlideInPresentationController.swift in Sources */,
 				EAE00673238B7D5B0046C732 /* NetworkingManager.swift in Sources */,
-				EA7E8C9D23874C3400E7A120 /* NetworkingManager1.swift in Sources */,
 				EACA8E7B23452CD30029B881 /* MapViewController.swift in Sources */,
 				EAB10F13237AB271000B3519 /* Switcher.swift in Sources */,
 				EAB10F1A237AB4D8000B3519 /* SignUpViewController.swift in Sources */,
@@ -476,6 +487,7 @@
 				EA40A8C02367A3E500A48E12 /* SlideInPresentationAnimator.swift in Sources */,
 				EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */,
 				EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */,
+				EAE0068123920A050046C732 /* JelliesView.swift in Sources */,
 				EACA8E9123456A210029B881 /* Jelly.swift in Sources */,
 				EA0A58EA2384E3CF00971BEE /* PaddingLabel.swift in Sources */,
 				EADD2311238509470096AF7B /* CoconutJelly.xcdatamodeld in Sources */,

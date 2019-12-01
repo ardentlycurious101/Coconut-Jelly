@@ -9,7 +9,7 @@
 import MapKit
 
 // For updating Cloud Firestore, and render event on map
-let jellyArray : [Jelly] = [jelly, brian, nabila, yasmin, abbas, foxxy, jose, izzat]
+let jellyArray : [Jelly] = [brian, nabila, yasmin, abbas, foxxy, jose, izzat]
 
 // For SearchTagsViewController
 var existingTags = Array(Set(jellyArray.flatMap { return $0.tagNames})).sorted(by: { $0 < $1 })

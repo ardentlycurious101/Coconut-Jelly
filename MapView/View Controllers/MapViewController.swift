@@ -11,6 +11,7 @@ import MapKit
 import CoreLocation
 import Firebase
 import GeoFire
+import CoreData
 
 class MapViewController: UIViewController {
     
@@ -18,7 +19,8 @@ class MapViewController: UIViewController {
     public var filteredJellies = [Jellies]()
     let persistenceManager = PersistentManager.shared
     var mapHasCenteredOnce = false
-    let networkingManager = NetworkingManager()
+    let networkingManager = NetworkingManager.shared
+    let notificationCenter = NotificationCenter.default
     
     // MARK:- IBOutlets
     @IBOutlet weak var MapView: MKMapView!
@@ -26,29 +28,32 @@ class MapViewController: UIViewController {
     // MARK:- Member Variables
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 1000
-//    let userLocation: CLLocationCoordinate2D?
         
     // MARK:- ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         checkLocationServices()
         setUpMapView()
+        refreshJelliesOnMap()
         
-//        createJelly()
-//        getJelliesFromCoreData()
+        // from Networking Manager
+        notificationCenter.addObserver(self, selector: #selector(reloadMapWithAnnotations(_:)), name: .newJellyAdded, object: nil)
         
-        // retrieve jellies within region with networking manager
-        networkingManager.getJelliesWithinRegion(within: MapView) { (true, jellies, error) in
-            if error != nil {
-                print("error")
-                return
-            } else {
-                if let jellies = jellies {
-                    print("these are jellies within region:")
-                    print(jellies)
-                }
-            }
-        }
+        // from SearchTagsViewController
+        notificationCenter.addObserver(self, selector: #selector(reloadMapWithFilteredAnnotations(_:)), name: .filteredJellyAdded, object: nil)
+    }
+    
+    @objc func reloadMapWithAnnotations(_ notification:Notification) {
+        // reload with unfiltered array
+        removeAnnotations()
+        MapView.addAnnotations(MapViewManager.shared.unfilteredJellies)
+    }
+    
+    @objc func reloadMapWithFilteredAnnotations(_ notification:Notification) {
+        // reload with filtered array
+        removeAnnotations()
+        MapView.addAnnotations(MapViewManager.shared.filteredJellies)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -155,13 +160,43 @@ extension MapViewController {
         persistenceManager.save()
     }
     
-    func getJelliesFromCoreData() {
+    func refreshJelliesOnMap() {
         
-        let jellies = persistenceManager.fetch(Jellies.self)
-        jellies.forEach { (jelly) in
-            print(jelly.title!)
-        }
+        // batch delete all jellies from core data
+        batchDeleteAllJellies()
+        
+        // perform networking call:
+        //      retrieve jellies within region with Networking Manager
+        //      render jellies on mapview with MapViewManager
+
+        networkingManager.getJelliesWithinRegion(within: MapView)
+        
+//        // from Networking Manager
+//        notificationCenter.addObserver(self, selector: #selector(reloadMapWithAnnotations(_:)), name: .newJellyAdded, object: nil)
+        
     }
+    
+    func batchDeleteAllJellies() {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Jellies")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try persistenceManager.context.execute(batchDeleteRequest)
+        } catch {
+            fatalError()
+        }
+        
+        MapViewManager.shared.unfilteredJellies = []
+        MapViewManager.shared.unfilteredJellies = []
+
+    }
+    
+    func removeAnnotations() {
+        let annotations = self.MapView.annotations
+        self.MapView.removeAnnotations(annotations)
+    }
+    
 }
 
 // MARK:- MapView setup helper functions
@@ -172,7 +207,6 @@ extension MapViewController {
 
         MapView.delegate = self
         mapSetUp(for: userLocation)
-//        MapView.addAnnotations(jellyArray)
         MapView.register(JellyView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
     
