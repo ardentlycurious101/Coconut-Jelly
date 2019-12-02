@@ -123,6 +123,10 @@ extension MapViewController: MKMapViewDelegate {
             }
         }
     }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        refreshJelliesOnMap()
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -171,9 +175,6 @@ extension MapViewController {
 
         networkingManager.getJelliesWithinRegion(within: MapView)
         
-//        // from Networking Manager
-//        notificationCenter.addObserver(self, selector: #selector(reloadMapWithAnnotations(_:)), name: .newJellyAdded, object: nil)
-        
     }
     
     func batchDeleteAllJellies() {
@@ -188,7 +189,7 @@ extension MapViewController {
         }
         
         MapViewManager.shared.unfilteredJellies = []
-        MapViewManager.shared.unfilteredJellies = []
+        MapViewManager.shared.filteredJellies = []
 
     }
     

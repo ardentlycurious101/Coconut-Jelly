@@ -19,10 +19,12 @@ class NetworkingManager {
     
     func getJelliesWithinRegion(within map: MKMapView) {
         
+        let ref = Database.database().reference().child("Jellies")
+        let geoFire = GeoFire(firebaseRef: ref)
+        let firestoreRef = Firestore.firestore().collection("Jellies")
+        
         DispatchQueue.global(qos: .userInitiated).async {
             
-            let ref = Database.database().reference().child("Jellies")
-            let geoFire = GeoFire(firebaseRef: ref)
             var jelliesToFetch: [String] = []
             
             // perform networking call to get region of map, get all geolocations in region from geofire
@@ -39,10 +41,6 @@ class NetworkingManager {
         
                 // Perform networking call to retrieve all the keys from firestore
                 // Map the Firebase promises into an array
-                
-                // Map the Firebase promises into an array
-
-                let firestoreRef = Firestore.firestore().collection("Jellies")
 
                 for jelly in jelliesToFetch {
                     let _ = firestoreRef.whereField("id", isEqualTo: jelly).getDocuments(completion: { (snapshot, error) in
@@ -58,11 +56,7 @@ class NetworkingManager {
 
                                 // create Jellies asynchronously with completion handler to update UI
                                 NetworkingManager.createJellies(with: data)
-                                
-                                    // write Jellies to CoreData
-                                    
-                                    // render Jellies on Map
-                                
+
                             }
                         }
                     })
@@ -206,8 +200,5 @@ class NetworkingManager {
             }
         }
     }
-
-
-
 }
 
