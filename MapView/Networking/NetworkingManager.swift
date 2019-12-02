@@ -25,24 +25,30 @@ class NetworkingManager {
         
         DispatchQueue.global(qos: .userInitiated).async {
             
+            ref.removeAllObservers()
+            
             var jelliesToFetch: [String] = []
             
             // perform networking call to get region of map, get all geolocations in region from geofire
         
             let regionQuery = geoFire.query(with: map.region)
+            
             let _ = regionQuery.observe(.keyEntered, with: { (key, location) in
                 let key = String(describing: key)
                 jelliesToFetch.append(key)
             })
             
             // query finished executing
-        
+            
             regionQuery.observeReady({
         
                 // Perform networking call to retrieve all the keys from firestore
                 // Map the Firebase promises into an array
-
+                
+                print("this is the jelly to fetch: \(jelliesToFetch)")
+                
                 for jelly in jelliesToFetch {
+
                     let _ = firestoreRef.whereField("id", isEqualTo: jelly).getDocuments(completion: { (snapshot, error) in
                         if error != nil {
                             print("Error getting documents!")
@@ -61,8 +67,9 @@ class NetworkingManager {
                         }
                     })
                 }
-//                completion(true, jelliesToFetch, nil)
+
             })
+
         }
 
     }
@@ -87,6 +94,8 @@ class NetworkingManager {
             print("title is nil")
             return
         }
+        
+        print("this is the title: \(title)")
 
         guard let tags = data["tags"] as? [String] else {
             print("tags is nil")
@@ -173,8 +182,11 @@ class NetworkingManager {
         MapViewManager.shared.prepareAnnotations(for: jelly)
         
         DispatchQueue.main.async {
-            print("hello dispatch queue main async")
+//            print("hello dispatch queue main async")
+//            print("this is jellies count: \(MapViewManager.shared.unfilteredJellies.count)")
+//            print("these are the jellies: \(MapViewManager.shared.unfilteredJellies)")
             NotificationCenter.default.post(name: Notification.Name.newJellyAdded, object: nil)
+            
         }
         
     }
