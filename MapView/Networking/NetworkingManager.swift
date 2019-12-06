@@ -19,9 +19,14 @@ class NetworkingManager {
     
     func getJelliesWithinRegion(within map: MKMapView) {
         
+        // reference Firebase databases, storages
+        
         let ref = Database.database().reference().child("Jellies")
         let geoFire = GeoFire(firebaseRef: ref)
         let firestoreRef = Firestore.firestore().collection("Jellies")
+        
+        // clear all tags in TagManager singleton
+        TagManager.shared.Tags = []
         
         DispatchQueue.global(qos: .userInitiated).async {
             
@@ -95,13 +100,11 @@ class NetworkingManager {
             return
         }
         
-        print("this is the title: \(title)")
-
         guard let tags = data["tags"] as? [String] else {
             print("tags is nil")
             return
         }
-
+        
         guard let description = data["description"] else {
             print("description is nil")
             return
@@ -132,6 +135,19 @@ class NetworkingManager {
             return
         }
 
+        // Append all tags to TagManager singleton
+        for tag in tags {
+            TagManager.shared.Tags.append(tag)
+            
+            // if tag not in dictionary, add to dictionary
+            let dictionary = TagManager.shared.getDictionary()
+            let result = dictionary[tag]
+    
+            if result == nil {
+                TagManager.shared.setDictionary(key: tag, value: false)
+            }
+        }
+                
         // If no fields are nil, create Jelly in Core Data
         let persistentManager = PersistentManager.shared
         let jelly = Jellies(context: persistentManager.context)
@@ -182,11 +198,8 @@ class NetworkingManager {
         MapViewManager.shared.prepareAnnotations(for: jelly)
         
         DispatchQueue.main.async {
-//            print("hello dispatch queue main async")
-//            print("this is jellies count: \(MapViewManager.shared.unfilteredJellies.count)")
-//            print("these are the jellies: \(MapViewManager.shared.unfilteredJellies)")
-            NotificationCenter.default.post(name: Notification.Name.newJellyAdded, object: nil)
-            
+            NotificationCenter.default.post(name: .newJellyAdded, object: nil)
+            NotificationCenter.default.post(name: .tagAdded, object: nil)
         }
         
     }

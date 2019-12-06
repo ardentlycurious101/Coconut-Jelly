@@ -12,5 +12,8 @@ extension Notification.Name {
     
     static let newJellyAdded = Notification.Name("newJellyAddedToArray")
     static let filteredJellyAdded = Notification.Name("filteredJellyAddedToArray")
-    
+    static let tagAdded = Notification.Name("tagAdded")
+//    static let useFilteredJellies = Notification.Name("useFilteredJellies")
+    static let useAllJellies = Notification.Name("useAllJellies")
+    static let turnOffFilter = Notification.Name("turnOffFilter")
 }

@@ -8,18 +8,12 @@
 
 import UIKit
 
-class MyTabBarController: UITabBarController {
-    
-    @IBOutlet weak var NavBar: UINavigationItem!
-    
+class MyTabBarController: UITabBarController, UINavigationControllerDelegate {
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         self.selectedIndex = 1
-        configureUI()
-        self.NavBar.setHidesBackButton(true, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    func configureUI() {
-        self.tabBar.barTintColor = .black
-    }
 }

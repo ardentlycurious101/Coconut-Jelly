@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		7577F57217BCF64F81CC0AB7 /* Pods_MapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */; };
+		EA07724B2399F63D00A51505 /* YellowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA07724A2399F63D00A51505 /* YellowViewController.swift */; };
 		EA0A58EA2384E3CF00971BEE /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0A58E92384E3CF00971BEE /* PaddingLabel.swift */; };
 		EA11ED8F236913AE00491657 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA11ED8E236913AE00491657 /* LocationSearchTable.swift */; };
 		EA11ED93236A14E700491657 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA11ED92236A14E700491657 /* Main.storyboard */; };
 		EA1EEB00237AC2250089FA35 /* FirebaseAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1EEAFF237AC2250089FA35 /* FirebaseAuthManager.swift */; };
+		EA34A75B2398F66800EB5768 /* JellyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA34A75A2398F66800EB5768 /* JellyViewController.swift */; };
 		EA40A8BE2367703A00A48E12 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40A8BD2367703A00A48E12 /* Button.swift */; };
 		EA40A8C02367A3E500A48E12 /* SlideInPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA40A8BF2367A3E500A48E12 /* SlideInPresentationAnimator.swift */; };
 		EA43D10B234CEC91000E5DA4 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA43D10A234CEC91000E5DA4 /* Tag.swift */; };
@@ -22,6 +24,7 @@
 		EA4EFE1B237A3122003B5D9A /* GlobalColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4EFE1A237A3122003B5D9A /* GlobalColors.swift */; };
 		EA617855234E417400709A42 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA617854234E417400709A42 /* TagCell.swift */; };
 		EA61785B234E811000709A42 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61785A234E811000709A42 /* ProfileCell.swift */; };
+		EA6FCB8D23950E3700B75779 /* TagManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6FCB8C23950E3700B75779 /* TagManager.swift */; };
 		EA756952237FF114009722F4 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA756951237FF114009722F4 /* LaunchScreenViewController.swift */; };
 		EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */; };
 		EA7E8C9B23874BE200E7A120 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA7E8C9A23874BE200E7A120 /* PersistentManager.swift */; };
@@ -60,10 +63,12 @@
 		19AB907C2132BB8EAF4C8DF3 /* Pods_MapView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC0FE89230DBDBAC06E9E314 /* Pods-MapView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapView.release.xcconfig"; path = "Target Support Files/Pods-MapView/Pods-MapView.release.xcconfig"; sourceTree = "<group>"; };
 		DAB7F76BEB7C0F800EA2212F /* Pods-MapView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapView.debug.xcconfig"; path = "Target Support Files/Pods-MapView/Pods-MapView.debug.xcconfig"; sourceTree = "<group>"; };
+		EA07724A2399F63D00A51505 /* YellowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowViewController.swift; sourceTree = "<group>"; };
 		EA0A58E92384E3CF00971BEE /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		EA11ED8E236913AE00491657 /* LocationSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		EA11ED92236A14E700491657 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		EA1EEAFF237AC2250089FA35 /* FirebaseAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthManager.swift; sourceTree = "<group>"; };
+		EA34A75A2398F66800EB5768 /* JellyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JellyViewController.swift; sourceTree = "<group>"; };
 		EA40A8BD2367703A00A48E12 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		EA40A8BF2367A3E500A48E12 /* SlideInPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideInPresentationAnimator.swift; sourceTree = "<group>"; };
 		EA43D10A234CEC91000E5DA4 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -74,6 +79,7 @@
 		EA4EFE1A237A3122003B5D9A /* GlobalColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalColors.swift; sourceTree = "<group>"; };
 		EA617854234E417400709A42 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		EA61785A234E811000709A42 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		EA6FCB8C23950E3700B75779 /* TagManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManager.swift; sourceTree = "<group>"; };
 		EA756951237FF114009722F4 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		EA7798AB235EED2F00DBB836 /* WSTagsField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = WSTagsField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA792CB1234F9DCC00EDB370 /* TestingJellies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingJellies.swift; sourceTree = "<group>"; };
@@ -279,6 +285,8 @@
 			children = (
 				EA792CB3234F9DD200EDB370 /* Testing */,
 				EACA8E7A23452CD30029B881 /* MapViewController.swift */,
+				EA07724A2399F63D00A51505 /* YellowViewController.swift */,
+				EA34A75A2398F66800EB5768 /* JellyViewController.swift */,
 				EA43D10C234CFA3D000E5DA4 /* MyTabBarController.swift */,
 				EAB10F18237AB4C7000B3519 /* Authentication */,
 				EA11ED8E236913AE00491657 /* LocationSearchTable.swift */,
@@ -332,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				EAE00672238B7D5B0046C732 /* NetworkingManager.swift */,
+				EA6FCB8C23950E3700B75779 /* TagManager.swift */,
 				EAE0068A2393C6D10046C732 /* MapViewManager.swift */,
 				EAE00676238CF55E0046C732 /* Snapshot+Extension.swift */,
 			);
@@ -463,6 +472,7 @@
 				EAE0068B2393C6D10046C732 /* MapViewManager.swift in Sources */,
 				EACA8EA02345E79D0029B881 /* String+Extensions.swift in Sources */,
 				EACA8E9E2345E19E0029B881 /* JellyViews.swift in Sources */,
+				EA07724B2399F63D00A51505 /* YellowViewController.swift in Sources */,
 				EAE0067B2391BD5A0046C732 /* JelliesTag.swift in Sources */,
 				EAF2BF63234690E700CD0755 /* ToDo.swift in Sources */,
 				EA792CB2234F9DCC00EDB370 /* TestingJellies.swift in Sources */,
@@ -484,10 +494,12 @@
 				EACA8E7923452CD30029B881 /* AppDelegate.swift in Sources */,
 				EA61785B234E811000709A42 /* ProfileCell.swift in Sources */,
 				EACA8E8D234564980029B881 /* TestingConstants.swift in Sources */,
+				EA34A75B2398F66800EB5768 /* JellyViewController.swift in Sources */,
 				EA40A8C02367A3E500A48E12 /* SlideInPresentationAnimator.swift in Sources */,
 				EACA8E992345822D0029B881 /* UserProfileViewController.swift in Sources */,
 				EACA8E9323457C580029B881 /* AddJellyViewController.swift in Sources */,
 				EAE0068123920A050046C732 /* JelliesView.swift in Sources */,
+				EA6FCB8D23950E3700B75779 /* TagManager.swift in Sources */,
 				EACA8E9123456A210029B881 /* Jelly.swift in Sources */,
 				EA0A58EA2384E3CF00971BEE /* PaddingLabel.swift in Sources */,
 				EADD2311238509470096AF7B /* CoconutJelly.xcdatamodeld in Sources */,

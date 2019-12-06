@@ -13,19 +13,17 @@ import WSTagsField
 import GeoFire
 
 class AddJellyViewController: UIViewController {
-    
-    var testData = ["brian", "dionigi", "raymond", "boyfriend", "lover", "best friend"]
-    
+        
     // MARK:- Variables
     
-    let regionInMeters: Double = 1000
-    var locationAdded: Bool = false
-    var emojiWC = 1
-    var nameWC = 40
-    var descriptionWC = 140
-    var tagWC = 10
-    var imageWC = 10
-    var creatorNameWC = 40
+    private let regionInMeters: Double = 1000
+    private var locationAdded: Bool = false
+    private var emojiWC = 1
+    private var nameWC = 40
+    private var descriptionWC = 140
+    private var tagWC = 10
+    private var imageWC = 10
+    private var creatorNameWC = 40
     
     @IBOutlet weak var scrollView: UIScrollView!
 
@@ -348,19 +346,12 @@ extension AddJellyViewController: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         
-//        if indexPath.row == 0 {
-//            cell.configureDefaultImage()
-//        } else {
-//            cell.configureUI()
             cell.handleSelectedImage(for: images[indexPath.row])
-//        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let text = testData[indexPath.row]
-        print(text + ": \(indexPath.row)")
         
         if indexPath.row == 0 {
             imagePicker.delegate = self
@@ -393,7 +384,7 @@ extension AddJellyViewController: MapViewCenter {
     func getMapViewCenter(_ centerCoordinate: CLLocationCoordinate2D) {
         print("we finally here -- we got hired as interns!")
         let center = centerCoordinate
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters/4, longitudinalMeters: regionInMeters/4)
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
         MapView.setRegion(region, animated: true)
     }
     

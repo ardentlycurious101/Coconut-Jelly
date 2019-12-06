@@ -51,18 +51,16 @@ class JellyView: MKAnnotationView {
         let tags = jelly.combineTags()
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
         let attributedString = NSMutableAttributedString(string: tags, attributes:attrs)
-        let normalText = NSMutableAttributedString(string: "\n" + jelly.eventDescription)
-        attributedString.append(normalText)
         
         tagLabel.attributedText = attributedString
         tagLabel.lineBreakMode = .byWordWrapping
         tagLabel.backgroundColor = UIColor(patternImage: UIImage(named: "gradient")!)
-        tagLabel.layer.cornerRadius = 10
+        tagLabel.layer.cornerRadius = 5
         tagLabel.clipsToBounds = true
         detailCalloutAccessoryView = tagLabel
         
         let mapButton = UIButton(frame: CGRect(origin: CGPoint.zero,size: CGSize(width: 40, height: 40)))
-        mapButton.setBackgroundImage(UIImage(named: "Maps-Icon"), for: UIControl.State())
+        mapButton.setBackgroundImage(UIImage(named: "detail"), for: UIControl.State())
         rightCalloutAccessoryView = mapButton
     }
 

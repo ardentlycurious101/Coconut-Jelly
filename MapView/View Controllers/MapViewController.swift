@@ -16,14 +16,22 @@ import CoreData
 class MapViewController: UIViewController {
     
     public var jellies = [Jellies]()
-    public var filteredJellies = [Jellies]()
     let persistenceManager = PersistentManager.shared
     var mapHasCenteredOnce = false
     let networkingManager = NetworkingManager.shared
     let notificationCenter = NotificationCenter.default
+    lazy var slideInTransitioningDelegate = SlideInPresentationManager()
+    var jellySelected: Jelly? = nil
     
     // MARK:- IBOutlets
+    
+    @IBOutlet weak var coconutJellyLogo: UIImageView!
+    @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var refreshButton: UIButton!
     @IBOutlet weak var MapView: MKMapView!
+    @IBAction func refreshButtonTapped(_ sender: Any) {
+        refreshJelliesOnMap()
+    }
     
     // MARK:- Member Variables
     let locationManager = CLLocationManager()
@@ -35,6 +43,7 @@ class MapViewController: UIViewController {
         
         checkLocationServices()
         setUpMapView()
+        configureUI()
         refreshJelliesOnMap()
         
         // from Networking Manager
@@ -42,6 +51,10 @@ class MapViewController: UIViewController {
         
         // from SearchTagsViewController
         notificationCenter.addObserver(self, selector: #selector(reloadMapWithFilteredAnnotations(_:)), name: .filteredJellyAdded, object: nil)
+        
+        // from SearchTagsViewcontroller
+        notificationCenter.addObserver(self, selector: #selector(reloadMapWithAnnotations(_:)), name: .useAllJellies, object: nil)
+        
     }
     
     @objc func reloadMapWithAnnotations(_ notification:Notification) {
@@ -61,31 +74,20 @@ class MapViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        return .default
     }
     
-    func getMapViewEdgeCoordinates() -> [CLLocationCoordinate2D] {
-        var points: [CLLocationCoordinate2D] = []
+    func configureUI() {
+        refreshButton.layer.cornerRadius = refreshButton.frame.height/10
+        refreshButton.clipsToBounds = true
         
-        // get CGPoints of MapView's four corners.
-        let topLeftPoint = CGPoint(x: self.MapView.bounds.origin.x, y: self.MapView.bounds.origin.y)
-        let topRightPoint = CGPoint(x: self.MapView.bounds.origin.x + self.MapView.bounds.size.width, y: self.MapView.bounds.origin.y)
-        let bottomLeftPoint = CGPoint(x: self.MapView.bounds.origin.x, y: self.MapView.bounds.origin.y + self.MapView.bounds.size.height)
-        let bottomRightPoint = CGPoint(x: self.MapView.bounds.origin.x + self.MapView.bounds.size.width, y: self.MapView.bounds.origin.y + self.MapView.bounds.size.height)
-        
-        // convert the points into coordinates
-        let topLeft = MapView.convert(topLeftPoint, toCoordinateFrom: MapView)
-        let topRight = MapView.convert(topRightPoint, toCoordinateFrom: MapView)
-        let bottomLeft = MapView.convert(bottomLeftPoint, toCoordinateFrom: MapView)
-        let bottomRight = MapView.convert(bottomRightPoint, toCoordinateFrom: MapView)
-        
-        points.append(topLeft)
-        points.append(topRight)
-        points.append(bottomLeft)
-        points.append(bottomRight)
-        
-        return points
+        profileButton.layer.cornerRadius = profileButton.frame.height/10
+        profileButton.clipsToBounds = true
+
+        coconutJellyLogo.layer.cornerRadius = coconutJellyLogo.bounds.size.height/10
+        coconutJellyLogo.clipsToBounds = true
     }
+    
 }
 
 extension MapViewController: MKMapViewDelegate {
@@ -104,15 +106,31 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         if (control == view.rightCalloutAccessoryView) {
-            let location = view.annotation as! Jelly
-            let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking]
-            location.mapItem().openInMaps(launchOptions: launchOptions)
+//            performSegue(withIdentifier: "yellow", sender: self)
+            performSegue(withIdentifier: "jelly", sender: self)
         }
         
         if (control == view.detailCalloutAccessoryView) {
             // present view controller with jelly details
         }
         
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let selectedAnnotation = view.annotation as! Jelly
+        jellySelected = Jelly(emoji: selectedAnnotation.emoji, title: selectedAnnotation.title!, tag: selectedAnnotation.tagNames, eventDescription: selectedAnnotation.eventDescription, coordinate: selectedAnnotation.coordinate)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? JellyViewController {
+            if segue.identifier == "jelly" {
+                print("we're preparing for jelly")
+                controller.jelly = jellySelected!
+                slideInTransitioningDelegate.direction = .bottom
+                controller.transitioningDelegate = slideInTransitioningDelegate
+                controller.modalPresentationStyle = .custom
+            }
+        }
     }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
@@ -166,13 +184,15 @@ extension MapViewController {
     
     func refreshJelliesOnMap() {
         
+        // turn filter off
+        notificationCenter.post(name: .turnOffFilter, object: nil)
+        
         // batch delete all jellies from core data
         batchDeleteAllJellies()
         
         // perform networking call:
         //      retrieve jellies within region with Networking Manager
         //      render jellies on mapview with MapViewManager
-
         networkingManager.getJelliesWithinRegion(within: MapView)
         
     }

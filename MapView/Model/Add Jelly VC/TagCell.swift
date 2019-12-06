@@ -10,6 +10,11 @@ import UIKit
 
 class TagCell: UITableViewCell {
     
+    enum filterState {
+        case off
+        case on
+    }
+    
     @IBOutlet weak var label: UILabel!
     
     func setLabels(label: String) {
@@ -18,20 +23,17 @@ class TagCell: UITableViewCell {
     
     func configureUI() {
         label.textColor = .white
-        self.backgroundColor = .black
+        self.tintColor = UIColor(red: 126, green: 209, blue: 205)
+        self.backgroundColor = UIColor(red: 20, green: 32, blue: 42)
     }
     
     func changeTextColor(for isCheckmark: Bool) {
-        if isCheckmark {
-            label.textColor = UIColor(patternImage: UIImage(named: "gradient")!)
-//            label.textColor = .black
-//            label.backgroundColor = UIColor(patternImage: UIImage(named: "gradient")!)
-//            label.layer.cornerRadius = label.frame.height/2
-//            label.clipsToBounds = true
+        if isCheckmark == true {
+            label.textColor = UIColor(red: 126, green: 209, blue: 205)
         } else {
             label.textColor = .white
-//            label.backgroundColor = .black
         }
+
     }
     
 }

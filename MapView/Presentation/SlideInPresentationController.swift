@@ -61,7 +61,7 @@ class SlideInPresentationController: UIPresentationController {
         case .left, .right:
             return CGSize(width: parentSize.width * (2.0/3.0), height: parentSize.height)
         default:
-            return CGSize(width: parentSize.width, height: parentSize.height * (2.0/3.0))
+            return CGSize(width: parentSize.width, height: parentSize.height * (3.0/4.0))
         }
     }
 

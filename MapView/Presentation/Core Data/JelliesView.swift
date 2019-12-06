@@ -38,19 +38,19 @@ class JelliesView: MKAnnotationView {
         let tags = combineTags(jellies.tags!.tags)
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
         let attributedString = NSMutableAttributedString(string: tags, attributes:attrs)
-        let normalText = NSMutableAttributedString(string: "\n" + jellies.jellyDescription!)
-        attributedString.append(normalText)
+//        let normalText = NSMutableAttributedString(string: "\n" + jellies.jellyDescription!)
+//        attributedString.append(normalText)
         
         tagLabel.attributedText = attributedString
         tagLabel.lineBreakMode = .byWordWrapping
         tagLabel.backgroundColor = UIColor(patternImage: UIImage(named: "gradient")!)
-        tagLabel.layer.cornerRadius = 10
+        tagLabel.layer.cornerRadius = tagLabel.frame.height/10
         tagLabel.clipsToBounds = true
         detailCalloutAccessoryView = tagLabel
         
-        let mapButton = UIButton(frame: CGRect(origin: CGPoint.zero,size: CGSize(width: 40, height: 40)))
-        mapButton.setBackgroundImage(UIImage(named: "Maps-Icon"), for: UIControl.State())
-        rightCalloutAccessoryView = mapButton
+        let detailButton = UIButton(frame: CGRect(origin: CGPoint.zero,size: CGSize(width: 40, height: 40)))
+        detailButton.setBackgroundImage(UIImage(named: "Maps-Icon"), for: UIControl.State())
+        rightCalloutAccessoryView = detailButton
     }
     
     func combineTags(_ tags: [String]) -> String {
