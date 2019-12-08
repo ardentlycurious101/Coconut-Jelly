@@ -2,19 +2,22 @@
 An iOS application that allows users to visually share Jellies (events) around them on the map in real-time. 
 
 * [App Preview](#App-Preview)
-* [Functionalities] (#Functionalities)
-* [Technologies User] (#Technologies-Used)
-* [Notes] (### Notes)
+* [Functionalities](#Functionalities)
+* [Technologies User](#Technologies-Used)
+* [Notes](### Notes)
 
 ### App Preview
 
 ![Map View Controller](https://github.com/ardentlycurious101/Coconut-Jelly/blob/master/GIF/MapViewController.gif)
+
 _View real-time Jellies around users, open selected Jelly with Maps for directions._
 
 ![Filter View Controller](https://github.com/ardentlycurious101/Coconut-Jelly/blob/master/GIF/FilterViewController.gif)
+
 _Turn on filter to filter Jellies according to tags._
 
 ![Add Jelly View Controller](https://github.com/ardentlycurious101/Coconut-Jelly/blob/master/GIF/AddJelliesViewController.gif)
+
 _Create new Jelly, render it on map._
 
 ### Functionalities
