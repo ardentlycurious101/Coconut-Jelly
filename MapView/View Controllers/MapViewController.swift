@@ -28,11 +28,22 @@ class MapViewController: UIViewController {
     @IBOutlet weak var coconutJellyLogo: UIImageView!
     @IBOutlet weak var profileButton: UIButton!
     @IBOutlet weak var refreshButton: UIButton!
+    @IBOutlet weak var currentLocationButton: UIButton!
     @IBOutlet weak var MapView: MKMapView!
     @IBAction func refreshButtonTapped(_ sender: Any) {
         refreshJelliesOnMap()
     }
     
+    @IBAction func currentLocationButtonTapped(_ sender: Any) {
+        guard let location = locationManager.location else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+        MapView.setRegion(region, animated: true)
+             
+    }
     // MARK:- Member Variables
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 250
@@ -87,6 +98,9 @@ class MapViewController: UIViewController {
 
         coconutJellyLogo.layer.cornerRadius = coconutJellyLogo.bounds.size.height/10
         coconutJellyLogo.clipsToBounds = true
+        
+        currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/10
+        currentLocationButton.clipsToBounds = true
     }
     
 }
@@ -152,14 +166,15 @@ extension MapViewController: CLLocationManagerDelegate {
      // MARK:- Location Manager
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else { return }
+//        guard let location = locations.last else { return }
+//
+//        let latitude = location.coordinate.latitude
+//        let longitude = location.coordinate.longitude
+//        let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//
+//        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+//        MapView.setRegion(region, animated: true)
         
-        let latitude = location.coordinate.latitude
-        let longitude = location.coordinate.longitude
-        let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
-        let region = MKCoordinateRegion(center: center, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-        MapView.setRegion(region, animated: true)
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {

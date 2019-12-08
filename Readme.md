@@ -10,7 +10,7 @@
 <p>This was a personal project for me to learn about:</p>
 <ul>
 <li>data models,&nbsp;</li>
-<li>databases,</li>
+<li>databases (cloud, image storage),</li>
 <li>maps,</li>
 <li>user interface components,</li>
 <li>local persistent storage,</li>
