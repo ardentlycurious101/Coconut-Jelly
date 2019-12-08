@@ -111,7 +111,7 @@ class SearchLocationViewController: UIViewController {
     func setUpMapView() {
         MapView.delegate = self
         mapSetUp(for: initialLocation)
-        MapView.addAnnotations(jellyArray)
+        MapView.addAnnotations(MapViewManager.shared.unfilteredJellies)
         MapView.register(JellyView.self,forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
 }

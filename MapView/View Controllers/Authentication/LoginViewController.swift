@@ -40,12 +40,6 @@ class LoginViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        if UserDefaults.standard.bool(forKey: "usersignedin") {
-//            performSegue(withIdentifier: "LoginSegue", sender: self)
-//        }
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         if UserDefaults.standard.bool(forKey: "usersignedin") {
             performSegue(withIdentifier: "LoginSegue", sender: self)
@@ -54,7 +48,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -65,6 +58,15 @@ class LoginViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
 }

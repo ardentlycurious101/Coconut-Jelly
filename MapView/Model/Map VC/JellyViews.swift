@@ -44,23 +44,31 @@ class JellyView: MKAnnotationView {
     }
     
     func configureDetailCalloutAccessory(for jelly: Jelly) {
-        let tagLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
-        tagLabel.numberOfLines = 0
+//        let tagLabel = PaddingLabel(withInsets: 5, 5, 10, 10)
+//        tagLabel.numberOfLines = 0
+//        tagLabel.font = tagLabel.font.withSize(12)
+//
+//        let tags = jelly.combineTags()
+//        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
+//        let attributedString = NSMutableAttributedString(string: tags, attributes:attrs)
+//
+//        tagLabel.attributedText = attributedString
+//        tagLabel.lineBreakMode = .byWordWrapping
+////        tagLabel.backgroundColor = UIColor(patternImage: UIImage(named: "gradient")!)
+//        tagLabel.layer.cornerRadius = 5
+//        tagLabel.clipsToBounds = true
+//        detailCalloutAccessoryView = tagLabel
+        
+        let tagLabel = UILabel()
+        tagLabel.text = jelly.combineTags()
         tagLabel.font = tagLabel.font.withSize(12)
-        
-        let tags = jelly.combineTags()
-        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 14)]
-        let attributedString = NSMutableAttributedString(string: tags, attributes:attrs)
-        
-        tagLabel.attributedText = attributedString
-        tagLabel.lineBreakMode = .byWordWrapping
-        tagLabel.backgroundColor = UIColor(patternImage: UIImage(named: "gradient")!)
-        tagLabel.layer.cornerRadius = 5
-        tagLabel.clipsToBounds = true
+        tagLabel.numberOfLines = 0
         detailCalloutAccessoryView = tagLabel
         
         let mapButton = UIButton(frame: CGRect(origin: CGPoint.zero,size: CGSize(width: 40, height: 40)))
         mapButton.setBackgroundImage(UIImage(named: "detail"), for: UIControl.State())
+        mapButton.layer.cornerRadius = mapButton.frame.height/10
+        mapButton.clipsToBounds = true
         rightCalloutAccessoryView = mapButton
     }
 

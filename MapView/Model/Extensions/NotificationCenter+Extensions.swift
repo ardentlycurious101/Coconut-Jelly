@@ -16,4 +16,7 @@ extension Notification.Name {
 //    static let useFilteredJellies = Notification.Name("useFilteredJellies")
     static let useAllJellies = Notification.Name("useAllJellies")
     static let turnOffFilter = Notification.Name("turnOffFilter")
+    static let imageSaved = Notification.Name("imageSaved")
+    static let checkEmojiName = Notification.Name("checkEmojiName")
+    
 }

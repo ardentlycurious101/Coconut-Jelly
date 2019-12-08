@@ -15,7 +15,11 @@ protocol Injectable {
     func assertDependencies()
 }
 
-class JellyViewController: UIViewController {
+class JellyViewController: UIViewController, Injectable {
+    
+    typealias T = Jelly
+    private var jelly: Jelly!
+    private var images: [UIImage] = []
     
     @IBOutlet weak var jellyEmoji: UILabel!
     @IBOutlet weak var jellyTitle: UILabel!
@@ -32,8 +36,9 @@ class JellyViewController: UIViewController {
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var timeView: UIView!
     @IBOutlet weak var locationView: UIView!
-    @IBOutlet weak var imagesView: UIView!
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var mapImageView: UIView!
+//    @IBOutlet weak var imagesView: UIView!
+//    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var creatorNameView: UIView!
     
     @IBAction func mapButtonTapped(_ sender: Any) {
@@ -49,12 +54,31 @@ class JellyViewController: UIViewController {
         mapItem.name = jelly.title
         mapItem.openInMaps(launchOptions: options)
     }
+
+    func inject(_ jelly: T) {
+        print("injecting jelly")
+        self.jelly = jelly
+    }
     
-    private var jelly: Jelly!
- 
+    func assertDependencies() {
+        assert(self.jelly != nil)
+    }
+    
     override func viewDidLoad() {
+        configureLabels()
+        configureUI()
         super.viewDidLoad()
-        print("view did load")
+        NotificationCenter.default.addObserver(self, selector: #selector(imageSaved(_:)), name: .imageSaved, object: nil)
+        
+    }
+    
+    @objc func imageSaved(_ notification: Notification) {
+        if let image = notification.userInfo?["image"] as? UIImage {
+            images.append(image)
+            print("appending image successful~")
+            print(images.count)
+        }
+//        collectionView.reloadData()
     }
     
     
@@ -68,8 +92,8 @@ class JellyViewController: UIViewController {
         jellyEmoji.text = jelly.emoji
         jellyTitle.text = jelly.title!
         jellyTags.text = jelly.combineTags()
-        jellyDescription.text = jelly.description
-        jellyCreatorName.text = jelly.creatorName
+        jellyDescription.text = jelly.eventDescription
+        jellyCreatorName.text = "created by " + jelly.creatorName + ", with ❤️"
     }
     
     func configureTimeLabel() {
@@ -107,7 +131,7 @@ class JellyViewController: UIViewController {
     
     func configureLocation() {
         
-        let region = MKCoordinateRegion(center: jelly.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let region = MKCoordinateRegion(center: jelly.coordinate, latitudinalMeters: 500, longitudinalMeters: 500)
         mapView.setRegion(region, animated: true)
         mapView.setRegion(region, animated: true)
         mapView.centerCoordinate = jelly.coordinate
@@ -139,8 +163,8 @@ class JellyViewController: UIViewController {
         mapView.layer.cornerRadius = mapView.frame.height/10
         mapView.clipsToBounds = true
         
-        imagesView.layer.cornerRadius = imagesView.frame.height/10
-        imagesView.clipsToBounds = true
+//        imagesView.layer.cornerRadius = imagesView.frame.height/10
+//        imagesView.clipsToBounds = true
          
 //        collectionView.layer.cornerRadius = collectionView.frame.height/10
 //        collectionView.clipsToBounds = true
@@ -152,20 +176,21 @@ class JellyViewController: UIViewController {
     
 }
 
-extension JellyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return jelly.images.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "jellyImageCell", for: indexPath) as! CollectionViewCell
-        
-        cell.handleSelectedImage(for: (jelly.images[indexPath.row]))
-        
-        return cell
-    }
-    
-    
-}
+//extension JellyViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        print("we loading collection view")
+//        return images.count
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "jellyImageCell", for: indexPath) as! CollectionViewCell
+//        if images.count > 0 {
+//            cell.handleSelectedImage(for: (images[indexPath.row]))
+//        }
+//
+//        return cell
+//    }
+//
+//}
 
 

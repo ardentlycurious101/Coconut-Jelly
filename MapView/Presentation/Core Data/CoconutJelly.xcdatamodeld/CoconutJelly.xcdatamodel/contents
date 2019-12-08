@@ -5,7 +5,7 @@
         <attribute name="emoji" attributeType="String"/>
         <attribute name="endTime" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="images" optional="YES" attributeType="Transformable" customClassName=".[Data]"/>
+        <attribute name="images" optional="YES" attributeType="Transformable" customClassName=".JelliesImages"/>
         <attribute name="jellyDescription" attributeType="String"/>
         <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

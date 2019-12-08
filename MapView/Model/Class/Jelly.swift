@@ -23,7 +23,7 @@ class Jelly: NSObject, MKAnnotation {
     let endTime: Date
     
     let coordinate: CLLocationCoordinate2D
-    var images: [UIImage] // images can be added asynchronously later 
+    var images: [UIImage] = [] // images can be added asynchronously later
     
     let creatorName : String
     
@@ -45,7 +45,30 @@ class Jelly: NSObject, MKAnnotation {
         self.creatorName = ""
 
         super.init()
+    }
+    
+    init(emoji: String, title: String, tag: [String], eventDescription: String, coordinate: CLLocationCoordinate2D, startTime: Date, endTime: Date, creatorName: String, images: [UIImage]) {
 
+        self.emoji = emoji
+        self.emojiImage = emoji.image()
+        self.title = title
+        self.tags = createTagArray(tag)
+        tagNames = getTagNames(tags: tags)
+        self.eventDescription = eventDescription
+
+        self.startTime = startTime
+        self.endTime = endTime
+
+        self.coordinate = coordinate
+        self.images = []
+        
+        for image in images {
+            self.images.append(image)
+        }
+        
+        self.creatorName = creatorName
+
+        super.init()
     }
     
     init(for jellies: Jellies) {
@@ -61,18 +84,9 @@ class Jelly: NSObject, MKAnnotation {
         self.endTime = jellies.endTime!
 
         self.coordinate = CLLocationCoordinate2DMake(jellies.latitude, jellies.longitude)
-        
-        if let images = jellies.images {
-            self.images = images.map({ (data) -> UIImage in
-                let image = UIImage(data: data)!
-                return image
-            })
-        } else {
-            self.images = []
-        }
 
         self.creatorName = jellies.creatorName!
-                
+               
         super.init()
         
     }

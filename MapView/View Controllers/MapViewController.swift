@@ -35,11 +35,12 @@ class MapViewController: UIViewController {
     
     // MARK:- Member Variables
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 1000
+    let regionInMeters: Double = 250
         
     // MARK:- ViewController Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        batchDeleteAllJellies()
         
         checkLocationServices()
         setUpMapView()
@@ -96,6 +97,7 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapSetUp(for location: CLLocation) {
         centerMapOnLocation(location: location)
+        mapHasCenteredOnce = true
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -106,7 +108,6 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
                  calloutAccessoryControlTapped control: UIControl) {
         if (control == view.rightCalloutAccessoryView) {
-//            performSegue(withIdentifier: "yellow", sender: self)
             performSegue(withIdentifier: "jelly", sender: self)
         }
         
@@ -118,14 +119,13 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         let selectedAnnotation = view.annotation as! Jelly
-        jellySelected = Jelly(emoji: selectedAnnotation.emoji, title: selectedAnnotation.title!, tag: selectedAnnotation.tagNames, eventDescription: selectedAnnotation.eventDescription, coordinate: selectedAnnotation.coordinate)
+        jellySelected = Jelly(emoji: selectedAnnotation.emoji, title: selectedAnnotation.title!, tag: selectedAnnotation.tagNames, eventDescription: selectedAnnotation.eventDescription, coordinate: selectedAnnotation.coordinate, startTime: selectedAnnotation.startTime, endTime: selectedAnnotation.endTime, creatorName: selectedAnnotation.creatorName, images: selectedAnnotation.images)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? JellyViewController {
             if segue.identifier == "jelly" {
-                print("we're preparing for jelly")
-                controller.jelly = jellySelected!
+                controller.inject(jellySelected!)
                 slideInTransitioningDelegate.direction = .bottom
                 controller.transitioningDelegate = slideInTransitioningDelegate
                 controller.modalPresentationStyle = .custom
@@ -176,19 +176,13 @@ extension MapViewController: CLLocationManagerDelegate {
 
 extension MapViewController {
     
-    func createJelly() {
-        let jelly = Jellies(context: persistenceManager.context)
-        jelly.title = "testing 3"
-        persistenceManager.save()
-    }
-    
     func refreshJelliesOnMap() {
         
         // turn filter off
         notificationCenter.post(name: .turnOffFilter, object: nil)
         
         // batch delete all jellies from core data
-        batchDeleteAllJellies()
+//        batchDeleteAllJellies()
         
         // perform networking call:
         //      retrieve jellies within region with Networking Manager

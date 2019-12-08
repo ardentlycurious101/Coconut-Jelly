@@ -24,4 +24,22 @@ public class JelliesImages: NSObject, NSCoding {
         imagesData = coder.decodeObject(forKey: "images") as! [Data]
     }
     
+    func append(_ image: Data) {
+        imagesData.append(image)
+    }
+    
+    func getImages() -> [UIImage] {
+        var images: [UIImage] = []
+        print("the number of images in this imagesData: \(imagesData.count)")
+        guard imagesData.count > 0 else { return images }
+        
+        for image in imagesData {
+            let image = UIImage(data: image)
+            images.append(image!)
+        }
+        
+        return images
+        
+    }
+    
 }

@@ -64,7 +64,7 @@ class NetworkingManager {
                             
                             for document in snapshot!.documents {
                                 let data = document.data()
-
+                                
                                 // create Jellies asynchronously with completion handler to update UI
                                 NetworkingManager.createJellies(with: data)
 
@@ -85,17 +85,17 @@ class NetworkingManager {
     
     static func createJellies(with data: [String : Any]) {
         
-        guard let id = data["id"] else {
+        guard let id = data["id"] as? String else {
             print("id is nil")
             return
         }
         
-        guard let emoji = data["emoji"] else {
+        guard let emoji = data["emoji"] as? String else {
             print("emoji is nil")
             return
         }
 
-        guard let title = data["name"] else {
+        guard let title = data["name"] as? String else {
             print("title is nil")
             return
         }
@@ -105,32 +105,32 @@ class NetworkingManager {
             return
         }
         
-        guard let description = data["description"] else {
+        guard let description = data["description"] as? String else {
             print("description is nil")
             return
         }
 
-        guard let startTime = data["startTime"] else {
+        guard let startTime = data["startTime"] as? Timestamp else {
             print("startTime is nil")
             return
         }
 
-        guard let endTime = data["endTime"] else {
+        guard let endTime = data["endTime"] as? Timestamp else {
             print("endTime is nil")
             return
         }
 
-        guard let referencePath = data["referencePath"] else {
+        guard let referencePath = data["referencePath"] as? String else {
             print("referencePath is nil")
             return
         }
 
-        guard let geopoint = data["geopoint"] else {
+        guard let geopoint = data["geopoint"] as? GeoPoint else {
             print("geopoint is nil")
             return
         }
         
-        guard let creatorName = data["creatorName"] else {
+        guard let creatorName = data["creatorName"] as? String else {
             print("creatorName is nil")
             return
         }
@@ -147,59 +147,98 @@ class NetworkingManager {
                 TagManager.shared.setDictionary(key: tag, value: false)
             }
         }
+        
+        // FUTURE IMPLEMENTATION SUGGESTION: Instead of batch deleting jellies at every refresh,
+        //                    if core data doesn't have jelly with same id, then create jellies
                 
         // If no fields are nil, create Jelly in Core Data
         let persistentManager = PersistentManager.shared
-        let jelly = Jellies(context: persistentManager.context)
-        let jelliesTag = JelliesTags(tags: tags)
-        
-            jelly.id = UUID(uuidString: id as! String)!
-            jelly.emoji = emoji as? String
-            jelly.title = title as? String
-            jelly.tags = jelliesTag
-            jelly.jellyDescription = description as? String
-            jelly.creatorName = creatorName as? String
+        let context = persistentManager.context
+        // ----
+        var idCoreData: UUID!
 
-            // Convert time into Date from Firebase
-            let startTimestamp = startTime as? Timestamp
-            let start = startTimestamp?.dateValue()
-            jelly.startTime = start
-
-            let endTimestamp = endTime as? Timestamp
-            let end = endTimestamp?.dateValue()
-            jelly.endTime = end
-            
-            // Get latitude and longitude from geopoint
-            let coordinates = geopoint as! GeoPoint
-            jelly.latitude = coordinates.latitude
-            jelly.longitude = coordinates.longitude
-
-            // Get images from Storage using reference path
-            let refPath = referencePath as! String
-            getImageFromStorage(with: refPath) { (success, image, error) in
-                if success {
-                    if jelly.images != nil {
-                        var images = jelly.value(forKey: "images") as! [Data]
-                        images.append(image!)
-                        jelly.setValue(images, forKey: "images")
-                        persistentManager.save()
-                    } else {
-                        jelly.images = [image!]
-                        persistentManager.save()
-                    }
-                } else {
-                    print("Error fetching image(s): \(error!).Oops!!!")
-                }
+        do {
+            let fetchRequest : NSFetchRequest<Jellies> = Jellies.fetchRequest()
+            let idToSearch = UUID(uuidString: id)!
+            fetchRequest.predicate = NSPredicate(format: "id == %@", idToSearch as CVarArg)
+            let fetchedResults = try context.fetch(fetchRequest) as! [Jellies]
+            if let result = fetchedResults.first {
+                idCoreData = result.id
             }
-        
-        persistentManager.save()
-        
-        //render jellies on map
-        MapViewManager.shared.prepareAnnotations(for: jelly)
-        
-        DispatchQueue.main.async {
-            NotificationCenter.default.post(name: .newJellyAdded, object: nil)
-            NotificationCenter.default.post(name: .tagAdded, object: nil)
+            print("idCoreData: \(idCoreData)")
+        } catch {
+            print ("fetch task failed", error)
+        }
+
+        if idCoreData == nil {
+            // create new jellies and save into core data
+               let jelly = Jellies(context: context)
+               let jelliesTag = JelliesTags(tags: tags)
+               
+                   jelly.id = UUID(uuidString: id)
+                   jelly.emoji = emoji
+                   jelly.title = title
+                   jelly.tags = jelliesTag
+                   jelly.jellyDescription = description
+                   jelly.creatorName = creatorName
+
+                   // Convert time into Date from Firebase
+                   let startTimestamp = startTime
+                   let start = startTimestamp.dateValue()
+                   jelly.startTime = start
+                   print("start time in networking manager: \(jelly.startTime!)")
+
+                   let endTimestamp = endTime
+                   let end = endTimestamp.dateValue()
+                   jelly.endTime = end
+                   print("end time in networking manager: \(jelly.endTime!)")
+
+                   
+                   // Get latitude and longitude from geopoint
+                   let coordinates = geopoint
+                   jelly.latitude = coordinates.latitude
+                   jelly.longitude = coordinates.longitude
+
+                   // Get images from Storage using reference path
+                   let refPath = referencePath
+
+                   getImageFromStorage(with: refPath) { (success, image, error) in
+                       
+                       if success {
+                           if jelly.images != nil {
+                               let images = jelly.value(forKey: "images") as! JelliesImages
+                               images.append(image!)
+                               jelly.setValue(images, forKey: "images")
+                               persistentManager.save()
+                               
+                           } else {
+                               jelly.images = JelliesImages(data: [image!])
+                               persistentManager.save()
+                           }
+                           
+                           let newImage = UIImage(data: image!)
+                           let imageDict: [String: UIImage] = ["image": newImage!]
+                           print("saving new image!!!")
+                           NotificationCenter.default.post(name: .imageSaved, object: nil, userInfo: imageDict)
+                       } else {
+                           print("Error fetching image(s): \(error!).Oops!!!")
+                       }
+                   }
+               
+               persistentManager.save()
+               
+               //render jellies on map
+               MapViewManager.shared.prepareAnnotations(for: jelly)
+               
+               DispatchQueue.main.async {
+                print("dispatch queue main async")
+                   NotificationCenter.default.post(name: .newJellyAdded, object: nil)
+                   NotificationCenter.default.post(name: .tagAdded, object: nil)
+               }
+        } else if idCoreData != nil {
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .useAllJellies, object: nil)
+            }
         }
         
     }
@@ -224,6 +263,9 @@ class NetworkingManager {
                 }
             }
         }
+    }
+    
+    static func createNewJellies(persistentManager: PersistentManager, context: NSManagedObjectContext) {
     }
 }
 

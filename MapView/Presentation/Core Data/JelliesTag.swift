@@ -24,5 +24,5 @@ public class JelliesTags: NSObject, NSCoding {
     public required init?(coder: NSCoder) {
         self.tags = coder.decodeObject(forKey: "tags") as! [String]
     }
-
+    
 }
