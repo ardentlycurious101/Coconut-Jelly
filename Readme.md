@@ -3,7 +3,7 @@ An iOS application that allows users to visually share Jellies (events) around t
 
 * [App Preview](#App-Preview)
 * [Functionalities](#Functionalities)
-* [Technologies User](#Technologies-Used)
+* [Technologies Used](#Technologies-Used)
 * [Notes](#Notes)
 
 ### App Preview
